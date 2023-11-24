@@ -25,11 +25,9 @@ This isn't my traditional resume!!! [but frankly makes more sense](/resume). If 
 
 Visit the [creative](/creative) page to discover my artistic endeavors, hobbies, and any other creative projects I'm currently working on.
 
-<footer>
+---
 
 ### Keywords
 
 **Osaka's undignosed autism:**, **#iHateTechTwt**
 [Email](mailto:malhotrarajsimar09@gmail.com) | [LinkedIn](https://linkedin.com/in/simar-malhotra) | [GitHub](https://github.com/simar-malhotra09)|[Twitter](https://twitter.com/Simar32781526)
-
-</footer>
