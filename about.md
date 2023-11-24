@@ -6,9 +6,8 @@ author_profile: true
 redirect_from:
 ---
 
+```
 ## Why
-
-<code>
 This project is solely dedicated to the question 'Why'
 
 - Why did I choose to do x project
@@ -16,7 +15,7 @@ This project is solely dedicated to the question 'Why'
 - Why do I think Azumanga Diaoh and Bojack Horseman are the two greatest shows ever created
 - Blah blah blah, you get the gist
 
-</code>
+
 
 ## Resume (but how I want every resume to look ^\_^)
 
@@ -31,3 +30,5 @@ Visit the [creative](/creative) page to discover my artistic endeavors, hobbies,
 ![Simar's Image](your-image-url.jpg)
 
 _Caption: Insert a brief caption describing the image._
+
+```
