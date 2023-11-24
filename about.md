@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Shitposting on twt wasn\'t enough, so I made this to delude myself into productivity or something"
+title: "Shitposting on twt wasn't enough, so I made this to delude myself in "
 excerpt: "About me"
 author_profile: true
 redirect_from:
