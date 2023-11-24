@@ -10,7 +10,7 @@ redirect_from:
 
 Hello, I'm Simar! Welcome to my personal website. Here, you can learn more about my professional background and interests.
 
-## Resume
+## Resume (but as how I want every resume to look ^\_^)
 
 You can find my detailed resume [here](/resume) to explore my skills, work experience, and education.
 
