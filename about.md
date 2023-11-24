@@ -19,7 +19,7 @@ This project is solely dedicated to the question 'Why'
 
 ## Resume (but how I want every resume to look ^\_^)
 
-You can find my detailed resume [here](/resume) to explore my skills, work experience, and education.
+This isn't my traditional resume!!! [here](/resume). If you would like to see that, please shoot me a dm on twt or email @malhotrarajsimar09@gmail.com
 
 ## Creative Page
 
