@@ -8,7 +8,15 @@ redirect_from:
 
 ## Keywords
 
-Osaka's undiagnosed autism, #iHateTechTwt,
+<details>
+  <summary>Keyword1</summary>
+  <small>Description or additional information about Keyword1.</small>
+</details>
+
+<details>
+  <summary>Keyword2</summary>
+  <small>Description or additional information about Keyword2.</small>
+</details>
 
 ## Why
 
