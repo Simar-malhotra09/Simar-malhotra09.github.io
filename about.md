@@ -25,12 +25,6 @@ You can find my detailed resume [here](/resume) to explore my skills, work exper
 
 Visit the [creative](/creative) page to discover my artistic endeavors, hobbies, and any other creative projects I'm currently working on.
 
-## Image Gallery
-
-![Simar's Image](your-image-url.jpg)
-
-_Caption: Insert a brief caption describing the image._
-
 <footer>
 
 ### Keywords
