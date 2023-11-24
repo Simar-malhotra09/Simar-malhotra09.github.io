@@ -17,6 +17,8 @@ This project is solely dedicated to the question 'Why'
 - Blah blah blah, you get the gist
 ```
 
+TLDR: Silly little journals that I WONT show anyone irl but WILL post online
+
 ## Resume (but how I want every resume to look ^\_^)
 
 This isn't my traditional resume!!! [but frankly makes more sense](/resume). If you would like to see that, please shoot me a dm on twt or email @malhotrarajsimar09@gmail.com
