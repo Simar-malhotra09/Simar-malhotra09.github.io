@@ -8,6 +8,8 @@ redirect_from:
 
 ### TLDR: Silly little journals that I WONT show anyone irl but WILL post online
 
+---
+
 ## Why
 
 This project is solely dedicated to the question 'Why'
