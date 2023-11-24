@@ -35,7 +35,7 @@ _Caption: Insert a brief caption describing the image._
 
 ### Keywords
 
-- **Keyword1:** Osaka's undignosed autism.
-- **Keyword2:** #iHateTechTwt.
+- **Osaka's undignosed autism:**
+- **#iHateTechTwt**
 
 </footer>
