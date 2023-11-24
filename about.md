@@ -6,26 +6,16 @@ author_profile: true
 redirect_from:
 ---
 
-## Keywords
-
-<details>
-  <summary>Keyword1</summary>
-  <small>Description or additional information about Keyword1.</small>
-</details>
-
-<details>
-  <summary>Keyword2</summary>
-  <small>Description or additional information about Keyword2.</small>
-</details>
-
 ## Why
 
 This project is solely dedicated to the question 'Why'
 
+```
 - Why did I choose to do x project
 - Why do I want to work in y field
 - Why do I think Azumanga Diaoh and Bojack Horseman are the two greatest shows ever created
 - Blah blah blah, you get the gist
+```
 
 ## Resume (but how I want every resume to look ^\_^)
 
@@ -40,3 +30,12 @@ Visit the [creative](/creative) page to discover my artistic endeavors, hobbies,
 ![Simar's Image](your-image-url.jpg)
 
 _Caption: Insert a brief caption describing the image._
+
+<footer>
+
+### Keywords
+
+- **Keyword1:** Osaka's undignosed autism.
+- **Keyword2:** #iHateTechTwt.
+
+</footer>
