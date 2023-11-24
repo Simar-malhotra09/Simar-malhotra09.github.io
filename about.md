@@ -6,12 +6,12 @@ author_profile: true
 redirect_from:
 ---
 
-# Why
+## Why
 
 <code>
 This project is solely dedicated to the question 'Why'
 
-- Why did I chose to do x project
+- Why did I choose to do x project
 - Why do I want to work in y field
 - Why do I think Azumanga Diaoh and Bojack Horseman are the two greatest shows ever created
 - Blah blah blah, you get the gist
@@ -25,4 +25,8 @@ You can find my detailed resume [here](/resume) to explore my skills, work exper
 
 Visit the [creative](/creative) page to discover my artistic endeavors, hobbies, and any other creative projects I'm currently working on.
 
-Feel free to reach out if you have any questions or if you'd like to connect. Thanks for stopping by!
+## Image Gallery
+
+![Simar's Image](your-image-url.jpg)
+
+_Caption: Insert a brief caption describing the image._
