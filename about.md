@@ -8,12 +8,14 @@ redirect_from:
 
 # Why
 
+<code>
 This project is solely dedicated to the question 'Why'
 
 - Why did I chose to do x project
 - Why do I want to work in y field
 - Why do I think Azumanga Diaoh and Bojack Horseman are the two greatest shows ever created
 - Blah blah blah, you get the gist
+  </code>
 
 ## Resume (but how I want every resume to look ^\_^)
 
