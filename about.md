@@ -12,7 +12,7 @@ Hello, I'm Simar! Welcome to my personal website. Here, you can learn more about
 
 ## Resume
 
-####(but how I want every resume to look ^\_^)
+#### (but how I want every resume to look ^\_^)
 
 You can find my detailed resume [here](/resume) to explore my skills, work experience, and education.
 
