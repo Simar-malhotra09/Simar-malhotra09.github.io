@@ -29,7 +29,6 @@ Visit the [creative](/creative) page to discover my artistic endeavors, hobbies,
 
 ### Keywords
 
-- **Osaka's undignosed autism:**
-- **#iHateTechTwt**
+**Osaka's undignosed autism:**, **#iHateTechTwt**
 
 </footer>
