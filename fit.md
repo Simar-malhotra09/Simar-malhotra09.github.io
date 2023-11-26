@@ -5,7 +5,7 @@ title: "Rand(clothes) Select"
 
 # Rand(clothes) Select Gallery
 
-## Outfit 1
+## Nov' 23
 
 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px;">
 
@@ -15,20 +15,8 @@ title: "Rand(clothes) Select"
   </div>
 
   <!-- Right side: Text -->
-  <div style="flex: 1;">
-  ---
-    ### Description
-
-    Today's outfit features a stylish combination of a vibrant shirt and comfortable jeans. The accessories include a classic watch and a trendy hat, adding a touch of personality to the overall look.
-
-    ### Style Notes
-
-    - **Shirt:** TrendyPatterns
-    - **Jeans:** ComfortFit Denim
-    - **Accessories:** Classic Watch, Trendy Hat
-
----
-
+  <div style="flex: 1; font: mono;" >
+    Okay, to be fair, this isn't really too whack. Although, maybe it was just the natural lighting and the white backdrop. I just realized I actually prefer strong contrasting colors. Although, I think investing in some accessories won't harm me in the long run; the issue is I have no clue where to start. The last time I did, I ended up looking like 2013 King Batch, and not in a good way (if there ever was one x o x)
   </div>
 
 </div>
