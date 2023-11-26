@@ -11,7 +11,7 @@ title: "Rand(clothes) Select"
 
   <!-- Left side: Image -->
   <div style="flex: 1; margin-right: 20px;">
-    ![Outfit 1 Image](./assets/Nov'23.jpg)
+    <img src="./assets/Nov&apos;23.jpg" alt="Outfit 1 Image" style="max-width: 100%;">
   </div>
 
   <!-- Right side: Text -->
