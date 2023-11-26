@@ -1,6 +1,6 @@
 ---
 permalink: /rand-clothes-select
-title: "Self deprication is the key to a miserable life (I'll still do it ^_^)"
+title: "Self deprecation is the key to a miserable life (I'll still do it ^_^)"
 ---
 
 ## Nov' 23
