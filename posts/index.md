@@ -1,8 +1,8 @@
 ---
 permalink: /osaka-me-brain-agi/
-title: "Se"
+title: "No, but I'm actually smart *(has a 3.3 GPA =_O)"
 ---
 
-### [Post 1: Title of Your First Post](/osaka-me-brain-agi/posts/one)
+### [Post 1: What make a succesfull Gen-Z founder: A case study ](/osaka-me-brain-agi/posts/one)
 
-Description of your first post goes here. Feel free to share your thoughts, opinions, or anything else you'd like to discuss.
+[Jenni.ai](https://jenni.ai/)
