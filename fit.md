@@ -15,8 +15,7 @@ title: "Rand(clothes) Select"
   </div>
 
   <!-- Right side: Text -->
-  <div style="flex: 1;">
-  
+
     ### Description
 
     Today's outfit features a stylish combination of a vibrant shirt and comfortable jeans. The accessories include a classic watch and a trendy hat, adding a touch of personality to the overall look.
