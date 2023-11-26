@@ -1,5 +1,5 @@
 ---
-permalink: /osaka-me-brain-agi/posts
+permalink: /osaka-me-brain-agi/
 title: "Se"
 ---
 
