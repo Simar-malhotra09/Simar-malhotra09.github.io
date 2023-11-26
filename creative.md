@@ -1,6 +1,6 @@
 ---
 permalink: /creative
-title: "Creative = Sillyness and goofiness"
+title: "creativity = sillyness +  goofiness"
 ---
 
 ## rand_clothes = random.choice(closet)
