@@ -6,7 +6,6 @@ title: "creativity = sillyness +  goofiness"
 ## rand_clothes = random.choice(closet)
 
 critique of every fit I wear by...well, me ofcourse,and ocassionaly my mum.
-
 [=,O](/rand-clothes-select)
 
 ## (osaka + me)brain = AGI
