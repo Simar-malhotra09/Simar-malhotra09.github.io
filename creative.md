@@ -1,6 +1,6 @@
 ---
 permalink: /creative
-title: "creativity = sillyness +  goofiness"
+title: "The author has gone out of his way to confront the reader with an ineffable piece of incomprehensible garbage."
 ---
 
 ## rand_clothes = random.choice(closet)
