@@ -1,9 +1,7 @@
 ---
 permalink: /rand-clothes-select
-title: "Rand(clothes) Select"
+title: "Self deprication is the key to a miserable life (I'll still do it ^_^)"
 ---
-
-# Rand(clothes) Select Gallery
 
 ## Nov' 23
 
