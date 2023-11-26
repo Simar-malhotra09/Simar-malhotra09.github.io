@@ -1,6 +1,6 @@
 ---
 permalink: /osaka-me-brain-agi/
-title: "No, but I'm actually smart (has a 3.3 GPA T ^ T)"
+title: "No, but I'm actually smart (has a 3.3 GPA T _ T)"
 ---
 
 ### [Post 1: What make a succesful Gen-Z founder: A case study ](/osaka-me-brain-agi/posts/one)
