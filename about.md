@@ -29,6 +29,10 @@ This isn't my traditional resume!!! [but frankly makes more sense](/resume). If 
 
 Visit the [creative](/creative) page to discover my artistic endeavors, hobbies, and any other creative projects I'm currently working on.
 
+## Paper I've read
+
+List of [papers](/papers) that I'm currently trying to make sense of .
+
 ---
 
 ### Keywords
