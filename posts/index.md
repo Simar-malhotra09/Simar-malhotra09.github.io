@@ -11,6 +11,6 @@ Okay, to be honest, I'm not sure when [David Park](https://twitter.com/Davidjpar
 
 ### This is def one of the lists
 
-| Index | Space       | ~ o ~                                                                                                                                     |
-| ----- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | Dating apps | Gender bias,maybe use something like pintrest to enncentuate matching where there is a higher F-M ratio based on the content they consume |
+| Index | Space       | ~ o ~                                                                                                                                      |
+| ----- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1     | Dating apps | Gender bias,maybe use something like pinterest to enncentuate matching where there is a higher F-M ratio based on the content they consume |
