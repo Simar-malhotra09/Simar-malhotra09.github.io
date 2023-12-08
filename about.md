@@ -31,7 +31,7 @@ Visit the [creative](/creative) page to discover my artistic endeavors, hobbies,
 
 ## Paper I've read
 
-List of [papers](/papers) that I'm currently trying to make sense of .
+List of [papers](/paper/) that I'm currently trying to make sense of .
 
 ---
 
