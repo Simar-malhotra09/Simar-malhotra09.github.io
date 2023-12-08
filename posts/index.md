@@ -9,10 +9,8 @@ Okay, to be honest, I'm not sure when [David Park](https://twitter.com/Davidjpar
 
 ---
 
-| Index | Company         | Problem                      |
-| ----- | --------------- | ---------------------------- |
-| 1     | XYZ Corporation | Software Integration         |
-| 2     | ABC Industries  | Supply Chain Optimization    |
-| 3     | LMN Enterprises | Website Performance Issues   |
-| 4     | PQR Solutions   | Data Security and Privacy    |
-| 5     | NewCo Ltd       | Customer Service Enhancement |
+### This is def one of the lists
+
+| Index | Org         | ~ o ~                                  |
+| ----- | ----------- | -------------------------------------- |
+| 1     | Dating apps | Gender bias,maybe use something like p |
