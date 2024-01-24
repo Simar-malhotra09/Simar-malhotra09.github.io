@@ -12,6 +12,7 @@ My name is Simar Malhotra, and I am currently a sophomore majoring in Computer S
 
 #### Links:
 
+- [Research log ](./blog/research/)
 - [Resume](./resume/resume.png)
 - [GitHub](https://github.com/Simar-malhotra09)
 - [Twitter](https://twitter.com/osaka_azumanger)
