@@ -1,7 +1,7 @@
 ---
 permalink: /blog/research/
 title: "Research log"
-excerpt: "About me"
+excerpt: "Research log"
 author_profile: false
 redirect_from:
 ---
