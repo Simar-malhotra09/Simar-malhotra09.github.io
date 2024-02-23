@@ -13,6 +13,7 @@ My name is Simar Malhotra, and I am currently a sophomore majoring in Computer S
 #### Links:
 
 - [Physics](./blog/physics/)
+
 - [Research log ](./blog/research/)
 - [Resume](./resume/resume.png)
 - [GitHub](https://github.com/Simar-malhotra09)
