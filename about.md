@@ -8,23 +8,13 @@ redirect_from:
 
 ### About me
 
-My name is Simar Malhotra, and I am currently a sophomore majoring in Computer Science with a (potential)minor in Mathematics @ Pennsylvania State University. As of Spring 2024, I have completed an internship as a Software Engineer @ Drake Software Services. Currently, I am engaged in undergraduate research under Dr. Wen-Li Wang and serve as a Teaching Assistant for Phy 212.
+My name is Simar Malhotra, and I am currently a rising junior majoring in Computer Science with a (potential) minor in Mathematics at Pennsylvania State University. As of Summer 2024, I'm interning at India's premier university, IIT Delhi, as a machine learning intern under Dr. Manan Suri. Previously, I have completed an internship as a Software Engineer at Drake Software Services, have been an undergraduate research assistant under Dr. Wen-Li Wang, and served as a Teaching Assistant for PHY 212 under Dr. Chuck Yeung
 
 #### Links:
 
 - [Physics](./blog/physics/)
-
-- [Research log ](./blog/research/)
 - [Resume](./resume/resume.png)
 - [GitHub](https://github.com/Simar-malhotra09)
 - [Twitter](https://twitter.com/osaka_azumanger)
 
 ## The biggest + about CS for me is the potential ability to do something with just a few people and lots of compute. I am always and always looking for things to collaborate with other people on. If you have any such ideas, please reach out.
-
-### 2024/01/24 6:10pm
-
-I've added basic !assignments functionality to the bot will working on formatting the output next and setting up a chat pipeline that can answer question on data.
-
-### 2024/01/15 2:05am
-
-I'm currently working on a Discord bot, more or less, on making it a planner for primarily school. It takes in data I've sourced from the Canvas API and can answer simple questions like 'List all homework assignments that are due this weekend.' I would like to add more features to encompass outside school functions as well.
