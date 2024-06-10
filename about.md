@@ -12,7 +12,7 @@ My name is Simar Malhotra, and I am currently a rising junior majoring in Comput
 
 #### Links:
 
-- [Physics](./blog/physics/)
+- [Yapping](./blog/main)
 - [Resume](./resume/resume.png)
 - [GitHub](https://github.com/Simar-malhotra09)
 - [Email](malhotrarajsimar09@gmail.com)
