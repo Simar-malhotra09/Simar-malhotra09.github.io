@@ -1,8 +1,10 @@
-theme: jekyll-theme-minimal
+#theme: jekyll-theme-minimal
 sidebar:
   - getting-started
-  - label: Dev Docs
+  - label: Customization
     children:
-      - doc-1
-      - doc-2
-  - deployment
+      - sidebar
+      - search
+      - relative-nav
+      - additional-config
+  - development
