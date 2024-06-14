@@ -15,6 +15,6 @@ My name is Simar Malhotra, and I am currently a rising junior majoring in Comput
 - [Yapping](./blog/main)
 - [Resume](./resume/resume.png)
 - [GitHub](https://github.com/Simar-malhotra09)
-- [Email](malhotrarajsimar09@gmail.com)
+- Email - malhotrarajsimar09@gmail.com
 
 ## The biggest + about CS for me is the potential ability to do something with just a few people and lots of compute. I am always and always looking for things to collaborate with other people on. If you have any such ideas, please reach out.
