@@ -4,29 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>0saker</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: monospace; min-height: 100vh; }
+    nav {
+      width: 120px;
+      padding: 12px;
+      border-left: 1px solid #eee;
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      overflow-y: auto;
+    }
+    nav ul { list-style: none; }
+    nav li { margin: 1px 0; }
+    nav a { color: #999; text-decoration: none; font-size: 11px; }
+    nav a:hover { text-decoration: underline; }
+    main {
+      max-width: 600px;
+      padding: 10px 20px;
+      margin-left: 30px;
+    }
+    main h3 { margin-top: 24px; scroll-margin-top: 20px; }
+    main ul { margin: 8px 0 16px 20px; }
+    main li { margin: 4px 0; }
+    a { color: #0057b7; }
+    @media (max-width: 640px) {
+      nav {
+        position: static;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        overflow-y: visible;
+        display: flex;
+      }
+      nav ul { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+      main { margin-left: 0; }
+    }
+  </style>
 </head>
 <body>
-  <main style="font-family: monospace; max-width: 600px; margin: 40px auto; padding: 0 20px;">
-
-    <h3>2026/05/19</h3>
+  <nav>
     <ul>
+      <li><a href="#d-2026-05-21">2026/May/21</a></li>
+      <li><a href="#d-2026-05-19">2026/May/19</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h3 id="d-2026-05-21">2026/05/21</h3>
+    <ul>
+        <li>
+          Gas Flaring for Compute.
+          <ul>
+            <li>Crusoe does this; <strong>[PATENT] <a href="https://patents.justia.com/patent/20220140608">Systems and Methods for Generating and Consuming Power from Natural Gas</a></strong> </li>
+          </ul>
+        </li>
+    </ul>
 
-      <li>
-        Whats gets factored into choosing which exchange to primarily list a company on?
-      </li>
-
-      <li>
-        Auto industry in the late 2000s; Obama administration's intervention.
-        <ul>
-          <li>
-            <strong>[PAPER][!OPEN ACCESS]</strong>
-            <a href="https://journals-sagepub-com.ezaccess.libraries.psu.edu/doi/epub/10.1177/0891242413481243">
-              Restructuring of the U.S. Auto Industry in the 2008-2009 Recession
-            </a>
-          </li>
-        </ul>
-      </li>
-
+    <h3 id="d-2026-05-19">2026/05/19</h3>
+    <ul>
+        <li>Whats gets factored into choosing which exchange to primarily list a company on?</li>
+        <li>
+          Auto industry in the late 2000s; Obama administration's intervention.
+          <ul>
+            <li><strong>[PAPER][!OPEN ACCESS]</strong> <a href="https://journals-sagepub-com.ezaccess.libraries.psu.edu/doi/epub/10.1177/0891242413481243">Restructuring of the U.S. Auto Industry in the 2008-2009 Recession</a></li>
+          </ul>
+        </li>
     </ul>
   </main>
 </body>
