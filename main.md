@@ -7,13 +7,13 @@
   Pages:  link to a .md file → auto-converted to .html
 -->
 
-## 2026/05/21 
+## 2026/05/25
 - Looking for journalism (i) I enjoy reading (ii) is tractable (iii) whose funding sources I'm okay with. Some of which I found and read: 
     - [The Associated Press](https://apnews.com/)
     - [ProPublica](https://www.propublica.org/); more investigative and long horizon
 - I tried to spend some time thinking what kind of work I want to do for the first time in my life. I don't mean a specific role as 'software enginerr' vs 'ml research', but more along the lines of purpose I guess. 20 days *after* your graduation feels like the right time to be doing this y'know. \
 One thing that I could come up with was policy making; well, I'm not the maker, but I can do my part in make the jobs of the ones who are, easier, effective, and in line with current priorities. \
-A way I could see myself doing that is working at institutions that already work alongside the government, and at this level to growth, what seems to be approachable are think tanks. \
+A way I could see myself doing that is working at institutions that already work alongside the government, and at this level to growth, what seems to be approachable are think-tanks. \
 I will not lie, I have not done my homework in understanding if they actually have any net positive effect in the grand scheme of things. Hence, I've been reaching out to many people and applying for relevant roles.  
 
 ## 2026/05/21
