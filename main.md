@@ -36,3 +36,8 @@ I will not lie, I have not done my homework in understanding if they actually ha
     - Current student or < 2 year past grad exploring ideas or early stage
     - In person SF
     - "Applications for 2026 Winter (January start), Spring (April start) and Summer (June start) are now open. We’ll accept teams on a rolling basis each month."
+
+- [Conviction](https://www.conviction.com/)
+    - Super early stage VC (founded 2022) "purpose-built to serve AI-Native, "Software 3.0" companies."
+    - [Embed](https://embed.conviction.com/), a grant program for early-stage AI Founders 
+    - [Commit](https://commit.conviction.com/), a fellowship for early-career AI builders
