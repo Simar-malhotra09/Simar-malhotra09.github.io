@@ -41,4 +41,3 @@ I will not lie, I have not done my homework in understanding if they actually ha
 - [Conviction](https://www.conviction.com/)
     - Super early stage VC (founded 2022) "purpose-built to serve AI-Native, "Software 3.0" companies."
     - [Embed](https://embed.conviction.com/), a grant program for early-stage AI Founders 
-    - [Commit](https://commit.conviction.com/), a fellowship for early-career AI builders
