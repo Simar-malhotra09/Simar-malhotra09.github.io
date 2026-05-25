@@ -216,6 +216,14 @@ INDEX_TEMPLATE = """\
     nav li {{ margin: 1px 0; }}
     nav a {{ color: #999; text-decoration: none; font-size: 11px; }}
     nav a:hover {{ text-decoration: underline; }}
+    nav li.nav-head {{
+      font-size: 10px;
+      color: #bbb;
+      letter-spacing: 0.5px;
+      margin-top: 8px;
+      margin-bottom: 2px;
+    }}
+    nav li.nav-head:first-child {{ margin-top: 0; }}
     main {{
       max-width: 600px;
       padding: 10px 20px;
@@ -298,8 +306,17 @@ def build():
     if not entries:
         print("warning: no entries found (use ## YYYY/MM/DD headers)", file=sys.stderr)
 
-    # sidebar
+    section_anchors = [
+        (re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), name) for name, _ in sections
+    ]
+
+    # sidebar: pinned links first, then date entries
     sidebar_lines = []
+    if sections:
+        sidebar_lines.append('      <li class="nav-head">PINNED</li>')
+        for slug, name in section_anchors:
+            sidebar_lines.append(f'      <li><a href="#p-{slug}">{name}</a></li>')
+        sidebar_lines.append('      <li class="nav-head">JOURNAL</li>')
     for ds, _ in entries:
         y, m, d = (int(x) for x in ds.split("/"))
         anchor = f"d-{y}-{m:02d}-{d:02d}"
@@ -317,12 +334,12 @@ def build():
 
     # pinned sections (middle column)
     pinned_blocks = []
-    for name, lines in sections:
+    for (slug, name), (_, lines) in zip(section_anchors, sections):
         items = render_items(lines)
         if items:
-            pinned_blocks.append(f"    <h4>{name}</h4>\n    <ul>\n{items}\n    </ul>")
+            pinned_blocks.append(f'    <h4 id="p-{slug}">{name}</h4>\n    <ul>\n{items}\n    </ul>')
         else:
-            pinned_blocks.append(f"    <h4>{name}</h4>")
+            pinned_blocks.append(f'    <h4 id="p-{slug}">{name}</h4>')
 
     html = INDEX_TEMPLATE.format(
         sidebar="\n".join(sidebar_lines),

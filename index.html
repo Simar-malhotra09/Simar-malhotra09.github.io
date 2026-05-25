@@ -19,6 +19,14 @@
     nav li { margin: 1px 0; }
     nav a { color: #999; text-decoration: none; font-size: 11px; }
     nav a:hover { text-decoration: underline; }
+    nav li.nav-head {
+      font-size: 10px;
+      color: #bbb;
+      letter-spacing: 0.5px;
+      margin-top: 8px;
+      margin-bottom: 2px;
+    }
+    nav li.nav-head:first-child { margin-top: 0; }
     main {
       max-width: 600px;
       padding: 10px 20px;
@@ -77,6 +85,9 @@
 <body>
   <nav>
     <ul>
+      <li class="nav-head">PINNED</li>
+      <li><a href="#p-opportunities">Opportunities</a></li>
+      <li class="nav-head">JOURNAL</li>
       <li><a href="#d-2026-05-25">2026/May/25</a></li>
       <li><a href="#d-2026-05-21">2026/May/21</a></li>
       <li><a href="#d-2026-05-19">2026/May/19</a></li>
@@ -120,7 +131,7 @@
     </ul>
   </main>
   <aside class="pinned">
-    <h4>Opportunities</h4>
+    <h4 id="p-opportunities">Opportunities</h4>
     <ul>
         <li>
           <a href="https://www.afore.vc/students">Afore Founder-in-Residence</a>
