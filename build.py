@@ -49,20 +49,29 @@ def md_inline(text):
 
 
 def parse_journal(path):
-    """Return [(date_str, [raw_lines]), ...] from ## YYYY/MM/DD headers."""
+    """Parse main.md into dated entries and `## @Name` pinned sections."""
     text = path.read_text()
-    entries, cur, buf = [], None, []
+    entries, sections = [], []
+    kind, key, buf = None, None, []
     for line in text.splitlines():
-        m = re.match(r"^##\s+(\d{4}/\d{1,2}/\d{1,2})", line)
-        if m:
-            if cur:
-                entries.append((cur, buf))
-            cur, buf = m.group(1), []
-        elif cur is not None:
+        dm = re.match(r"^##\s+(\d{4}/\d{1,2}/\d{1,2})", line)
+        sm = re.match(r"^##\s+@(.+)$", line)
+        if dm or sm:
+            if kind == "entry":
+                entries.append((key, buf))
+            elif kind == "section":
+                sections.append((key, buf))
+            if dm:
+                kind, key, buf = "entry", dm.group(1), []
+            else:
+                kind, key, buf = "section", sm.group(1).strip(), []
+        elif kind is not None:
             buf.append(line)
-    if cur:
-        entries.append((cur, buf))
-    return entries
+    if kind == "entry":
+        entries.append((key, buf))
+    elif kind == "section":
+        sections.append((key, buf))
+    return entries, sections
 
 def join_escaped_newlines(lines):
     out = []
@@ -215,7 +224,38 @@ INDEX_TEMPLATE = """\
     main h3 {{ margin-top: 24px; scroll-margin-top: 20px; }}
     main ul {{ margin: 8px 0 16px 20px; }}
     main li {{ margin: 4px 0; }}
+    aside.pinned {{
+      position: fixed;
+      top: 12px;
+      left: calc(40% + 5px);
+      width: 300px;
+      padding: 12px;
+      overflow: hidden;
+    }}
+    aside.pinned h4 {{
+      font-size: 11px;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      color: #888;
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }}
+    aside.pinned h4:first-child {{ margin-top: 0; }}
+    aside.pinned ul {{ list-style:disc; margin: 0 0 8px 0; padding-left: 20px; }}
+    aside.pinned li {{ margin: 3px 0; font-size: 11px; line-height: 1.4; }}
+    aside.pinned ul ul {{ list-style: circle; margin: 2px 0 2px 10px; padding-left:20px; }}
     a {{ color: #0057b7; }}
+    @media (max-width: 1020px) {{
+      aside.pinned {{
+        position: static;
+        width: auto;
+        margin: 16px 20px 0 30px;
+        padding: 0;
+        border-top: 1px solid #eee;
+        padding-top: 16px;
+      }}
+    }}
     @media (max-width: 640px) {{
       nav {{
         position: static;
@@ -227,6 +267,7 @@ INDEX_TEMPLATE = """\
       }}
       nav ul {{ display: flex; flex-wrap: wrap; gap: 4px 10px; }}
       main {{ margin-left: 0; }}
+      aside.pinned {{ margin-left: 0; margin-right: 0; padding: 16px 20px 0; }}
     }}
   </style>
 </head>
@@ -239,6 +280,9 @@ INDEX_TEMPLATE = """\
   <main>
 {content}
   </main>
+  <aside class="pinned">
+{pinned}
+  </aside>
 </body>
 </html>
 """
@@ -250,7 +294,7 @@ def build():
         print(f"error: {md_file} not found", file=sys.stderr)
         sys.exit(1)
 
-    entries = parse_journal(md_file)
+    entries, sections = parse_journal(md_file)
     if not entries:
         print("warning: no entries found (use ## YYYY/MM/DD headers)", file=sys.stderr)
 
@@ -271,14 +315,24 @@ def build():
         block = f'    <h3 id="{anchor}">{ds}</h3>\n    <ul>\n{items}\n    </ul>'
         content_blocks.append(block)
 
+    # pinned sections (middle column)
+    pinned_blocks = []
+    for name, lines in sections:
+        items = render_items(lines)
+        if items:
+            pinned_blocks.append(f"    <h4>{name}</h4>\n    <ul>\n{items}\n    </ul>")
+        else:
+            pinned_blocks.append(f"    <h4>{name}</h4>")
+
     html = INDEX_TEMPLATE.format(
         sidebar="\n".join(sidebar_lines),
         content="\n\n".join(content_blocks),
+        pinned="\n".join(pinned_blocks),
     )
 
     out = DIR / "index.html"
     out.write_text(html)
-    print(f"index.html <- {len(entries)} entries")
+    print(f"index.html <- {len(entries)} entries, {len(sections)} pinned sections")
 
     # convert any linked .md sub-pages
     raw = md_file.read_text()

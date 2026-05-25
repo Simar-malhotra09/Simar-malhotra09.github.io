@@ -30,3 +30,9 @@ I will not lie, I have not done my homework in understanding if they actually ha
 - Whats gets factored into choosing which exchange to primarily list a company on?
 - Auto industry in the late 2000s; Obama administration's intervention.
   - **[PAPER][!OPEN ACCESS]** [Restructuring of the U.S. Auto Industry in the 2008-2009 Recession](https://journals-sagepub-com.ezaccess.libraries.psu.edu/doi/epub/10.1177/0891242413481243)
+
+## @Opportunities
+- [Afore Founder-in-Residence](https://www.afore.vc/students)
+    - Current student or < 2 year past grad exploring ideas or early stage
+    - In person SF
+    - "Applications for 2026 Winter (January start), Spring (April start) and Summer (June start) are now open. We’ll accept teams on a rolling basis each month."
