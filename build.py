@@ -316,7 +316,7 @@ def build():
         sidebar_lines.append('      <li class="nav-head">PINNED</li>')
         for slug, name in section_anchors:
             sidebar_lines.append(f'      <li><a href="#p-{slug}">{name}</a></li>')
-        sidebar_lines.append('      <li class="nav-head">JOURNAL</li>')
+        sidebar_lines.append('      <li class="nav-head">---</li>')
     for ds, _ in entries:
         y, m, d = (int(x) for x in ds.split("/"))
         anchor = f"d-{y}-{m:02d}-{d:02d}"
