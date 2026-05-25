@@ -19,6 +19,7 @@ I will not lie, I have not done my homework in understanding if they actually ha
 - Looking for journalism (i) I enjoy reading (ii) is tractable (iii) whose funding sources I'm okay with. Some of which I found and read: 
     - [The Associated Press](https://apnews.com/)
     - [ProPublica](https://www.propublica.org/); more investigative and long horizon
+    - [Council on Foreign Relations](https://www.cfr.org/); [here](https://assets.cfr.org/images/Future_of_American_Strategy_Essays_updated/Future_of_American_Strategy_Essays_updated.pdf) is a cool read from them.
 
 ## 2026/05/21
 
