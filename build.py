@@ -39,6 +39,7 @@ def md_inline(text):
 
     text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", _link, text)
     text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
+    text = re.sub(r"~~(.+?)~~", r"<s>\1</s>", text)
     text = re.sub(r"\*(.+?)\*", r"<em>\1</em>", text)
     text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
     return text
@@ -63,9 +64,18 @@ def parse_journal(path):
         entries.append((cur, buf))
     return entries
 
+def join_escaped_newlines(lines):
+    out = []
+    for line in lines:
+        if out and out[-1].rstrip().endswith("\\"):
+            out[-1] = out[-1].rstrip()[:-1] + "<br>" + line.lstrip()
+        else:
+            out.append(line)
+    return out
 
 def render_items(lines):
     """Markdown list lines → HTML <li>s (one level of nesting)."""
+    lines = join_escaped_newlines(lines) 
     out, i = [], 0
     while i < len(lines):
         if not lines[i].strip():
@@ -130,8 +140,9 @@ SUBPAGE_TEMPLATE = """\
 def convert_subpage(md_path):
     """Convert a standalone .md file to .html."""
     text = md_path.read_text()
+    lines = join_escaped_newlines(text.splitlines())
     body, in_ul = [], False
-    for line in text.splitlines():
+    for line in lines:
         hm = re.match(r"^(#{1,6})\s+(.+)$", line)
         lm = re.match(r"^(\s*)- (.+)$", line)
         if hm:
