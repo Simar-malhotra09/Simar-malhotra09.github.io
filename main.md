@@ -35,6 +35,10 @@ I will not lie, I have not done my homework in understanding if they actually ha
 - Auto industry in the late 2000s; Obama administration's intervention.
   - **[PAPER][!OPEN ACCESS]** [Restructuring of the U.S. Auto Industry in the 2008-2009 Recession](https://journals-sagepub-com.ezaccess.libraries.psu.edu/doi/epub/10.1177/0891242413481243)
 
+## @External Linkage
+- [TemSeg technical spec draft xx](draft1.typ)
+    - I, along with [Nikalabh Dihingia](https://science.psu.edu/chem/people/nmd5719) have been building TemSeg in [Dr Danielle Hickey](https://www.mri.psu.edu/mri/personnel-directory/drh283)'s lab.\
+    This is a technical overview of the features, more info and open source when published.
 ## @Opportunities
 - [Afore Founder-in-Residence](https://www.afore.vc/students)
     - Current student or < 2 year past grad exploring ideas or early stage

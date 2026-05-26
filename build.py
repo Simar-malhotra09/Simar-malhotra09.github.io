@@ -4,10 +4,14 @@ build.py – Convert main.md journal entries into index.html
 Run:  python3 build.py
 """
 
-import re, sys
+import re, sys, subprocess, tempfile
 from pathlib import Path
 
 DIR = Path(__file__).resolve().parent
+
+# Width of the column that typst-rendered pages live in.  Bigger value = SVGs
+# render larger by default.  Each .typst-page SVG fills 100% of this column.
+TYPST_PAGE_WIDTH = 900
 
 MONTHS = [
     "",
@@ -33,10 +37,11 @@ def md_inline(text):
 
     def _link(m):
         href = m.group(2)
-        if href.endswith(".md"):
-            href = href[:-3] + ".html"
+        if href.endswith(".md") or href.endswith(".typ"):
+            href = re.sub(r"\.(md|typ)$", ".html", href)
         return f'<a href="{href}">{m.group(1)}</a>'
 
+    text = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", r'<img alt="\1" src="\2">', text)
     text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", _link, text)
     text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"~~(.+?)~~", r"<s>\1</s>", text)
@@ -134,6 +139,7 @@ SUBPAGE_TEMPLATE = """\
     pre {{ background: #f5f5f5; padding: 12px; overflow-x: auto; }}
     ul {{ margin: 8px 0 16px 20px; }}
     li {{ margin: 4px 0; }}
+    img {{ max-width: 100%; height: auto; display: block; margin: 16px auto; }}
   </style>
 </head>
 <body>
@@ -192,6 +198,73 @@ def convert_subpage(md_path):
     print(f"  -> {html_out.relative_to(DIR)}")
 
 
+# ── typst converter ────────────────────────────────────────────────
+
+TYPST_TEMPLATE = """\
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <style>
+    body {{ font-family: monospace; max-width: {width}px; margin: 40px auto; padding: 0 20px; }}
+    a {{ color: #0057b7; }}
+    .typst-page svg {{ max-width: 100%; height: auto; display: block; margin: 0 auto; }}
+    .typst-page + .typst-page {{ margin-top: 24px; border-top: 1px solid #eee; padding-top: 24px; }}
+  </style>
+</head>
+<body>
+  <p><a href="index.html">&larr; back</a></p>
+  <main>
+    {body}
+  </main>
+</body>
+</html>
+"""
+
+
+def convert_typst(typ_path):
+    """Compile a .typ file via `typst compile`, embed each page as inline SVG."""
+    title = typ_path.stem.replace("-", " ").replace("_", " ").title()
+    with tempfile.TemporaryDirectory() as tmp:
+        pattern = str(Path(tmp) / f"{typ_path.stem}-{{n}}.svg")
+        try:
+            subprocess.run(
+                ["typst", "compile", str(typ_path), pattern],
+                check=True,
+                capture_output=True,
+            )
+        except FileNotFoundError:
+            print(f"  error: `typst` not on PATH; skipping {typ_path.name}", file=sys.stderr)
+            return
+        except subprocess.CalledProcessError as e:
+            print(
+                f"  error: typst failed for {typ_path.name}:\n{e.stderr.decode().strip()}",
+                file=sys.stderr,
+            )
+            return
+
+        svgs = sorted(
+            Path(tmp).glob(f"{typ_path.stem}-*.svg"),
+            key=lambda p: int(re.search(r"-(\d+)\.svg$", p.name).group(1)),
+        )
+        pages = []
+        for svg in svgs:
+            content = re.sub(r"^\s*<\?xml[^>]*\?>\s*", "", svg.read_text())
+            pages.append(f'<div class="typst-page">{content}</div>')
+
+    html_out = typ_path.with_suffix(".html")
+    html_out.write_text(
+        TYPST_TEMPLATE.format(
+            title=title,
+            body="\n    ".join(pages),
+            width=TYPST_PAGE_WIDTH,
+        )
+    )
+    print(f"  -> {html_out.relative_to(DIR)} ({len(pages)} pages)")
+
+
 # ── main builder ───────────────────────────────────────────────────
 
 INDEX_TEMPLATE = """\
@@ -232,6 +305,7 @@ INDEX_TEMPLATE = """\
     main h3 {{ margin-top: 24px; scroll-margin-top: 20px; }}
     main ul {{ margin: 8px 0 16px 20px; }}
     main li {{ margin: 4px 0; }}
+    main img {{ max-width: 100%; height: auto; }}
     aside.pinned {{
       position: fixed;
       top: 12px;
@@ -351,15 +425,28 @@ def build():
     out.write_text(html)
     print(f"index.html <- {len(entries)} entries, {len(sections)} pinned sections")
 
-    # convert any linked .md sub-pages
+    # convert any linked .md or .typ sub-pages
     raw = md_file.read_text()
-    for href in re.findall(r"\]\(([^)]+\.md)\)", raw):
+    for href in re.findall(r"\]\(([^)]+\.(?:md|typ))\)", raw):
         sub = DIR / href
-        if sub.exists():
-            convert_subpage(sub)
-        else:
+        if not sub.exists():
             print(f"  warning: {href} not found, skipping", file=sys.stderr)
+            continue
+        if sub.suffix == ".typ":
+            convert_typst(sub)
+        else:
+            convert_subpage(sub)
 
 
 if __name__ == "__main__":
-    build()
+    if len(sys.argv) > 1:
+        target = Path(sys.argv[1])
+        if not target.exists():
+            print(f"error: {target} not found", file=sys.stderr)
+            sys.exit(1)
+        if target.suffix == ".typ":
+            convert_typst(target)
+        else:
+            convert_subpage(target)
+    else:
+        build()
