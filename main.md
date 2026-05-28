@@ -8,7 +8,7 @@
 -->
 
 ## 2026/05/28 
-- [8:53am] Here is the timeline to how close I've come to being unemployed (so far):
+- [8:53am] Here is a timeline to almost being employed:
     - [Tue, Apr 14, 1:50 PM] Applied to job. Pretty cool startup in NYC which leverages AI in private equity/Investment banks from a compliance pov. 
     - [Wen, Apr 15, 1:00 PM] Call with CTO; one of the perks of applying to startups is process is usually very fast.
     - [Thurs, Apr 16 3:00 PM] Call with recruiter; they used a third party agency, genuinely, my whole process was so pleasent; s.o Nikki @[higher people](https://www.higherpeople.co/)!
