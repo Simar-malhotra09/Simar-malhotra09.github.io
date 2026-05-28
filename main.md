@@ -7,6 +7,17 @@
   Pages:  link to a .md file → auto-converted to .html
 -->
 
+## 2026/05/28 
+- [8:53am] Here is the timeline to how close I've come to being unemployed (so far):
+    - [Tue, Apr 14, 1:50 PM] Applied to job. Pretty cool startup in NYC which leverages AI in private equity/Investment banks from a compliance pov. 
+    - [Wen, Apr 15, 1:00 PM] Call with CTO; one of the perks of applying to startups is process is usually very fast.
+    - [Thurs, Apr 16 3:00 PM] Call with recruiter; they used a third party agency, genuinely, my whole process was so pleasent; s.o Nikki @[higher people](https://www.higherpeople.co/)!
+    - [Thurs, Apr 28, 4:00 PM] Call with CEO; in a way was my worst interview, happens.
+    - [Thurs, May 11, 4:00 PM] Technical interview, med leetcode + AI-assisted system design. First for me and I think will be helpful in the future.
+    - [Fri, May 15, 10:00 PM- 4:00 PM] Onsite in NYC; 1 Hr chat with CTO and CEO each; Lunch; 2 hr product design/ impl followed by 30 min discussion about it. 
+    - [Tue, May 26, 11:06 AM] **Rejected.** "We thought you did well on the technical side, but after discussing internally, we don’t think the working style is quite the right fit for what we need at this stage.". \ 
+    Oh well, back to 0 again but with some valuable experience. 
+
 ## 2026/05/25
 - [7:31pm] What if interest stopped existing today? \
 In **[PDF link]**"[The Price of Time: The Real Story of Interest](https://dokumen.pub/the-price-of-time-the-real-story-of-interest-9781802060164-1802060162.html)" by Edward Chancellor, the first chapter retells the vision of a man named Pierre-Joseph Proudhon, "an anarchist, best known for his statement 'Interest is theft'." He argues that "The reduction in interest (to half a percent to cover the banks' operating costs) would instantly produce incalculable results all over the Republic and across Europe. There would be no more debt, insolvencies and bankruptcies would decline, consumption would increase, and labour would be guaranteed employment. Once interest was no longer taken by the parasitic class of lenders, worker incomes would rise."\
