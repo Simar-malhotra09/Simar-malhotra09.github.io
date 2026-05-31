@@ -47,10 +47,14 @@ I will not lie, I have not done my homework in understanding if they actually ha
   - **[PAPER][!OPEN ACCESS]** [Restructuring of the U.S. Auto Industry in the 2008-2009 Recession](https://journals-sagepub-com.ezaccess.libraries.psu.edu/doi/epub/10.1177/0891242413481243)
 
 ## @External Linkage
-- [TemSeg technical spec draft xx](draft1.typ)
+- [PAPERS](writing/papers.md)
+    - preq for being present is that I've read them with enough attention to explain them and I've found them interesting (though the former usually implies the latter).
+- [BLOGS](writing/blogs.md)
+    - papers which are blogs.
+- [TemSeg technical spec draft xx](writing/documents/draft1.typ)
     - I, along with [Nikalabh Dihingia](https://science.psu.edu/chem/people/nmd5719) have been building TemSeg in [Dr Danielle Hickey](https://www.mri.psu.edu/mri/personnel-directory/drh283)'s lab.\
     This is a technical overview of the features, more info and open source when published.
-- [Shared Latent Spaces: From Autoencoders to Cross-Modal Embeddings](shared_latent_spaces.typ)
+- [Shared Latent Spaces: From Autoencoders to Cross-Modal Embeddings](writing/documents/shared_latent_spaces.typ)
     - Presentation supplement on autoencoder and cross model embds for MATH 452: Deep Learning Algorithms and Analysis 
 ## @Opportunities
 - [Afore Founder-in-Residence](https://www.afore.vc/students)
@@ -63,4 +67,5 @@ I will not lie, I have not done my homework in understanding if they actually ha
     - [Embed](https://embed.conviction.com/), a grant program for early-stage AI Founders 
 
 ## @Miscellaneous 
+- Reading list for macroeconomics at [graduate](https://integdomain.wordpress.com/wp-content/uploads/2014/07/monetary_list_v1-11.pdf) and [undergradaute](https://integdomain.wordpress.com/2014/12/16/a-macroeconomics-reading-list-for-undergraduates/) levels .
 - [Advice to a Young Tradesman (1748)](https://minio.la.utexas.edu/webeditor-files/coretexts/pdf/174820franklin20advice.pdf)
