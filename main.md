@@ -66,6 +66,7 @@ I will not lie, I have not done my homework in understanding if they actually ha
     - Super early stage VC (founded 2022) "purpose-built to serve AI-Native, "Software 3.0" companies."
     - [Embed](https://embed.conviction.com/), a grant program for early-stage AI Founders 
 
-## @Miscellaneous 
+## @Miscellaneous @3d
+- [Bessemer Venture Partner's Memos](https://www.bvp.com/memos): VCs fund companies. Someone has to pitch that company to the board. This is a list of memos for companies like Pinterest,Twitch and more that they have made public.Answers, to some extent, what was it about the company that made them invest in it, with the benefit of hindsight added through commentatory.
 - Reading list for macroeconomics at [graduate](https://integdomain.wordpress.com/wp-content/uploads/2014/07/monetary_list_v1-11.pdf) and [undergradaute](https://integdomain.wordpress.com/2014/12/16/a-macroeconomics-reading-list-for-undergraduates/) levels .
 - [Advice to a Young Tradesman (1748)](https://minio.la.utexas.edu/webeditor-files/coretexts/pdf/174820franklin20advice.pdf)

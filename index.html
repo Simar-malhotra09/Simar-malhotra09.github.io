@@ -36,15 +36,16 @@
     main ul { margin: 8px 0 16px 20px; }
     main li { margin: 4px 0; }
     main img { max-width: 100%; height: auto; }
-    aside.pinned {
+    aside.pinned, aside.third {
       position: fixed;
       top: 12px;
-      left: calc(40% + 5px);
-      width: 300px;
+      width: 240px;
       padding: 12px;
       overflow: hidden;
     }
-    aside.pinned h4 {
+    aside.pinned { left: calc(38% + 5px); }
+    aside.third  { left: calc(58% + 5px); }
+    aside.pinned h4, aside.third h4 {
       font-size: 11px;
       margin-top: 12px;
       margin-bottom: 4px;
@@ -53,11 +54,21 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    aside.pinned h4:first-child { margin-top: 0; }
-    aside.pinned ul { list-style:disc; margin: 0 0 8px 0; padding-left: 20px; }
-    aside.pinned li { margin: 3px 0; font-size: 11px; line-height: 1.4; }
-    aside.pinned ul ul { list-style: circle; margin: 2px 0 2px 10px; padding-left:20px; }
+    aside.pinned h4:first-child, aside.third h4:first-child { margin-top: 0; }
+    aside.pinned ul, aside.third ul { list-style: disc; margin: 0 0 8px 0; padding-left: 20px; }
+    aside.pinned li, aside.third li { margin: 3px 0; font-size: 11px; line-height: 1.4; }
+    aside.pinned ul ul, aside.third ul ul { list-style: circle; margin: 2px 0 2px 10px; padding-left: 20px; }
     a { color: #0057b7; }
+    @media (max-width: 1200px) {
+      aside.third {
+        position: static;
+        width: auto;
+        margin: 16px 20px 0 30px;
+        padding: 0;
+        border-top: 1px solid #eee;
+        padding-top: 16px;
+      }
+    }
     @media (max-width: 1020px) {
       aside.pinned {
         position: static;
@@ -79,7 +90,7 @@
       }
       nav ul { display: flex; flex-wrap: wrap; gap: 4px 10px; }
       main { margin-left: 0; }
-      aside.pinned { margin-left: 0; margin-right: 0; padding: 16px 20px 0; }
+      aside.pinned, aside.third { margin-left: 0; margin-right: 0; padding: 16px 20px 0; }
     }
   </style>
 </head>
@@ -89,6 +100,7 @@
       <li class="nav-head">PINNED</li>
       <li><a href="#p-external-linkage">External Linkage</a></li>
       <li><a href="#p-opportunities">Opportunities</a></li>
+      <li class="nav-head">MISC</li>
       <li><a href="#p-miscellaneous">Miscellaneous</a></li>
       <li class="nav-head">---</li>
       <li><a href="#d-2026-05-28">2026/May/28</a></li>
@@ -198,8 +210,11 @@
           </ul>
         </li>
     </ul>
+  </aside>
+  <aside class="third">
     <h4 id="p-miscellaneous">Miscellaneous</h4>
     <ul>
+        <li><a href="https://www.bvp.com/memos">Bessemer Venture Partner's Memos</a>: VCs fund companies. Someone has to pitch that company to the board. This is a list of memos for companies like Pinterest,Twitch and more that they have made public.Answers, to some extent, what was it about the company that made them invest in it, with the benefit of hindsight added through commentatory.</li>
         <li>Reading list for macroeconomics at <a href="https://integdomain.wordpress.com/wp-content/uploads/2014/07/monetary_list_v1-11.pdf">graduate</a> and <a href="https://integdomain.wordpress.com/2014/12/16/a-macroeconomics-reading-list-for-undergraduates/">undergradaute</a> levels .</li>
         <li><a href="https://minio.la.utexas.edu/webeditor-files/coretexts/pdf/174820franklin20advice.pdf">Advice to a Young Tradesman (1748)</a></li>
     </ul>

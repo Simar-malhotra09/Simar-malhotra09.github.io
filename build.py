@@ -67,7 +67,7 @@ def back_link(html_out: Path) -> str:
 def parse_journal(path: Path) -> tuple:
     text = path.read_text()
     entries, sections = [], []
-    kind, key, buf = None, None, []
+    kind, key, buf, col3 = None, None, [], False
     for line in text.splitlines():
         dm = re.match(r"^##\s+(\d{4}/\d{1,2}/\d{1,2})", line)
         sm = re.match(r"^##\s+@(.+)$", line)
@@ -75,17 +75,20 @@ def parse_journal(path: Path) -> tuple:
             if kind == "entry":
                 entries.append((key, buf))
             elif kind == "section":
-                sections.append((key, buf))
+                sections.append((key, buf, col3))
             if dm:
-                kind, key, buf = "entry", dm.group(1), []
+                kind, key, buf, col3 = "entry", dm.group(1), [], False
             else:
-                kind, key, buf = "section", sm.group(1).strip(), []
+                raw_name = sm.group(1).strip()
+                is_col3 = raw_name.endswith("@3d")
+                name = raw_name[:-3].strip() if is_col3 else raw_name
+                kind, key, buf, col3 = "section", name, [], is_col3
         elif kind is not None:
             buf.append(line)
     if kind == "entry":
         entries.append((key, buf))
     elif kind == "section":
-        sections.append((key, buf))
+        sections.append((key, buf, col3))
     return entries, sections
 
 
@@ -386,15 +389,16 @@ INDEX_TEMPLATE = """\
     main ul {{ margin: 8px 0 16px 20px; }}
     main li {{ margin: 4px 0; }}
     main img {{ max-width: 100%; height: auto; }}
-    aside.pinned {{
+    aside.pinned, aside.third {{
       position: fixed;
       top: 12px;
-      left: calc(40% + 5px);
-      width: 300px;
+      width: 240px;
       padding: 12px;
       overflow: hidden;
     }}
-    aside.pinned h4 {{
+    aside.pinned {{ left: calc(38% + 5px); }}
+    aside.third  {{ left: calc(58% + 5px); }}
+    aside.pinned h4, aside.third h4 {{
       font-size: 11px;
       margin-top: 12px;
       margin-bottom: 4px;
@@ -403,11 +407,21 @@ INDEX_TEMPLATE = """\
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }}
-    aside.pinned h4:first-child {{ margin-top: 0; }}
-    aside.pinned ul {{ list-style:disc; margin: 0 0 8px 0; padding-left: 20px; }}
-    aside.pinned li {{ margin: 3px 0; font-size: 11px; line-height: 1.4; }}
-    aside.pinned ul ul {{ list-style: circle; margin: 2px 0 2px 10px; padding-left:20px; }}
+    aside.pinned h4:first-child, aside.third h4:first-child {{ margin-top: 0; }}
+    aside.pinned ul, aside.third ul {{ list-style: disc; margin: 0 0 8px 0; padding-left: 20px; }}
+    aside.pinned li, aside.third li {{ margin: 3px 0; font-size: 11px; line-height: 1.4; }}
+    aside.pinned ul ul, aside.third ul ul {{ list-style: circle; margin: 2px 0 2px 10px; padding-left: 20px; }}
     a {{ color: #0057b7; }}
+    @media (max-width: 1200px) {{
+      aside.third {{
+        position: static;
+        width: auto;
+        margin: 16px 20px 0 30px;
+        padding: 0;
+        border-top: 1px solid #eee;
+        padding-top: 16px;
+      }}
+    }}
     @media (max-width: 1020px) {{
       aside.pinned {{
         position: static;
@@ -429,7 +443,7 @@ INDEX_TEMPLATE = """\
       }}
       nav ul {{ display: flex; flex-wrap: wrap; gap: 4px 10px; }}
       main {{ margin-left: 0; }}
-      aside.pinned {{ margin-left: 0; margin-right: 0; padding: 16px 20px 0; }}
+      aside.pinned, aside.third {{ margin-left: 0; margin-right: 0; padding: 16px 20px 0; }}
     }}
   </style>
 </head>
@@ -444,6 +458,9 @@ INDEX_TEMPLATE = """\
   </main>
   <aside class="pinned">
 {pinned}
+  </aside>
+  <aside class="third">
+{third}
   </aside>
 </body>
 </html>
@@ -461,15 +478,23 @@ def build() -> None:
         print("warning: no entries found (use ## YYYY/MM/DD headers)", file=sys.stderr)
 
     section_anchors = [
-        (re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), name)
-        for name, _ in sections
+        (re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), name, is_col3)
+        for name, _, is_col3 in sections
     ]
 
+    col2_anchors = [(slug, name) for slug, name, c3 in section_anchors if not c3]
+    col3_anchors = [(slug, name) for slug, name, c3 in section_anchors if c3]
+
     sidebar_lines = []
-    if sections:
+    if col2_anchors:
         sidebar_lines.append('      <li class="nav-head">PINNED</li>')
-        for slug, name in section_anchors:
+        for slug, name in col2_anchors:
             sidebar_lines.append(f'      <li><a href="#p-{slug}">{name}</a></li>')
+    if col3_anchors:
+        sidebar_lines.append('      <li class="nav-head">MISC</li>')
+        for slug, name in col3_anchors:
+            sidebar_lines.append(f'      <li><a href="#p-{slug}">{name}</a></li>')
+    if section_anchors:
         sidebar_lines.append('      <li class="nav-head">---</li>')
     for ds, _ in entries:
         y, m, d = (int(x) for x in ds.split("/"))
@@ -485,20 +510,28 @@ def build() -> None:
         block = f'    <h3 id="{anchor}">{ds}</h3>\n    <ul>\n{items}\n    </ul>'
         content_blocks.append(block)
 
-    pinned_blocks = []
-    for (slug, name), (_, lines) in zip(section_anchors, sections):
-        items = render_items(lines)
-        if items:
-            pinned_blocks.append(
-                f'    <h4 id="p-{slug}">{name}</h4>\n    <ul>\n{items}\n    </ul>'
-            )
-        else:
-            pinned_blocks.append(f'    <h4 id="p-{slug}">{name}</h4>')
+    def render_section_blocks(anchors: list, sections_data: list) -> list:
+        blocks = []
+        for (slug, name), (_, lines, _) in zip(anchors, sections_data):
+            items = render_items(lines)
+            if items:
+                blocks.append(
+                    f'    <h4 id="p-{slug}">{name}</h4>\n    <ul>\n{items}\n    </ul>'
+                )
+            else:
+                blocks.append(f'    <h4 id="p-{slug}">{name}</h4>')
+        return blocks
+
+    col2_sections = [(n, b, c) for n, b, c in sections if not c]
+    col3_sections = [(n, b, c) for n, b, c in sections if c]
+    pinned_blocks = render_section_blocks(col2_anchors, col2_sections)
+    third_blocks = render_section_blocks(col3_anchors, col3_sections)
 
     html = INDEX_TEMPLATE.format(
         sidebar="\n".join(sidebar_lines),
         content="\n\n".join(content_blocks),
         pinned="\n".join(pinned_blocks),
+        third="\n".join(third_blocks),
     )
 
     out = DIR / "index.html"
