@@ -7,15 +7,31 @@
   Pages:  link to a .md file → auto-converted to .html
 -->
 
+Hi! I'm Simar. I recently graduated from Penn State with a degree in Mathematics.
+
+For the past year and a half, I've worked as a research assistant in a materials science lab, building desktop applications for TEM image analysis that reduce researcher workflows from days to seconds. You can read more about that work [here](https://heather-fireplace-3aa.notion.site/TEMseg-demos-372d838487bf8081b835f629a6bc869d) 
+
+We're currently finishing the project and preparing a manuscript for publication.
+
+I'm open to opportunities and collaborations across industry, startups, and research. I'm especially interested in high-autonomy environments where I can work on challenging technical problems.
+
+My current interests include C, model interpretability (particularly for vision models), AI/Tech policy.
+
+## 2026/06/09
+- [4:49pm] Some interpretability resources: 
+    - [ARENA](https://arena-chapter1-transformer-interp.streamlit.app/#ai-safety): "deeper dives into specific areas of technical AI safety like interpretability, RLHF, and evals."
+    - [How To Become A Mechanistic Interpretability Researcher](https://www.alignmentforum.org/posts/jP9KDyMkchuv6tHwm/how-to-become-a-mechanistic-interpretability-researcher)\ 
+    More broadly, check out similar posts at [Alignment Forum](https://www.alignmentforum.org/)
+    - [A Comprehensive Mechanistic Interpretability Explainer & Glossary](https://dynalist.io/d/n2ZWtnoYHrU1s4vnFSAQ519J)
 ## 2026/05/28 
 - [8:53am] Here is a timeline to almost being employed:
-    - [Tue, Apr 14, 1:50 PM] Applied to job. Pretty cool startup in NYC which leverages AI in private equity/Investment banks from a compliance pov. 
-    - [Wen, Apr 15, 1:00 PM] Call with CTO; one of the perks of applying to startups is process is usually very fast.
+    - [Tue, Apr 14, 1:50 PM] Applied to job. Pretty cool startup in NYC which leverages AI in private equity/Investment banks from a compliance pov. 
+    - [Wen, Apr 15, 1:00 PM] Call with CTO; one of the perks of applying to startups is process is usually very fast.
     - [Thurs, Apr 16 3:00 PM] Call with recruiter; they used a third party agency, genuinely, my whole process was so pleasent; s.o Nikki @[higher people](https://www.higherpeople.co/)!
-    - [Thurs, Apr 28, 4:00 PM] Call with CEO; in a way was my worst interview, happens.
+    - [Thurs, Apr 28, 4:00 PM] Call with CEO; in a way was my worst interview, happens.
     - [Thurs, May 11, 4:00 PM] Technical interview, med leetcode + AI-assisted system design. First for me and I think will be helpful in the future.
     - [Fri, May 15, 10:00 PM- 4:00 PM] Onsite in NYC; 1 Hr chat with CTO and CEO each; Lunch; 2 hr product design/ impl followed by 30 min discussion about it. 
-    - [Tue, May 26, 11:06 AM] **Rejected.** "We thought you did well on the technical side, but after discussing internally, we don’t think the working style is quite the right fit for what we need at this stage.". \ 
+    - [Tue, May 26, 11:06 AM] **Rejected.** "We thought you did well on the technical side, but after discussing internally, we don't think the working style is quite the right fit for what we need at this stage.". \ 
     Oh well, back to 0 again but with some valuable experience. 
 
 ## 2026/05/25
@@ -45,28 +61,3 @@ I will not lie, I have not done my homework in understanding if they actually ha
 - Whats gets factored into choosing which exchange to primarily list a company on?
 - Auto industry in the late 2000s; Obama administration's intervention.
   - **[PAPER][!OPEN ACCESS]** [Restructuring of the U.S. Auto Industry in the 2008-2009 Recession](https://journals-sagepub-com.ezaccess.libraries.psu.edu/doi/epub/10.1177/0891242413481243)
-
-## @External Linkage
-- [PAPERS](writing/papers.md)
-    - preq for being present is that I've read them with enough attention to explain them and I've found them interesting (though the former usually implies the latter).
-- [BLOGS](writing/blogs.md)
-    - papers which are blogs.
-- [TemSeg technical spec draft xx](writing/documents/draft1.typ)
-    - I, along with [Nikalabh Dihingia](https://science.psu.edu/chem/people/nmd5719) have been building TemSeg in [Dr Danielle Hickey](https://www.mri.psu.edu/mri/personnel-directory/drh283)'s lab.\
-    This is a technical overview of the features, more info and open source when published.
-- [Shared Latent Spaces: From Autoencoders to Cross-Modal Embeddings](writing/documents/shared_latent_spaces.typ)
-    - Presentation supplement on autoencoder and cross model embds for MATH 452: Deep Learning Algorithms and Analysis 
-## @Opportunities
-- [Afore Founder-in-Residence](https://www.afore.vc/students)
-    - Current student or < 2 year past grad exploring ideas or early stage
-    - In person SF
-    - "Applications for 2026 Winter (January start), Spring (April start) and Summer (June start) are now open. We’ll accept teams on a rolling basis each month."
-
-- [Conviction](https://www.conviction.com/)
-    - Super early stage VC (founded 2022) "purpose-built to serve AI-Native, "Software 3.0" companies."
-    - [Embed](https://embed.conviction.com/), a grant program for early-stage AI Founders 
-
-## @Miscellaneous @3d
-- [Bessemer Venture Partner's Memos](https://www.bvp.com/memos): VCs fund companies. Someone has to pitch that company to the board. This is a list of memos for companies like Pinterest,Twitch and more that they have made public.Answers, to some extent, what was it about the company that made them invest in it, with the benefit of hindsight added through commentatory.
-- Reading list for macroeconomics at [graduate](https://integdomain.wordpress.com/wp-content/uploads/2014/07/monetary_list_v1-11.pdf) and [undergradaute](https://integdomain.wordpress.com/2014/12/16/a-macroeconomics-reading-list-for-undergraduates/) levels .
-- [Advice to a Young Tradesman (1748)](https://minio.la.utexas.edu/webeditor-files/coretexts/pdf/174820franklin20advice.pdf)

@@ -61,35 +61,71 @@ def back_link(html_out: Path) -> str:
     return "../" * depth + "index.html"
 
 
+def parse_links(path: Path, prefix: str = "") -> list[tuple[str, list[str]]]:
+    """Return [(section, [rendered_html, ...]), ...] from a links.md file.
+    Renders each list item fully (link + description); rewrites relative hrefs with prefix."""
+    sections: list[tuple[str, list[str]]] = []
+    current: str | None = None
+    items: list[str] = []
+    for line in path.read_text().splitlines():
+        hm = re.match(r"^##\s+(.+)$", line)
+        lm = re.match(r"^- (.+)$", line)
+        if hm:
+            if current is not None:
+                sections.append((current, items))
+            current, items = hm.group(1), []
+        elif lm and current is not None:
+            content = lm.group(1)
+
+            def _link(m: re.Match) -> str:
+                href = m.group(2)
+                if not href.startswith(("http://", "https://")):
+                    href = prefix + re.sub(r"\.(md|typ)$", ".html", href)
+                return f'<a href="{href}">{m.group(1)}</a>'
+
+            html = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", _link, content)
+            html = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", html)
+            html = re.sub(r"\*(.+?)\*", r"<em>\1</em>", html)
+            items.append(html)
+    if current is not None:
+        sections.append((current, items))
+    return sections
+
+
 # ── journal parser ─────────────────────────────────────────────────
 
 
-def parse_journal(path: Path) -> tuple:
+def parse_journal(path: Path) -> tuple[list, str]:
     text = path.read_text()
-    entries, sections = [], []
-    kind, key, buf, col3 = None, None, [], False
+    entries: list = []
+    intro_lines: list[str] = []
+    kind: str | None = None
+    key: str | None = None
+    buf: list[str] = []
+    in_comment = False
+
     for line in text.splitlines():
+        if "<!--" in line:
+            in_comment = True
+        if in_comment:
+            if "-->" in line:
+                in_comment = False
+            continue
         dm = re.match(r"^##\s+(\d{4}/\d{1,2}/\d{1,2})", line)
-        sm = re.match(r"^##\s+@(.+)$", line)
-        if dm or sm:
+        if dm:
             if kind == "entry":
                 entries.append((key, buf))
-            elif kind == "section":
-                sections.append((key, buf, col3))
-            if dm:
-                kind, key, buf, col3 = "entry", dm.group(1), [], False
-            else:
-                raw_name = sm.group(1).strip()
-                is_col3 = raw_name.endswith("@3d")
-                name = raw_name[:-3].strip() if is_col3 else raw_name
-                kind, key, buf, col3 = "section", name, [], is_col3
-        elif kind is not None:
+            kind, key, buf = "entry", dm.group(1), []
+        elif kind is None:
+            intro_lines.append(line)
+        else:
             buf.append(line)
+
     if kind == "entry":
         entries.append((key, buf))
-    elif kind == "section":
-        sections.append((key, buf, col3))
-    return entries, sections
+
+    intro = md_inline(" ".join(l.strip() for l in intro_lines if l.strip()))
+    return entries, intro
 
 
 def join_escaped_newlines(lines: list) -> list:
@@ -152,7 +188,7 @@ SUBPAGE_TEMPLATE = """\
     * {{ margin: 0; padding: 0; box-sizing: border-box; }}
     body {{ font-family: monospace; min-height: 100vh; }}
     nav {{
-      width: 200px;
+      width: 10px;
       padding: 12px;
       border-left: 1px solid #eee;
       position: fixed;
@@ -173,7 +209,7 @@ SUBPAGE_TEMPLATE = """\
     nav li.nav-back {{ margin-bottom: 4px; }}
     main {{
       max-width: 600px;
-      padding: 10px 20px;
+      padding: 20px 20px 40px;
       margin-left: 30px;
     }}
     main h2, main h3 {{ margin-top: 24px; scroll-margin-top: 20px; }}
@@ -361,7 +397,7 @@ INDEX_TEMPLATE = """\
     * {{ margin: 0; padding: 0; box-sizing: border-box; }}
     body {{ font-family: monospace; min-height: 100vh; }}
     nav {{
-      width: 200px;
+      width: 180px;
       padding: 12px;
       border-left: 1px solid #eee;
       position: fixed;
@@ -376,74 +412,65 @@ INDEX_TEMPLATE = """\
       font-size: 10px;
       color: #bbb;
       letter-spacing: 0.5px;
-      margin-top: 8px;
+      margin-top: 10px;
       margin-bottom: 2px;
     }}
     nav li.nav-head:first-child {{ margin-top: 0; }}
-    main {{
-      max-width: 600px;
-      padding: 10px 20px;
+    .layout {{
+      display: flex;
+      align-items: flex-start;
       margin-left: 30px;
+      margin-right: 200px;
     }}
+    main {{
+      max-width: 560px;
+      padding: 20px 20px 40px 20px;
+      flex: 1;
+      min-width: 0;
+    }}
+    #intro {{ margin-bottom: 28px; line-height: 1.5; }}
     main h3 {{ margin-top: 24px; scroll-margin-top: 20px; }}
     main ul {{ margin: 8px 0 16px 20px; }}
     main li {{ margin: 4px 0; }}
     main img {{ max-width: 100%; height: auto; }}
-    aside.pinned, aside.third {{
-      position: fixed;
-      top: 12px;
-      width: 240px;
-      padding: 12px;
-      overflow: hidden;
+    aside.pinned {{
+      width: 280px;
+      padding: 20px 0 40px 32px;
+      flex-shrink: 0;
     }}
-    aside.pinned {{ left: calc(38% + 5px); }}
-    aside.third  {{ left: calc(58% + 5px); }}
-    aside.pinned h4, aside.third h4 {{
-      font-size: 11px;
-      margin-top: 12px;
-      margin-bottom: 4px;
-      color: #888;
-      font-weight: normal;
-      text-transform: uppercase;
+    aside.pinned .aside-head {{
+      font-size: 10px;
+      color: #bbb;
       letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 16px;
+      margin-bottom: 4px;
     }}
-    aside.pinned h4:first-child, aside.third h4:first-child {{ margin-top: 0; }}
-    aside.pinned ul, aside.third ul {{ list-style: disc; margin: 0 0 8px 0; padding-left: 20px; }}
-    aside.pinned li, aside.third li {{ margin: 3px 0; font-size: 11px; line-height: 1.4; }}
-    aside.pinned ul ul, aside.third ul ul {{ list-style: circle; margin: 2px 0 2px 10px; padding-left: 20px; }}
+    aside.pinned .aside-head:first-child {{ margin-top: 0; }}
+    aside.pinned ul {{ list-style: none; }}
+    aside.pinned li {{ margin: 2px 0; }}
+    aside.pinned a {{ color: #999; text-decoration: none; font-size: 11px; }}
+    aside.pinned a:hover {{ text-decoration: underline; }}
     a {{ color: #0057b7; }}
-    @media (max-width: 1200px) {{
-      aside.third {{
-        position: static;
-        width: auto;
-        margin: 16px 20px 0 30px;
-        padding: 0;
-        border-top: 1px solid #eee;
-        padding-top: 16px;
-      }}
-    }}
     @media (max-width: 1020px) {{
+      .layout {{ flex-direction: column; margin-right: 200px; }}
       aside.pinned {{
-        position: static;
         width: auto;
-        margin: 16px 20px 0 30px;
-        padding: 0;
+        padding: 16px 20px 40px 20px;
         border-top: 1px solid #eee;
-        padding-top: 16px;
       }}
     }}
     @media (max-width: 640px) {{
       nav {{
         position: static;
         width: 100%;
-        border-right: none;
+        border-left: none;
         border-bottom: 1px solid #eee;
         overflow-y: visible;
         display: flex;
       }}
       nav ul {{ display: flex; flex-wrap: wrap; gap: 4px 10px; }}
-      main {{ margin-left: 0; }}
-      aside.pinned, aside.third {{ margin-left: 0; margin-right: 0; padding: 16px 20px 0; }}
+      .layout {{ margin-left: 0; margin-right: 0; }}
     }}
   </style>
 </head>
@@ -453,15 +480,15 @@ INDEX_TEMPLATE = """\
 {sidebar}
     </ul>
   </nav>
-  <main>
+  <div class="layout">
+    <main>
+      <p id="intro">{intro}</p>
 {content}
-  </main>
-  <aside class="pinned">
-{pinned}
-  </aside>
-  <aside class="third">
-{third}
-  </aside>
+    </main>
+    <aside class="pinned">
+{aside}
+    </aside>
+  </div>
 </body>
 </html>
 """
@@ -473,29 +500,13 @@ def build() -> None:
         print(f"error: {md_file} not found", file=sys.stderr)
         sys.exit(1)
 
-    entries, sections = parse_journal(md_file)
+    entries, intro = parse_journal(md_file)
     if not entries:
         print("warning: no entries found (use ## YYYY/MM/DD headers)", file=sys.stderr)
 
-    section_anchors = [
-        (re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), name, is_col3)
-        for name, _, is_col3 in sections
+    sidebar_lines = [
+        '      <li class="nav-head">LOG</li>',
     ]
-
-    col2_anchors = [(slug, name) for slug, name, c3 in section_anchors if not c3]
-    col3_anchors = [(slug, name) for slug, name, c3 in section_anchors if c3]
-
-    sidebar_lines = []
-    if col2_anchors:
-        sidebar_lines.append('      <li class="nav-head">PINNED</li>')
-        for slug, name in col2_anchors:
-            sidebar_lines.append(f'      <li><a href="#p-{slug}">{name}</a></li>')
-    if col3_anchors:
-        sidebar_lines.append('      <li class="nav-head">MISC</li>')
-        for slug, name in col3_anchors:
-            sidebar_lines.append(f'      <li><a href="#p-{slug}">{name}</a></li>')
-    if section_anchors:
-        sidebar_lines.append('      <li class="nav-head">---</li>')
     for ds, _ in entries:
         y, m, d = (int(x) for x in ds.split("/"))
         anchor = f"d-{y}-{m:02d}-{d:02d}"
@@ -510,44 +521,52 @@ def build() -> None:
         block = f'    <h3 id="{anchor}">{ds}</h3>\n    <ul>\n{items}\n    </ul>'
         content_blocks.append(block)
 
-    def render_section_blocks(anchors: list, sections_data: list) -> list:
-        blocks = []
-        for (slug, name), (_, lines, _) in zip(anchors, sections_data):
-            items = render_items(lines)
+    aside_lines: list[str] = []
+    links_md = DIR / "writing" / "links.md"
+    if links_md.exists():
+        for section, items in parse_links(links_md, prefix="writing/"):
+            aside_lines.append(f'      <p class="aside-head">{section}</p>')
             if items:
-                blocks.append(
-                    f'    <h4 id="p-{slug}">{name}</h4>\n    <ul>\n{items}\n    </ul>'
-                )
-            else:
-                blocks.append(f'    <h4 id="p-{slug}">{name}</h4>')
-        return blocks
-
-    col2_sections = [(n, b, c) for n, b, c in sections if not c]
-    col3_sections = [(n, b, c) for n, b, c in sections if c]
-    pinned_blocks = render_section_blocks(col2_anchors, col2_sections)
-    third_blocks = render_section_blocks(col3_anchors, col3_sections)
+                aside_lines.append('      <ul>')
+                for item_html in items:
+                    aside_lines.append(f'        <li>{item_html}</li>')
+                aside_lines.append('      </ul>')
 
     html = INDEX_TEMPLATE.format(
         sidebar="\n".join(sidebar_lines),
+        intro=intro,
         content="\n\n".join(content_blocks),
-        pinned="\n".join(pinned_blocks),
-        third="\n".join(third_blocks),
+        aside="\n".join(aside_lines),
     )
 
     out = DIR / "index.html"
     out.write_text(html)
-    print(f"index.html <- {len(entries)} entries, {len(sections)} pinned sections")
+    print(f"index.html <- {len(entries)} entries")
 
-    raw = md_file.read_text()
-    for href in re.findall(r"\]\(([^)]+\.(?:md|typ))\)", raw):
-        sub = DIR / href
-        if not sub.exists():
-            print(f"  warning: {href} not found, skipping", file=sys.stderr)
-            continue
-        if sub.suffix == ".typ":
-            convert_typst(sub)
-        else:
-            convert_subpage(sub)
+    built: set[Path] = set()
+
+    def build_file(path: Path) -> None:
+        path = path.resolve()
+        if path in built:
+            return
+        built.add(path)
+        if path.suffix == ".typ":
+            convert_typst(path)
+            return
+        convert_subpage(path)
+        for href in re.findall(r"\]\(([^)]+\.(?:md|typ))\)", path.read_text()):
+            child = (path.parent / href).resolve()
+            if child.exists():
+                build_file(child)
+
+    for href in re.findall(r"\]\(([^)]+\.(?:md|typ))\)", md_file.read_text()):
+        sub = (DIR / href).resolve()
+        if sub.exists():
+            build_file(sub)
+
+    for entry_point in [DIR / "writing" / "links.md", DIR / "writing" / "int.md"]:
+        if entry_point.exists():
+            build_file(entry_point)
 
 
 if __name__ == "__main__":
