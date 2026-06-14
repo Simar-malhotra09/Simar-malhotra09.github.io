@@ -17,6 +17,9 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 My current interests include C, model interpretability (particularly for vision models), AI/Tech policy.
 
+## 2026/06/14 
+- [9:16am] [Futarchy: Vote Values, But Bet Beliefs (2000)](https://mason.gmu.edu/~rhanson/futarchy.html). A form of governance where the elected define wellbeing measures and prediction markets determine the best policies.
+- [!W][PORTMANTEAU](https://www.merriam-webster.com/dictionary/portmanteau)
 ## 2026/06/09
 - [4:49pm] Some interpretability resources: 
     - [ARENA](https://arena-chapter1-transformer-interp.streamlit.app/#ai-safety): "deeper dives into specific areas of technical AI safety like interpretability, RLHF, and evals."
