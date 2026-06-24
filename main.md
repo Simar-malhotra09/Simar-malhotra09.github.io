@@ -17,6 +17,10 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 My current interests include C, model interpretability (particularly for vision models), AI/Tech policy.
 
+## 2026/06/19 
+- [5:37pm] What the fuck do you mean my CPU has a clock? 
+- [11:57pm] I think one of the reasons I struggle with setting goals so much is my lack of flexibility. I can write down a to do list: a to b to c. But seldom do I have the foresight to build that path correctly. Furthermore, the act of doing something (new) reveals new information -- what do I do now? Do I branch off from my oh-so-dear list that I prepeared with so much trouble or do I save this potentially useful peace of information which I probably will forget about? It's funny how I've made it through highschool and 4 years of undergrad and I still can't figure this rather basic skill out. 
+
 ## 2026/06/14 
 - [9:16am] [Futarchy: Vote Values, But Bet Beliefs (2000)](https://mason.gmu.edu/~rhanson/futarchy.html). A form of governance where the elected define wellbeing measures and prediction markets determine the best policies.
 - [!W][PORTMANTEAU](https://www.merriam-webster.com/dictionary/portmanteau)
