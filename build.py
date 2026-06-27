@@ -67,7 +67,8 @@ def parse_links(path: Path, prefix: str = "") -> list[tuple[str, list[str]]]:
     sections: list[tuple[str, list[str]]] = []
     current: str | None = None
     items: list[str] = []
-    for line in path.read_text().splitlines():
+    lines= join_escaped_newlines(path.read_text().splitlines())
+    for line in lines:
         hm = re.match(r"^##\s+(.+)$", line)
         lm = re.match(r"^- (.+)$", line)
         if hm:

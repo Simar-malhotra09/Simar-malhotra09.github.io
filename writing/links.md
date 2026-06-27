@@ -8,8 +8,10 @@
 - [blogs](blogs.md) — papers which are blogs
 
 ## Opportunities
-- [DC Winter Fellowship 2027](https://www.governance.ai/post/dc-winter-fellowship-2027) — 3 months working in American AI governance and policy | Early stage and Mid level | \ **Deadline: July 12th, 2026 at 11:59PM ET.**
-- [Surplus incubator](https://surplus.dev/)  — 12 weeks | 10 Founders | Provides seed funding, advice, peers,.. | \ **Deadline: July 10th, 2026 at 11:59PM ET.**
+- [DC Winter Fellowship 2027](https://www.governance.ai/post/dc-winter-fellowship-2027) — 3 months working in American AI governance and policy | Early stage and Mid level |\
+**Deadline: July 12th, 2026 at 11:59PM ET.**
+- [Surplus incubator](https://surplus.dev/)  — 12 weeks | 10 Founders | Provides seed funding, advice, peers,.. |\
+**Deadline: July 10th, 2026 at 11:59PM ET.**
 - [Afore Founder-in-Residence](https://www.afore.vc/students) — current student or < 2yr past grad; in-person SF; rolling monthly applications
 - [Conviction Embed](https://embed.conviction.com/) — grant program for early-stage AI founders from [Conviction VC](https://www.conviction.com/)
 
