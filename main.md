@@ -9,9 +9,9 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 My current interests include C, model interpretability (particularly for vision models), AI/Tech policy.
 
 ## 2026/06/26 
-- [7:12am] I keep being suprised how *Language* models are still completely garbage at writing. Now, hey, while I do subscribe to the notion of \ 
-"Why-should-I-bother-to-read-something-you-couldn't-be-bothered-to-write."  \ 
-And I do try to practise that. But *sometimes* -- and I find this happening when I'm 30 job applications deep in a braindead applying session -- I do use it to write cover letters (why is this a thing in the big 26), emails (this is kidna pathetic) and to answer questions in applications (fuck y'all). \ 
+- [7:12am] I keep being suprised how *Language* models are still completely garbage at writing. Now, hey, I do subscribe to the notion of \ 
+"Why-should-I-bother-to-read-something-you-couldn't-be-bothered-to-write." and I do try to practice it. \ 
+But *sometimes* -- and I find this happening when I'm 30 job applications deep in a braindead applying session -- I do use it to write cover letters (why is this a thing in the big 26), emails (this is kidna pathetic) and to answer questions in applications (fuck y'all). \ 
 Anyhow, my lack of ethics aside; I, 9/10 times end up writing the thing on my own anyways because of the complete slop that models produce. \ 
 By models I usually mean the lower-tier frontier models (Sonnet, GPT 5.5, Gemeni 3.5 et al). Now if what sending a coherent email where: \ 
 (1) almost all the context is given \ 
