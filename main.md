@@ -17,6 +17,9 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 My current interests include C, model interpretability (particularly for vision models), AI/Tech policy.
 
+## 2026/06/26 
+- [3:19am] [A tiny introduction to asynchronous IO](http://www.wangafu.net/~nickm/libevent-book/01_intro.html): I was curious as to why [Libevent](https://github.com/libevent/libevent/tree/master) even is a thing. 
+
 ## 2026/06/19 
 - [5:37pm] What the fuck do you mean my CPU has a clock? 
 - [11:57pm] I think one of the reasons I struggle with setting goals so much is my lack of flexibility. I can write down a to do list: a to b to c. But seldom do I have the foresight to build that path correctly. Furthermore, the act of doing something (new) reveals new information -- what do I do now? Do I branch off from my oh-so-dear list that I prepeared with so much trouble or do I save this potentially useful peace of information which I probably will forget about? It's funny how I've made it through highschool and 4 years of undergrad and I still can't figure this rather basic skill out. 
