@@ -3,9 +3,8 @@
 ## Writing
 - [jiujutsu log](jj.md) — whatever time I spend training 
 - [writings](writings.md) — things I've written
-- [interpretability](int.md) — log of learning and writing on mechanistic interpretability
-- [papers](papers.md) — papers I've read with enough attention to explain them and found interesting
 - [blogs](blogs.md) — papers which are blogs
+- [papers](papers.md) — papers I've read with enough attention to explain them and found interesting
 
 ## Opportunities
 - [DC Winter Fellowship 2027](https://www.governance.ai/post/dc-winter-fellowship-2027) — 3 months working in American AI governance and policy | Early stage and Mid level |\
