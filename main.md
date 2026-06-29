@@ -8,7 +8,7 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 My current interests include C, model interpretability (particularly for vision models), AI/Tech policy.
 
-### 2026/06/29 
+## 2026/06/29 
 - [4:19pm] TIL [I'm as smart as a MIT grad.](https://www.lesswrong.com/posts/xiTBpBDwjubnr4MLRe/trees-are-mostly-made-of-air-and-a-generalizable-lesson-for)
 
 ## 2026/06/26 
