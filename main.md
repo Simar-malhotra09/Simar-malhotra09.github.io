@@ -8,6 +8,9 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 My current interests include C, model interpretability (particularly for vision models), AI/Tech policy.
 
+## 2026/07/03 
+- [7:10pm] [A Little Signal Processing](https://wiki.gnuradio.org/index.php?title=What_Is_GNU_Radio)
+
 ## 2026/06/29 
 - [4:19pm] TIL [I'm as smart as a MIT grad.](https://www.lesswrong.com/posts/xiTBpBDwubnr4MLRe/trees-are-mostly-made-of-air-and-a-generalizable-lesson-for)
 
