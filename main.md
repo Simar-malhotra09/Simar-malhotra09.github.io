@@ -6,10 +6,10 @@ We're currently finishing the project and preparing a manuscript for publication
 
 I'm open to opportunities and collaborations across industry, startups, and research. I'm especially interested in high-autonomy environments where I can work on challenging technical problems.
 
-My current interests include C, model interpretability (particularly for vision models), AI/Tech policy.
 
 ## 2026/07/10:
 - [8:22pm] [Reasoning Transparency](https://coefficientgiving.org/research/reasoning-transparency/): On efficient transfer of reasoning through transparent writing. 
+- [8:31pm] [Epistemic Humility](https://en.wikipedia.org/wiki/Epistemic_humility)
 ## 2026/07/08 
 - [7:59pm] Why are humans so attracted to the color red?
 ## 2026/07/03 
