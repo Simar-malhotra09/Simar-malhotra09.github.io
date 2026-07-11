@@ -8,6 +8,10 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 My current interests include C, model interpretability (particularly for vision models), AI/Tech policy.
 
+## 2026/07/10:
+- [8:22pm] [Reasoning Transparency](https://coefficientgiving.org/research/reasoning-transparency/): On efficient transfer of reasoning through transparent writing. 
+## 2026/07/08 
+- [7:59pm] Why are humans so attracted to the color red?
 ## 2026/07/03 
 - [7:10pm] [A Little Signal Processing](https://wiki.gnuradio.org/index.php?title=What_Is_GNU_Radio)
 
