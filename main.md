@@ -8,6 +8,7 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 
 ## 2026/07/14:
+- [2:59pm] Advice [For potential Ph.D. students](https://math.stanford.edu/~vakil/potentialstudents.html); this is obv for math but I think still really worth reading. 
 - [2:50pm] Great articles and books [p1](https://math.stanford.edu/~vakil/greatwriting.html) and p2[https://burttotaro.wordpress.com/2010/10/19/books-for-beginning-research/]; none of the lists are mine.
 - [2:39pm] [Is this a pardox or a tounge twister for fuck's sake](https://en.wikipedia.org/wiki/Russell%27s_paradox)
 - [2:17pm] [What exactly is functoriality?](https://math.stackexchange.com/questions/1922113/what-exactly-is-functoriality)
