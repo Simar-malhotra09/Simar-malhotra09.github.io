@@ -7,6 +7,9 @@ We're currently finishing the project and preparing a manuscript for publication
 I'm open to opportunities and collaborations across industry, startups, and research. I'm especially interested in high-autonomy environments where I can work on challenging technical problems.
 
 
+## 2026/07/14:
+- [2:10pm] [Grothendieck's *Tôhoku* paper](https://en.wikipedia.org/wiki/Grothendieck's_T%C3%B4hoku_paper); working through [The Rising Sea: Foundations of Algebric Geomerty](https://wanminliu.github.io/Ravi_AG/Ravi_AG.html) 
+
 ## 2026/07/10:
 - [8:22pm] [Reasoning Transparency](https://coefficientgiving.org/research/reasoning-transparency/): On efficient transfer of reasoning through transparent writing. 
 - [8:31pm] [Epistemic Humility](https://en.wikipedia.org/wiki/Epistemic_humility)
