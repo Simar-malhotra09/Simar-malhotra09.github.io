@@ -8,6 +8,7 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 
 ## 2026/07/14:
+- [2:50pm] Great articles and books [p1](https://math.stanford.edu/~vakil/greatwriting.html) and p2[https://burttotaro.wordpress.com/2010/10/19/books-for-beginning-research/]; none of the lists are mine.
 - [2:39pm] [Is this a pardox or a tounge twister for fuck's sake](https://en.wikipedia.org/wiki/Russell%27s_paradox)
 - [2:17pm] [What exactly is functoriality?](https://math.stackexchange.com/questions/1922113/what-exactly-is-functoriality)
 - [2:10pm] [Grothendieck's *Tôhoku* paper](https://en.wikipedia.org/wiki/Grothendieck's_T%C3%B4hoku_paper); working through [The Rising Sea: Foundations of Algebric Geomerty](https://wanminliu.github.io/Ravi_AG/Ravi_AG.html) 
