@@ -9,7 +9,8 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 ## 2026/07/14:
 - [2:10pm] [Grothendieck's *Tôhoku* paper](https://en.wikipedia.org/wiki/Grothendieck's_T%C3%B4hoku_paper); working through [The Rising Sea: Foundations of Algebric Geomerty](https://wanminliu.github.io/Ravi_AG/Ravi_AG.html) 
-
+- [2:17pm] [What exactly is functoriality?](https://math.stackexchange.com/questions/1922113/what-exactly-is-functoriality)
+- [2:39pm] [Is this a pardox or a tounge twister for fuck's sake](https://en.wikipedia.org/wiki/Russell%27s_paradox)
 ## 2026/07/10:
 - [8:22pm] [Reasoning Transparency](https://coefficientgiving.org/research/reasoning-transparency/): On efficient transfer of reasoning through transparent writing. 
 - [8:31pm] [Epistemic Humility](https://en.wikipedia.org/wiki/Epistemic_humility)
