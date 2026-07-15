@@ -8,7 +8,7 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 
 ## 2026/07/14:
-- 'AI' safety seems pretty cool (esp. from a policy perspective). A lot of it is also slightly one dimensional, imo. \
+- [11:01pm] 'AI' safety seems pretty cool (esp. from a policy perspective). A lot of it is also slightly one dimensional, imo. \
 If we stay on the current trajectory, the future seems to be heading toward a higher ratio of agent-to-agent interactions than we have agent-to-human interactions today. I did a literature search and found a lack of research on one specific topic I'm interested in: Cross-Model Identity Exploitation. \
 This is not a real term (afaik, at least not yet!), but I define it as "agents exhibiting significant deviations from the equilibrium of interactions, prompted by some emergence (whether implicit or explicit) of the identity of the parties they interact with, in a way that is either beneficial to themselves or sabotages others." \
 To that end, I reached out to the authors of the following papers: \
@@ -16,7 +16,7 @@ To that end, I reached out to the authors of the following papers: \
 - [AI in the Mirror](https://arxiv.org/pdf/2504.14325)\
 - [Why Do LLMs Struggle in Strategic Play](https://arxiv.org/abs/2605.00226)\
 (and more that didn't respond), since these were some of the works that at least raised the questions I had.\
-Talking with them, I learned that this was a topic that had come up independently across multiple research groups they worked in and around; it's just that nobody had worked on it before.While I'm still actively in conversation with them, at the very least I've received a lot of valuable feedback and, more importantly, validation that this is something worth working on. Excited to see what we can make of it over the next few weeks!
+Talking with them, I learned that this was a topic that had come up independently across multiple research groups they worked in and around; it's just that nobody had worked on it before. While I'm still actively in conversation with them, at the very least I've received a lot of valuable feedback and, more importantly, validation that this is something worth working on. Excited to see what we can make of it over the next few weeks!
 
 - [2:59pm] Advice [For potential Ph.D. students](https://math.stanford.edu/~vakil/potentialstudents.html); this is obv for math but I think still really worth reading. 
 - [2:50pm] 'Great articles and books' [p1](https://math.stanford.edu/~vakil/greatwriting.html) and [p2](https://burttotaro.wordpress.com/2010/10/19/books-for-beginning-research/); none of the lists are mine.
