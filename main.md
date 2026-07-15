@@ -8,7 +8,7 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 
 ## 2026/07/14:
-- AI safety seems pretty cool (esp. from a policy perspective). A lot of it is also slightly one dimensional, imo. \
+- 'AI' safety seems pretty cool (esp. from a policy perspective). A lot of it is also slightly one dimensional, imo. \
 If we stay on the current trajectory, the future seems to be heading toward a higher ratio of agent-to-agent interactions than we have agent-to-human interactions today. I did a literature search and found a lack of research on one specific topic I'm interested in: Cross-Model Identity Exploitation. \
 This is not a real term (afaik, at least not yet!), but I define it as "agents exhibiting significant deviations from the equilibrium of interactions, prompted by some emergence (whether implicit or explicit) of the identity of the parties they interact with, in a way that is either beneficial to themselves or sabotages others." \
 To that end, I reached out to the authors of the following papers: \
