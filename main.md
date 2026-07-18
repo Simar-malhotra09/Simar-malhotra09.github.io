@@ -6,6 +6,8 @@ We're currently finishing the project and preparing a manuscript for publication
 
 I'm open to opportunities and collaborations across industry, startups, and research. I'm especially interested in high-autonomy environments where I can work on challenging technical problems.
 
+## 2026/07/18:
+- [3:56am] [Affordances](https://oecs.mit.edu/pub/984ungzu/release/1)
 
 ## 2026/07/14:
 - [11:01pm] 'AI' safety seems pretty cool (esp. from a policy perspective). A lot of it is also slightly one dimensional, imo. \
