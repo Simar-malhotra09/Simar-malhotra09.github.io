@@ -7,6 +7,8 @@ We're currently finishing the project and preparing a manuscript for publication
 I'm open to opportunities and collaborations across industry, startups, and research. I'm especially interested in high-autonomy environments where I can work on challenging technical problems.
 
 ## 2026/07/18:
+- [11:50pm] [What is the difference between C, C99, ANSI C and GNU C?](https://stackoverflow.com/questions/17206568/what-is-the-difference-between-c-c99-ansi-c-and-gnu-c)
+- [11:55pm] [What is C23 and why should I care? ](https://software.codidact.com/posts/289414)
 - [3:56am] [Affordances](https://oecs.mit.edu/pub/984ungzu/release/1)
 
 ## 2026/07/14:
