@@ -3,7 +3,6 @@
 ## Writing
 <!-- - [jiujutsu log](jj.md) — whatever time I spend training  -->
 - [writings](writings.md) -- things I've written
-- [sleep log](sleep_log.md) -- thoughts while I'm trying to sleep
 
 ## Opportunities
 - [DC Winter Fellowship 2027](https://www.governance.ai/post/dc-winter-fellowship-2027) — 3 months working in American AI governance and policy | Early stage and Mid level |\

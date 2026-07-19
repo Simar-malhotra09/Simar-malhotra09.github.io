@@ -141,38 +141,58 @@ def join_escaped_newlines(lines: list) -> list:
 
 def render_items(lines: list) -> str:
     lines = join_escaped_newlines(lines)
-    out, i = [], 0
-    while i < len(lines):
-        if not lines[i].strip():
-            i += 1
+
+    # Parse list lines into (indent_level, html_content).
+    # A leading [iN] marker means "indent N levels" and is removed from output.
+    # Lines that start with whitespace before the dash are kept as level 1 for
+    # backwards compatibility with the old indented-sublist style.
+    items: list[tuple[int, str]] = []
+    for line in lines:
+        if not line.strip():
             continue
-        m = re.match(r"^- (.+)$", lines[i])
+        m = re.match(r"^(\s*)- (.+)$", line)
         if not m:
-            i += 1
             continue
-        content = md_inline(m.group(1))
-        subs, j = [], i + 1
-        while j < len(lines):
-            sm = re.match(r"^ +- (.+)$", lines[j])
-            if sm:
-                subs.append(md_inline(sm.group(1)))
-                j += 1
-            elif not lines[j].strip():
-                j += 1
-            else:
-                break
-        if subs:
-            out.append("        <li>")
-            out.append(f"          {content}")
-            out.append("          <ul>")
-            for s in subs:
-                out.append(f"            <li>{s}</li>")
-            out.append("          </ul>")
-            out.append("        </li>")
+        spaces, content = m.group(1), m.group(2)
+        im = re.match(r"^\[i(\d+)\]\s*", content)
+        if im:
+            level = int(im.group(1))
+            content = content[im.end():]
+        elif spaces:
+            level = 1
         else:
-            out.append(f"        <li>{content}</li>")
-        i = j
-    return "\n".join(out)
+            level = 0
+        items.append((level, md_inline(content)))
+
+    if not items:
+        return ""
+
+    # Build a tree from the flat (level, content) list.
+    root = {"level": -1, "children": []}
+    stack = [root]
+    for level, content in items:
+        while stack and stack[-1]["level"] >= level:
+            stack.pop()
+        node = {"level": level, "content": content, "children": []}
+        stack[-1]["children"].append(node)
+        stack.append(node)
+
+    def render(node: dict, depth: int) -> list[str]:
+        out: list[str] = []
+        li_indent = " " * (8 + depth * 4)
+        ul_indent = " " * (10 + depth * 4)
+        for child in node["children"]:
+            if child["children"]:
+                out.append(f"{li_indent}<li>{child['content']}")
+                out.append(f"{ul_indent}<ul>")
+                out.extend(render(child, depth + 1))
+                out.append(f"{ul_indent}</ul>")
+                out.append(f"{li_indent}</li>")
+            else:
+                out.append(f"{li_indent}<li>{child['content']}</li>")
+        return out
+
+    return "\n".join(render(root, 0))
 
 
 # ── sub-page converter ─────────────────────────────────────────────
