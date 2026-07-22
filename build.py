@@ -332,7 +332,7 @@ def convert_subpage(md_path: Path) -> None:
     print(f"  -> {html_out.relative_to(DIR)}")
 
 
-# ── typst converter ────────────────────────────────────────────────
+# typst converter
 
 
 TYPST_TEMPLATE = """\
