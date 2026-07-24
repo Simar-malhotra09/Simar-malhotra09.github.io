@@ -6,6 +6,13 @@ We're currently finishing the project and preparing a manuscript for publication
 
 I'm open to opportunities and collaborations across industry, startups, and research. I'm especially interested in high-autonomy environments where I can work on challenging technical problems.
 
+## 2026/07/23:
+- [Frequently](https://c-faq.com/) and [infrequently](https://www.seebs.net/faqs/c-iaq.html) asked questions about C. 
+- [Bessemer Venture Partners Memos](https://www.bvp.com/memos) — public investment memos for Pinterest, Twitch, and more | answers what made them invest, with hindsight commentary
+- Macroeconomics reading lists: [graduate](https://integdomain.wordpress.com/wp-content/uploads/2014/07/monetary_list_v1-11.pdf) / [undergraduate](https://integdomain.wordpress.com/2014/12/16/a-macroeconomics-reading-list-for-undergraduates/) levels
+- [Advice to a Young Tradesman (1748)](https://minio.la.utexas.edu/webeditor-files/coretexts/pdf/174820franklin20advice.pdf)
+
+
 ## 2026/07/18:
 - [11:50pm] [What is the difference between C, C99, ANSI C, GNU C?](https://stackoverflow.com/questions/17206568/what-is-the-difference-between-c-c99-ansi-c-and-gnu-c)
 - [i1] [What is C23 and why should I care? ](https://software.codidact.com/posts/289414)
