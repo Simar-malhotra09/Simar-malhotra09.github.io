@@ -26,6 +26,7 @@ MONTHS = [
 def md_inline(text: str) -> str:
     """Bold, italic, code, links.  Rewrites .md / .typ hrefs → .html."""
 
+    text = re.sub(r"\\[ \t]*\n", "<br>\n", text)
     def _link(m: re.Match) -> str:
         href = m.group(2)
         if href.endswith(".md") or href.endswith(".typ"):
@@ -38,6 +39,7 @@ def md_inline(text: str) -> str:
     text = re.sub(r"~~(.+?)~~", r"<s>\1</s>", text)
     text = re.sub(r"\*(.+?)\*", r"<em>\1</em>", text)
     text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
+    # text = re.sub(r"\\\n", "<br>\n", text)
     return text
 
 
@@ -93,7 +95,6 @@ def parse_links(path: Path, prefix: str = "") -> list[tuple[str, list[str]]]:
     return sections
 
 
-# ── journal parser ─────────────────────────────────────────────────
 
 
 def parse_journal(path: Path) -> tuple[list, str]:
@@ -125,7 +126,8 @@ def parse_journal(path: Path) -> tuple[list, str]:
     if kind == "entry":
         entries.append((key, buf))
 
-    intro = md_inline(" ".join(l.strip() for l in intro_lines if l.strip()))
+    intro = md_inline("\n".join(l.rstrip() for l in intro_lines))
+    print(intro)
     return entries, intro
 
 
@@ -404,7 +406,6 @@ def convert_typst(typ_path: Path) -> None:
     print(f"  -> {html_out.relative_to(DIR)} ({len(pages)} pages)")
 
 
-# ── main builder ───────────────────────────────────────────────────
 
 
 INDEX_TEMPLATE = """\
