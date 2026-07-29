@@ -1,6 +1,6 @@
 Hi! I'm Simar. I recently graduated from Penn State with a degree in Mathematics.
 
-For the past year and a half, I've worked as a research assistant in a materials science lab, building desktop applications for TEM image analysis that reduce researcher workflows from days to seconds. You can read more about that work [here](https://heather-fireplace-3aa.notion.site/TEMseg-demos-372d838487bf8081b835f629a6bc869d) 
+For the past year and a half, I've worked on *applied ai* in a materialslab, building tools nanoparticle analysis that reduce user workflows from days to seconds. You can read more about that work [here](https://heather-fireplace-3aa.notion.site/TEMseg-demos-372d838487bf8081b835f629a6bc869d) 
 We're currently finishing the project and preparing a manuscript for publication.\
 \
 I'm open to opportunities and collaborations across industry, startups, and research. I'm especially interested in high-autonomy environments where I can work on challenging technical problems.
