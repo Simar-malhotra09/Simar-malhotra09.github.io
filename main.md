@@ -6,6 +6,11 @@ We're currently finishing the project and preparing a manuscript for publication
 
 I'm open to opportunities and collaborations across industry, startups, and research. I'm especially interested in high-autonomy environments where I can work on challenging technical problems.
 
+## 2026/07/29:
+- [12:14am] Some updates: 
+- [i1] Got into [Nous's](https://nousresearch.com/) [AI safety reading group!](https://nous-ai-philosophy.notion.site/AI-Safety-Philosophy-Reading-Group-38bdd69661e980b68450e66c00652324); excited to see who I meet and what I learn. 
+- [i1] What even is Notion anymore lol? I just want to write. Working on a word processor which is actually just that [here](https://github.com/Simar-malhotra09/angeL01)
+
 ## 2026/07/23:
 - [Frequently](https://c-faq.com/) and [infrequently](https://www.seebs.net/faqs/c-iaq.html) asked questions about C. 
 - [Bessemer Venture Partners Memos](https://www.bvp.com/memos) — public investment memos for Pinterest, Twitch, and more | answers what made them invest, with hindsight commentary
