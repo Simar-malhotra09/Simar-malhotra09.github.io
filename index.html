@@ -117,9 +117,12 @@ Prev, I've worked at startups and defense.
 <br>
 I'm open to opportunities and collaborations across industry, startups, and research. I'm especially interested in high-autonomy environments where I can work on challenging technical problems.
 
-<strong><a href="https://github.com/Simar-malhotra09">Github</a></strong></p>
+<strong><a href="https://github.com/Simar-malhotra09">Github</a></strong>
+
+</p>
     <h3 id="d-2026-07-29">2026/07/29</h3>
     <ul>
+        <li>[8:14pm] Some info about <a href="https://en.wikipedia.org/wiki/CPython">CPython</a>, from <a href="https://people.cs.vt.edu/lyuze/files/MTP_VMIL_25_camera_ready.pdf">this paper</a>:<br>"CPython is the standard Python interpreter, written in <br>C and used by over 99% of Python applications <a href="https://www.bitecode.dev/p/whats-the-deal-with-cpython-pypy">10</a>. It works<br>by parsing Python statements and generating abstract syntax <br>tree (AST), compiling the AST to bytecode, and executing <br>the bytecode in the Python virtual machine. In CPython, all <br>objects are represented by the PyObject structure, which<br>contains metadata including type information and memory<br>management fields. Each PyObject has a refcount that tracks<br>how many references point to it in the heap. An object is<br>freed when its refcount drops to zero. The key insight behind<br>[this paper] is that reference count changes correlate with object access patterns. <br>While refcounts don’t directly measure access frequency, their fluctuations during execution provide valuable signals about object hotness.<br>Beyond reference counting, CPython includes a cyclic<br>garbage collector <a href="https://github.com/python/cpython/blob/main/InternalDocs/garbage_collector.html">43</a> that handles reference cycles—groups<br>of objects that reference each other but are unreachable from<br>the program. The cyclic GC maintains three generational<br>lists that track container objects by age, with newer objects<br>collected more frequently than older ones. Reachable objects<br>have their reference counts restored, while unreachable objects in cycles are deallocated to prevent memory leaks."<br></li>
         <li>[12:14am] Some updates: 
           <ul>
             <li>Got into <a href="https://nousresearch.com/">Nous's</a> <a href="https://nous-ai-philosophy.notion.site/AI-Safety-Philosophy-Reading-Group-38bdd69661e980b68450e66c00652324">AI safety reading group!</a>; excited to see who I meet and what I learn. </li>

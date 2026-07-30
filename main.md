@@ -7,7 +7,30 @@ Prev, I've worked at startups and defense.
 I'm open to opportunities and collaborations across industry, startups, and research. I'm especially interested in high-autonomy environments where I can work on challenging technical problems.
 
 **[Github](https://github.com/Simar-malhotra09)**
+
+
 ## 2026/07/29:
+- [8:14pm] Some info about [CPython](https://en.wikipedia.org/wiki/CPython), from [this paper](https://people.cs.vt.edu/lyuze/files/MTP_VMIL_25_camera_ready.pdf):\
+"CPython is the standard Python interpreter, written in \
+C and used by over 99% of Python applications [10](https://www.bitecode.dev/p/whats-the-deal-with-cpython-pypy). It works\
+by parsing Python statements and generating abstract syntax \
+tree (AST), compiling the AST to bytecode, and executing \
+the bytecode in the Python virtual machine. In CPython, all \
+objects are represented by the PyObject structure, which\
+contains metadata including type information and memory\
+management fields. Each PyObject has a refcount that tracks\
+how many references point to it in the heap. An object is\
+freed when its refcount drops to zero. The key insight behind\
+[this paper] is that reference count changes correlate with object access patterns. \ 
+While refcounts don’t directly measure access frequency, their fluctuations during execution provide valuable signals about object hotness.\
+Beyond reference counting, CPython includes a cyclic\
+garbage collector [43](https://github.com/python/cpython/blob/main/InternalDocs/garbage_collector.md) that handles reference cycles—groups\
+of objects that reference each other but are unreachable from\
+the program. The cyclic GC maintains three generational\
+lists that track container objects by age, with newer objects\
+collected more frequently than older ones. Reachable objects\
+have their reference counts restored, while unreachable objects in cycles are deallocated to prevent memory leaks."\
+
 - [12:14am] Some updates: 
 - [i1] Got into [Nous's](https://nousresearch.com/) [AI safety reading group!](https://nous-ai-philosophy.notion.site/AI-Safety-Philosophy-Reading-Group-38bdd69661e980b68450e66c00652324); excited to see who I meet and what I learn. 
 - [i1] What even is Notion anymore lol? I just want to write. Working on a word processor which is actually just that [here](https://github.com/Simar-malhotra09/angeL01)
