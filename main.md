@@ -10,6 +10,7 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 ## 2026/08/01:
 - [2:20pm] [Tensor Contractions](https://www.tensors.net/tutorial-1)
+- [2:45pm] [If you have some time](https://rodneymbliss.com/)
 ## 2026/07/29:
 - [8:14pm] Some info about [CPython](https://en.wikipedia.org/wiki/CPython), from [this paper](https://people.cs.vt.edu/lyuze/files/MTP_VMIL_25_camera_ready.pdf):\
 "CPython is the standard Python interpreter, written in \
