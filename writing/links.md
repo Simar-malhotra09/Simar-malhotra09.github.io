@@ -1,7 +1,7 @@
 # Links
 
 ## Writing
-- [Uhh..I don't really get this, ig](ig.md) -- weekly recap of fixing what I don't get
+<!-- - [Uhh..I don't really get this, ig](ig.md) -- weekly recap of fixing what I don't get -->
 - [writings](writings.md) -- things I've written
 
 ## Opportunities
