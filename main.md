@@ -8,9 +8,13 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 **[Github](https://github.com/Simar-malhotra09)**
 
+## 2026/08/03:
+- [12:26pm] [How to Read a Legal Opinion: A Guide for New Law Students (2007)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1160925)
+
 ## 2026/08/01:
 - [2:20pm] [Tensor Contractions](https://www.tensors.net/tutorial-1)
 - [2:45pm] [If you have some time](https://rodneymbliss.com/)
+
 ## 2026/07/29:
 - [8:14pm] Some info about [CPython](https://en.wikipedia.org/wiki/CPython), from [this paper](https://people.cs.vt.edu/lyuze/files/MTP_VMIL_25_camera_ready.pdf):\
 "CPython is the standard Python interpreter, written in \
