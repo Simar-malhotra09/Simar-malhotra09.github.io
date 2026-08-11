@@ -8,6 +8,9 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 **[Github](https://github.com/Simar-malhotra09)**
 
+## 2026/08/10:
+- [9:17pm][A small C program to print the biggest prime number](https://bellard.org/mersenne.html)
+
 ## 2026/08/03:
 - [12:26pm] [How to Read a Legal Opinion: A Guide for New Law Students (2007)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1160925)
 
