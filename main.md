@@ -8,6 +8,11 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 **[Github](https://github.com/Simar-malhotra09)**
 
+## 2026/08/12:
+- [9:58am] [Writing our own inference engine in Rust on the AMD MI355X](https://en.wikipedia.org/wiki/ROCm#Components)
+- [i1] [The Illustrated Tensor Parallelism](https://benathi.github.io/blogs/2022-11/tensor-parallelism/)
+- [i1] [AMD matrix cores](https://github.com/amd/amd-lab-notes/blob/release/matrix-cores/README.md)
+
 ## 2026/08/10:
 - [9:17pm][A small C program to print the biggest prime number](https://bellard.org/mersenne.html)
 
