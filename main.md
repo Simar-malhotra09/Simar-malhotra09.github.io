@@ -9,6 +9,8 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 **[Github](https://github.com/Simar-malhotra09)**
 
 ## 2026/08/12:
+- [9:55pm] [Who needs a runtime?](https://simar-malhotra09.github.io/writing/documents/who-needs-a-runtime.html):  I recently read [this](https://maincode.com/blog/writing-our-own-inference-engine-in-rust-on-the-amd-mi355x) post by @davidlem at @MaincodeAU on building a custom inference engine on the AMD MI355X. Really well written. I wrote sort of a companion piece breaking down some imp concepts and math behind it for anyone who wants some context before diving in. 
+
 - [9:58am] [Writing our own inference engine in Rust on the AMD MI355X](https://en.wikipedia.org/wiki/ROCm#Components)
 - [i1] [The Illustrated Tensor Parallelism](https://benathi.github.io/blogs/2022-11/tensor-parallelism/)
 - [i1] [AMD matrix cores](https://github.com/amd/amd-lab-notes/blob/release/matrix-cores/README.md)
