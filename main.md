@@ -12,6 +12,7 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 - [3:21pm] Cont. [The Rising Sea: Foundations of Algebric Geomerty](https://wanminliu.github.io/Ravi_AG/Ravi_AG.html) 
 - [i1] [What's a groupoid? What's a good example of a groupoid?](https://mathoverflow.net/questions/1114/whats-a-groupoid-whats-a-good-example-of-a-groupoid)
 - [i1] This was way harder than I though what the hell [15 puzzle](https://15puzzleonline.com/)
+- [i1] I can't say I understand this lol [Puzzles, Groups, and Groupoids](https://cornellmath.wordpress.com/2008/01/27/puzzles-groups-and-groupoids/)
 
 ## 2026/08/12:
 - [9:55pm] [NEW WRITING] [Who needs a runtime?](https://simar-malhotra09.github.io/writing/documents/who-needs-a-runtime.html):  I recently read [this](https://maincode.com/blog/writing-our-own-inference-engine-in-rust-on-the-amd-mi355x) post by @davidlem at @MaincodeAU on building a custom inference engine on the AMD MI355X. Really well written. I wrote sort of a companion piece breaking down some imp concepts and math behind it for anyone who wants some context before diving in. 
