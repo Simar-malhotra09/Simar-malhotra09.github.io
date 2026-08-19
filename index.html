@@ -89,6 +89,7 @@
   <nav>
     <ul>
       <li class="nav-head">LOG</li>
+      <li><a href="#d-2026-08-19">2026/August/19</a></li>
       <li><a href="#d-2026-08-14">2026/August/14</a></li>
       <li><a href="#d-2026-08-12">2026/August/12</a></li>
       <li><a href="#d-2026-08-10">2026/August/10</a></li>
@@ -124,9 +125,18 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 <strong><a href="https://github.com/Simar-malhotra09">Github</a></strong>
 </p>
+    <h3 id="d-2026-08-19">2026/08/19</h3>
+    <ul>
+        <li>[3:21pm] [NEW WRITING] <a href="https://simar-malhotra09.github.io/writing/documents/kv-poisoning.html">Appending phantom KV cache entries breaks constraints</a>
+          <ul>
+            <li>We test whether appending phantom key and value cache entries derived from a forbidden topic, spliced onto an otherwise completely intact system prompt and user question, can cause a small open weight model to violate a constraint it was never actually shown breaking. Using Qwen2.5-1.5B-Instruct across five topics, we find that cache injection reliably produces one of three outcomes: sustained, often fabricated violation of the constraint for the rest of the response, total generation collapse into an immediate end of sequence token, or a softer tonal shift toward the injected content without any lexical violation. The same content pasted directly into the visible prompt mostly fails to produce any effect at all. A follow up check on a second model, TinyLlama 1.1B Chat, reproduces the general taxonomy of failures while shifting which specific topic lands in which failure mode, and independently confirms that a clean sentence boundary does not eliminate the effect. This is a preliminary investigation built on a single greedy decode run per condition, so it establishes that this failure mode exists rather than how often it occurs, and it stops short of testing whether the underlying cache integrity assumption it relies on can actually be broken in a real production serving system.</li>
+          </ul>
+        </li>
+    </ul>
+
     <h3 id="d-2026-08-14">2026/08/14</h3>
     <ul>
-        <li>[3:21pm] Cont. <a href="https://wanminliu.github.io/Ravi_AG/Ravi_AG.html">The Rising Sea: Foundations of Algebric Geomerty</a> 
+        <li>[3:21pm] Cont. <a href="https://wanminliu.github.io/Ravi_AG/Ravi_AG.html">The Rising Sea: Foundations of Algebric Geomerty</a>
           <ul>
             <li><a href="https://mathoverflow.net/questions/1114/whats-a-groupoid-whats-a-good-example-of-a-groupoid">What's a groupoid? What's a good example of a groupoid?</a></li>
             <li>This was way harder than I though what the hell <a href="https://15puzzleonline.com/">15 puzzle</a></li>
@@ -137,7 +147,7 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
     <h3 id="d-2026-08-12">2026/08/12</h3>
     <ul>
-        <li>[9:55pm] [NEW WRITING] <a href="https://simar-malhotra09.github.io/writing/documents/who-needs-a-runtime.html">Who needs a runtime?</a>:  I recently read <a href="https://maincode.com/blog/writing-our-own-inference-engine-in-rust-on-the-amd-mi355x">this</a> post by @davidlem at @MaincodeAU on building a custom inference engine on the AMD MI355X. Really well written. I wrote sort of a companion piece breaking down some imp concepts and math behind it for anyone who wants some context before diving in. </li>
+        <li>[9:55pm] [NEW WRITING] <a href="https://simar-malhotra09.github.io/writing/documents/who-needs-a-runtime.html">Who needs a runtime?</a>: I recently read <a href="https://maincode.com/blog/writing-our-own-inference-engine-in-rust-on-the-amd-mi355x">this</a> post by @davidlem at @MaincodeAU on building a custom inference engine on the AMD MI355X. Really well written. I wrote sort of a companion piece breaking down some imp concepts and math behind it for anyone who wants some context before diving in.</li>
         <li>[9:58am] <a href="https://en.wikipedia.org/wiki/ROCm#Components">Writing our own inference engine in Rust on the AMD MI355X</a>
           <ul>
             <li><a href="https://benathi.github.io/blogs/2022-11/tensor-parallelism/">The Illustrated Tensor Parallelism</a></li>
@@ -165,9 +175,9 @@ I'm open to opportunities and collaborations across industry, startups, and rese
     <h3 id="d-2026-07-29">2026/07/29</h3>
     <ul>
         <li>[8:14pm] Some info about <a href="https://en.wikipedia.org/wiki/CPython">CPython</a>, from <a href="https://people.cs.vt.edu/lyuze/files/MTP_VMIL_25_camera_ready.pdf">this paper</a>:<br>"CPython is the standard Python interpreter, written in <br>C and used by over 99% of Python applications <a href="https://www.bitecode.dev/p/whats-the-deal-with-cpython-pypy">10</a>. It works<br>by parsing Python statements and generating abstract syntax <br>tree (AST), compiling the AST to bytecode, and executing <br>the bytecode in the Python virtual machine. In CPython, all <br>objects are represented by the PyObject structure, which<br>contains metadata including type information and memory<br>management fields. Each PyObject has a refcount that tracks<br>how many references point to it in the heap. An object is<br>freed when its refcount drops to zero. The key insight behind<br>[this paper] is that reference count changes correlate with object access patterns. <br>While refcounts don’t directly measure access frequency, their fluctuations during execution provide valuable signals about object hotness.<br>Beyond reference counting, CPython includes a cyclic<br>garbage collector <a href="https://github.com/python/cpython/blob/main/InternalDocs/garbage_collector.html">43</a> that handles reference cycles—groups<br>of objects that reference each other but are unreachable from<br>the program. The cyclic GC maintains three generational<br>lists that track container objects by age, with newer objects<br>collected more frequently than older ones. Reachable objects<br>have their reference counts restored, while unreachable objects in cycles are deallocated to prevent memory leaks."<br></li>
-        <li>[12:14am] Some updates: 
+        <li>[12:14am] Some updates:
           <ul>
-            <li>Got into <a href="https://nousresearch.com/">Nous's</a> <a href="https://nous-ai-philosophy.notion.site/AI-Safety-Philosophy-Reading-Group-38bdd69661e980b68450e66c00652324">AI safety reading group!</a>; excited to see who I meet and what I learn. </li>
+            <li>Got into <a href="https://nousresearch.com/">Nous's</a> <a href="https://nous-ai-philosophy.notion.site/AI-Safety-Philosophy-Reading-Group-38bdd69661e980b68450e66c00652324">AI safety reading group!</a>; excited to see who I meet and what I learn.</li>
             <li>What even is Notion anymore lol? I just want to write. Working on a word processor which is actually just that <a href="https://github.com/Simar-malhotra09/angeL01">here</a></li>
           </ul>
         </li>
@@ -175,7 +185,7 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
     <h3 id="d-2026-07-23">2026/07/23</h3>
     <ul>
-        <li><a href="https://c-faq.com/">Frequently</a> and <a href="https://www.seebs.net/faqs/c-iaq.html">infrequently</a> asked questions about C. </li>
+        <li><a href="https://c-faq.com/">Frequently</a> and <a href="https://www.seebs.net/faqs/c-iaq.html">infrequently</a> asked questions about C.</li>
         <li><a href="https://www.bvp.com/memos">Bessemer Venture Partners Memos</a> — public investment memos for Pinterest, Twitch, and more | answers what made them invest, with hindsight commentary</li>
         <li>Macroeconomics reading lists: <a href="https://integdomain.wordpress.com/wp-content/uploads/2014/07/monetary_list_v1-11.pdf">graduate</a> / <a href="https://integdomain.wordpress.com/2014/12/16/a-macroeconomics-reading-list-for-undergraduates/">undergraduate</a> levels</li>
         <li><a href="https://minio.la.utexas.edu/webeditor-files/coretexts/pdf/174820franklin20advice.pdf">Advice to a Young Tradesman (1748)</a></li>
@@ -194,16 +204,16 @@ I'm open to opportunities and collaborations across industry, startups, and rese
     <h3 id="d-2026-07-14">2026/07/14</h3>
     <ul>
         <li>[11:01pm] 'AI' safety seems pretty cool (esp. from a policy perspective). A lot of it is also slightly one dimensional, imo. <br>If we stay on the current trajectory, the future seems to be heading toward a higher ratio of agent-to-agent interactions than we have agent-to-human interactions today. I did a literature search and found a lack of research on one specific topic I'm interested in: Cross-Model Identity Exploitation. <br>This is not a real term (afaik, at least not yet!), but I define it as "agents exhibiting significant deviations from the equilibrium of interactions, prompted by some emergence (whether implicit or explicit) of the identity of the parties they interact with, in a way that is either beneficial to themselves or sabotages others." <br>To that end, I reached out to the authors of the following papers: <br>- <a href="https://arxiv.org/abs/2504.14325">FAIRGAME</a><br>- <a href="https://arxiv.org/pdf/2504.14325">AI in the Mirror</a><br>- <a href="https://arxiv.org/abs/2605.00226">Why Do LLMs Struggle in Strategic Play</a><br>(and more that didn't respond), since these were some of the works that at least raised the questions I had.<br>Talking with them, I learned that this was a topic that had come up independently across multiple research groups they worked in and around; it's just that nobody had worked on it before. While I'm still actively in conversation with them, at the very least I've received a lot of valuable feedback and, more importantly, validation that this is something worth working on. Excited to see what we can make of it over the next few weeks!</li>
-        <li>[2:59pm] Advice <a href="https://math.stanford.edu/~vakil/potentialstudents.html">For potential Ph.D. students</a>; this is obv for math but I think still really worth reading. </li>
+        <li>[2:59pm] Advice <a href="https://math.stanford.edu/~vakil/potentialstudents.html">For potential Ph.D. students</a>; this is obv for math but I think still really worth reading.</li>
         <li>[2:50pm] 'Great articles and books' <a href="https://math.stanford.edu/~vakil/greatwriting.html">p1</a> and <a href="https://burttotaro.wordpress.com/2010/10/19/books-for-beginning-research/">p2</a>; none of the lists are mine.</li>
         <li>[2:39pm] <a href="https://en.wikipedia.org/wiki/Russell%27s_paradox">Is this a pardox or a tounge twister for fuck's sake</a></li>
         <li>[2:17pm] <a href="https://math.stackexchange.com/questions/1922113/what-exactly-is-functoriality">What exactly is functoriality?</a></li>
-        <li>[2:10pm] <a href="https://en.wikipedia.org/wiki/Grothendieck's_T%C3%B4hoku_paper">Grothendieck's <em>Tôhoku</em> paper</a>; working through <a href="https://wanminliu.github.io/Ravi_AG/Ravi_AG.html">The Rising Sea: Foundations of Algebric Geomerty</a> </li>
+        <li>[2:10pm] <a href="https://en.wikipedia.org/wiki/Grothendieck's_T%C3%B4hoku_paper">Grothendieck's _Tôhoku_ paper</a>; working through <a href="https://wanminliu.github.io/Ravi_AG/Ravi_AG.html">The Rising Sea: Foundations of Algebric Geomerty</a></li>
     </ul>
 
     <h3 id="d-2026-07-10">2026/07/10</h3>
     <ul>
-        <li>[8:22pm] <a href="https://coefficientgiving.org/research/reasoning-transparency/">Reasoning Transparency</a>: On efficient transfer of reasoning through transparent writing. </li>
+        <li>[8:22pm] <a href="https://coefficientgiving.org/research/reasoning-transparency/">Reasoning Transparency</a>: On efficient transfer of reasoning through transparent writing.</li>
         <li>[8:31pm] <a href="https://en.wikipedia.org/wiki/Epistemic_humility">Epistemic Humility</a></li>
     </ul>
 
@@ -224,14 +234,14 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
     <h3 id="d-2026-06-26">2026/06/26</h3>
     <ul>
-        <li>[7:12am] I keep being suprised how <em>Language</em> models are still completely garbage at writing. Now, hey, I do subscribe to the notion of <br>"Why-should-I-bother-to-read-something-you-couldn't-be-bothered-to-write." and I do try to practice it. <br>But <em>sometimes</em> -- and I find this happening when I'm 30 job applications deep in a braindead applying session -- I do use it to write cover letters (why is this a thing in the big 26), emails (this is kidna pathetic) and to answer questions in applications (fuck y'all). <br>Anyhow, my lack of ethics aside; I, 9/10 times end up writing the thing on my own anyways because of the complete slop that models produce. <br>By models I usually mean the lower-tier frontier models (Sonnet, GPT 5.5, Gemeni 3.5 et al). Now if what sending a coherent email where: <br>(1) almost all the context is given <br>(2) the bar for the output is really low <br>requires access to mythos or me spending more time curating a prompt than I would spend actually writing it, then I concede. <br>- <br>For all the evangelizing about increases in productivity, I find language models to be nothing more than me trading my need to use my cognitive abilities or atleast keeping the usage to an extremely low quality ("Hey no hypnes; keep straight to the point; no bs"). </li>
-        <li>[3:19am] <a href="http://www.wangafu.net/~nickm/libevent-book/01_intro.html">A tiny introduction to asynchronous IO</a>: I was curious as to why <a href="https://github.com/libevent/libevent/tree/master">Libevent</a> even is a thing. </li>
+        <li>[7:12am] I keep being suprised how _Language_ models are still completely garbage at writing. Now, hey, I do subscribe to the notion of <br>"Why-should-I-bother-to-read-something-you-couldn't-be-bothered-to-write." and I do try to practice it. <br>But _sometimes_ -- and I find this happening when I'm 30 job applications deep in a braindead applying session -- I do use it to write cover letters (why is this a thing in the big 26), emails (this is kidna pathetic) and to answer questions in applications (fuck y'all). <br>Anyhow, my lack of ethics aside; I, 9/10 times end up writing the thing on my own anyways because of the complete slop that models produce. <br>By models I usually mean the lower-tier frontier models (Sonnet, GPT 5.5, Gemeni 3.5 et al). Now if what sending a coherent email where: <br>(1) almost all the context is given <br>(2) the bar for the output is really low <br>requires access to mythos or me spending more time curating a prompt than I would spend actually writing it, then I concede. <br>- <br>For all the evangelizing about increases in productivity, I find language models to be nothing more than me trading my need to use my cognitive abilities or atleast keeping the usage to an extremely low quality ("Hey no hypnes; keep straight to the point; no bs").</li>
+        <li>[3:19am] <a href="http://www.wangafu.net/~nickm/libevent-book/01_intro.html">A tiny introduction to asynchronous IO</a>: I was curious as to why <a href="https://github.com/libevent/libevent/tree/master">Libevent</a> even is a thing.</li>
     </ul>
 
     <h3 id="d-2026-06-19">2026/06/19</h3>
     <ul>
-        <li>[5:37pm] What the fuck do you mean my CPU has a clock? </li>
-        <li>[11:57pm] I think one of the reasons I struggle with setting goals so much is my lack of flexibility. I can write down a to do list: a to b to c. But seldom do I have the foresight to build that path correctly. Furthermore, the act of doing something (new) reveals new information -- what do I do now? Do I branch off from my oh-so-dear list that I prepeared with so much trouble or do I save this potentially useful peace of information which I probably will forget about? It's funny how I've made it through highschool and 4 years of undergrad and I still can't figure this rather basic skill out. </li>
+        <li>[5:37pm] What the fuck do you mean my CPU has a clock?</li>
+        <li>[11:57pm] I think one of the reasons I struggle with setting goals so much is my lack of flexibility. I can write down a to do list: a to b to c. But seldom do I have the foresight to build that path correctly. Furthermore, the act of doing something (new) reveals new information -- what do I do now? Do I branch off from my oh-so-dear list that I prepeared with so much trouble or do I save this potentially useful peace of information which I probably will forget about? It's funny how I've made it through highschool and 4 years of undergrad and I still can't figure this rather basic skill out.</li>
     </ul>
 
     <h3 id="d-2026-06-14">2026/06/14</h3>
@@ -242,7 +252,7 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
     <h3 id="d-2026-06-09">2026/06/09</h3>
     <ul>
-        <li>[4:49pm] Some interpretability resources: 
+        <li>[4:49pm] Some interpretability resources:
           <ul>
             <li><a href="https://arena-chapter1-transformer-interp.streamlit.app/#ai-safety">ARENA</a>: "deeper dives into specific areas of technical AI safety like interpretability, RLHF, and evals."</li>
             <li><a href="https://www.alignmentforum.org/posts/jP9KDyMkchuv6tHwm/how-to-become-a-mechanistic-interpretability-researcher">How To Become A Mechanistic Interpretability Researcher</a><br>More broadly, check out similar posts at <a href="https://www.alignmentforum.org/">Alignment Forum</a></li>
@@ -255,13 +265,13 @@ I'm open to opportunities and collaborations across industry, startups, and rese
     <ul>
         <li>[8:53am] Here is a timeline to almost being employed:
           <ul>
-            <li>[Tue, Apr 14, 1:50 PM] Applied to job. Pretty cool startup in NYC which leverages AI in private equity/Investment banks from a compliance pov. </li>
+            <li>[Tue, Apr 14, 1:50 PM] Applied to job. Pretty cool startup in NYC which leverages AI in private equity/Investment banks from a compliance pov.</li>
             <li>[Wen, Apr 15, 1:00 PM] Call with CTO; one of the perks of applying to startups is process is usually very fast.</li>
             <li>[Thurs, Apr 16 3:00 PM] Call with recruiter; they used a third party agency, genuinely, my whole process was so pleasent; s.o Nikki @<a href="https://www.higherpeople.co/">higher people</a>!</li>
             <li>[Thurs, Apr 28, 4:00 PM] Call with CEO; in a way was my worst interview, happens.</li>
             <li>[Thurs, May 11, 4:00 PM] Technical interview, med leetcode + AI-assisted system design. First for me and I think will be helpful in the future.</li>
-            <li>[Fri, May 15, 10:00 PM- 4:00 PM] Onsite in NYC; 1 Hr chat with CTO and CEO each; Lunch; 2 hr product design/ impl followed by 30 min discussion about it. </li>
-            <li>[Tue, May 26, 11:06 AM] <strong>Rejected.</strong> "We thought you did well on the technical side, but after discussing internally, we don't think the working style is quite the right fit for what we need at this stage.". <br>Oh well, back to 0 again but with some valuable experience. </li>
+            <li>[Fri, May 15, 10:00 PM- 4:00 PM] Onsite in NYC; 1 Hr chat with CTO and CEO each; Lunch; 2 hr product design/ impl followed by 30 min discussion about it.</li>
+            <li>[Tue, May 26, 11:06 AM] <strong>Rejected.</strong> "We thought you did well on the technical side, but after discussing internally, we don't think the working style is quite the right fit for what we need at this stage.". <br>Oh well, back to 0 again but with some valuable experience.</li>
           </ul>
         </li>
     </ul>
@@ -270,10 +280,10 @@ I'm open to opportunities and collaborations across industry, startups, and rese
     <ul>
         <li>[7:31pm] What if interest stopped existing today? <br>In <strong>[PDF link]</strong>"<a href="https://dokumen.pub/the-price-of-time-the-real-story-of-interest-9781802060164-1802060162.html">The Price of Time: The Real Story of Interest</a>" by Edward Chancellor, the first chapter retells the vision of a man named Pierre-Joseph Proudhon, "an anarchist, best known for his statement 'Interest is theft'." He argues that "The reduction in interest (to half a percent to cover the banks' operating costs) would instantly produce incalculable results all over the Republic and across Europe. There would be no more debt, insolvencies and bankruptcies would decline, consumption would increase, and labour would be guaranteed employment. Once interest was no longer taken by the parasitic class of lenders, worker incomes would rise."<br>I'm wondering how fun it'd be to write about this as a thought experiment; I've always been fascinated by how federal policy, interest rates, and their indirect effects — mortgage rates, treasury yields, etc. — interact.</li>
         <li>[4:26pm] Co-creator of the <a href="https://en.wikipedia.org/wiki/Unix">Unix OS</a>, <a href="https://en.wikipedia.org/wiki/Dennis_Ritchie">Dennis Ritchie's</a>, <a href="https://www.nokia.com/bell-labs/about/dennis-m-ritchie/">homepage</a></li>
-        <li>[5:13am] Overnight, I also worked on a prototype for <a href="https://github.com/Simar-malhotra09/vimiumrc">vimiumrc</a>; <a href="https://www.vim.org/">vim</a> is a text-editor which essentially makes the mouse obselte, super useful for programming; <a href="https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb">vimium</a> is a chrome extension that lets you use vim like keyboard shortcuts to browse the web. <br>Even when I was a kid, I could never sit still; memories of me walking in circles around my room while my mother quized me for school is still fresh in my mind, she would beg me to sit down, lest she get a headache just watching me; that habit still hasn't left me, but since I spend a lot of time at my desk, reading things on my monitor, it's hard for me to continue this since I eventually have to come back to my keyboard/mouse to scroll (lets ignore the fact that I'm blind so I can't read from afar in the first place :p ); henceforth, I am working on this tool which essentially make your phone a remote controller for your broswer; read more at the link. </li>
-        <li>[5:09am] Been reading about <a href="https://jason.ml/inspector">AI verification</a> this morning; also will be linking cool people and their websites I come across, check out @<a href="https://jasminexli.com/">jasmine</a>!; </li>
-        <li>[12:46am] I tried to spend some time thinking what kind of work I want to do for the first time in my life. I don't mean a specific role as 'software enginerr' vs 'ml research', but more along the lines of purpose I guess. 20 days <em>after</em> your graduation feels like the right time to be doing this y'know. <br>One thing that I could come up with was policy making; well, I'm not the maker, but I can do my part in make the jobs of the ones who are, easier, effective, and in line with current priorities. <br>A way I could see myself doing that is working at institutions that already work alongside the government, and at this level to growth, what seems to be approachable are think-tanks. <br>I will not lie, I have not done my homework in understanding if they actually have any net positive effect in the grand scheme of things. Hence, I've been reaching out to many people and applying for relevant roles.  </li>
-        <li>Looking for journalism (i) I enjoy reading (ii) is tractable (iii) whose funding sources I'm okay with. Some of which I found and read: 
+        <li>[5:13am] Overnight, I also worked on a prototype for <a href="https://github.com/Simar-malhotra09/vimiumrc">vimiumrc</a>; <a href="https://www.vim.org/">vim</a> is a text-editor which essentially makes the mouse obselte, super useful for programming; <a href="https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb">vimium</a> is a chrome extension that lets you use vim like keyboard shortcuts to browse the web. <br>Even when I was a kid, I could never sit still; memories of me walking in circles around my room while my mother quized me for school is still fresh in my mind, she would beg me to sit down, lest she get a headache just watching me; that habit still hasn't left me, but since I spend a lot of time at my desk, reading things on my monitor, it's hard for me to continue this since I eventually have to come back to my keyboard/mouse to scroll (lets ignore the fact that I'm blind so I can't read from afar in the first place :p ); henceforth, I am working on this tool which essentially make your phone a remote controller for your broswer; read more at the link.</li>
+        <li>[5:09am] Been reading about <a href="https://jason.ml/inspector">AI verification</a> this morning; also will be linking cool people and their websites I come across, check out @<a href="https://jasminexli.com/">jasmine</a>!;</li>
+        <li>[12:46am] I tried to spend some time thinking what kind of work I want to do for the first time in my life. I don't mean a specific role as 'software enginerr' vs 'ml research', but more along the lines of purpose I guess. 20 days _after_ your graduation feels like the right time to be doing this y'know. <br>One thing that I could come up with was policy making; well, I'm not the maker, but I can do my part in make the jobs of the ones who are, easier, effective, and in line with current priorities. <br>A way I could see myself doing that is working at institutions that already work alongside the government, and at this level to growth, what seems to be approachable are think-tanks. <br>I will not lie, I have not done my homework in understanding if they actually have any net positive effect in the grand scheme of things. Hence, I've been reaching out to many people and applying for relevant roles.</li>
+        <li>Looking for journalism (i) I enjoy reading (ii) is tractable (iii) whose funding sources I'm okay with. Some of which I found and read:
           <ul>
             <li><a href="https://apnews.com/">The Associated Press</a></li>
             <li><a href="https://www.propublica.org/">ProPublica</a>; more investigative and long horizon</li>
@@ -284,11 +294,8 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
     <h3 id="d-2026-05-21">2026/05/21</h3>
     <ul>
-        <li>Gas Flaring for Compute.
-          <ul>
-            <li>Crusoe does this; <strong>[PATENT] <a href="https://patents.justia.com/patent/20220140608">Systems and Methods for Generating and Consuming Power from Natural Gas</a></strong> </li>
-          </ul>
-        </li>
+        <li>Gas Flaring for Compute.</li>
+        <li>Crusoe does this; <strong>[PATENT] <a href="https://patents.justia.com/patent/20220140608">Systems and Methods for Generating and Consuming Power from Natural Gas</a></strong></li>
     </ul>
 
     <h3 id="d-2026-05-19">2026/05/19</h3>

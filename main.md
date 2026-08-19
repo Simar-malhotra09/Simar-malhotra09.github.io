@@ -1,6 +1,6 @@
 Hi! I'm Simar. I recently graduated from Penn State with a degree in Mathematics.
 
-For the past year and a half, I've worked on **applied ai** in a materials lab, building tools around nanoparticle analysis that reduce user workflows from days to seconds. You can read more about that work [here](https://heather-fireplace-3aa.notion.site/TEMseg-demos-372d838487bf8081b835f629a6bc869d) 
+For the past year and a half, I've worked on **applied ai** in a materials lab, building tools around nanoparticle analysis that reduce user workflows from days to seconds. You can read more about that work [here](https://heather-fireplace-3aa.notion.site/TEMseg-demos-372d838487bf8081b835f629a6bc869d)
 We're currently finishing the project and preparing a manuscript for publication.\
 Prev, I've worked at startups and defense.
 \
@@ -8,153 +8,180 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 **[Github](https://github.com/Simar-malhotra09)**
 
+## 2026/08/19:
+
+- [3:21pm] [NEW WRITING] [Appending phantom KV cache entries breaks constraints](https://simar-malhotra09.github.io/writing/documents/kv-poisoning.html)
+- [i1] We test whether appending phantom key and value cache entries derived from a forbidden topic, spliced onto an otherwise completely intact system prompt and user question, can cause a small open weight model to violate a constraint it was never actually shown breaking. Using Qwen2.5-1.5B-Instruct across five topics, we find that cache injection reliably produces one of three outcomes: sustained, often fabricated violation of the constraint for the rest of the response, total generation collapse into an immediate end of sequence token, or a softer tonal shift toward the injected content without any lexical violation. The same content pasted directly into the visible prompt mostly fails to produce any effect at all. A follow up check on a second model, TinyLlama 1.1B Chat, reproduces the general taxonomy of failures while shifting which specific topic lands in which failure mode, and independently confirms that a clean sentence boundary does not eliminate the effect. This is a preliminary investigation built on a single greedy decode run per condition, so it establishes that this failure mode exists rather than how often it occurs, and it stops short of testing whether the underlying cache integrity assumption it relies on can actually be broken in a real production serving system.
+
 ## 2026/08/14:
-- [3:21pm] Cont. [The Rising Sea: Foundations of Algebric Geomerty](https://wanminliu.github.io/Ravi_AG/Ravi_AG.html) 
+
+- [3:21pm] Cont. [The Rising Sea: Foundations of Algebric Geomerty](https://wanminliu.github.io/Ravi_AG/Ravi_AG.html)
 - [i1] [What's a groupoid? What's a good example of a groupoid?](https://mathoverflow.net/questions/1114/whats-a-groupoid-whats-a-good-example-of-a-groupoid)
 - [i1] This was way harder than I though what the hell [15 puzzle](https://15puzzleonline.com/)
 - [i1] I can't say I understand this lol [Puzzles, Groups, and Groupoids](https://cornellmath.wordpress.com/2008/01/27/puzzles-groups-and-groupoids/)
 
 ## 2026/08/12:
-- [9:55pm] [NEW WRITING] [Who needs a runtime?](https://simar-malhotra09.github.io/writing/documents/who-needs-a-runtime.html):  I recently read [this](https://maincode.com/blog/writing-our-own-inference-engine-in-rust-on-the-amd-mi355x) post by @davidlem at @MaincodeAU on building a custom inference engine on the AMD MI355X. Really well written. I wrote sort of a companion piece breaking down some imp concepts and math behind it for anyone who wants some context before diving in. 
+
+- [9:55pm] [NEW WRITING] [Who needs a runtime?](https://simar-malhotra09.github.io/writing/documents/who-needs-a-runtime.html): I recently read [this](https://maincode.com/blog/writing-our-own-inference-engine-in-rust-on-the-amd-mi355x) post by @davidlem at @MaincodeAU on building a custom inference engine on the AMD MI355X. Really well written. I wrote sort of a companion piece breaking down some imp concepts and math behind it for anyone who wants some context before diving in.
 
 - [9:58am] [Writing our own inference engine in Rust on the AMD MI355X](https://en.wikipedia.org/wiki/ROCm#Components)
 - [i1] [The Illustrated Tensor Parallelism](https://benathi.github.io/blogs/2022-11/tensor-parallelism/)
 - [i1] [AMD matrix cores](https://github.com/amd/amd-lab-notes/blob/release/matrix-cores/README.md)
 
 ## 2026/08/10:
+
 - [9:17pm][A small C program to print the biggest prime number](https://bellard.org/mersenne.html)
 
 ## 2026/08/03:
+
 - [12:26pm] [How to Read a Legal Opinion: A Guide for New Law Students (2007)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1160925)
 
 ## 2026/08/01:
+
 - [2:20pm] [Tensor Contractions](https://www.tensors.net/tutorial-1)
 - [2:45pm] [If you have some time](https://rodneymbliss.com/)
 
 ## 2026/07/29:
-- [8:14pm] Some info about [CPython](https://en.wikipedia.org/wiki/CPython), from [this paper](https://people.cs.vt.edu/lyuze/files/MTP_VMIL_25_camera_ready.pdf):\
-"CPython is the standard Python interpreter, written in \
-C and used by over 99% of Python applications [10](https://www.bitecode.dev/p/whats-the-deal-with-cpython-pypy). It works\
-by parsing Python statements and generating abstract syntax \
-tree (AST), compiling the AST to bytecode, and executing \
-the bytecode in the Python virtual machine. In CPython, all \
-objects are represented by the PyObject structure, which\
-contains metadata including type information and memory\
-management fields. Each PyObject has a refcount that tracks\
-how many references point to it in the heap. An object is\
-freed when its refcount drops to zero. The key insight behind\
-[this paper] is that reference count changes correlate with object access patterns. \ 
-While refcounts don’t directly measure access frequency, their fluctuations during execution provide valuable signals about object hotness.\
-Beyond reference counting, CPython includes a cyclic\
-garbage collector [43](https://github.com/python/cpython/blob/main/InternalDocs/garbage_collector.md) that handles reference cycles—groups\
-of objects that reference each other but are unreachable from\
-the program. The cyclic GC maintains three generational\
-lists that track container objects by age, with newer objects\
-collected more frequently than older ones. Reachable objects\
-have their reference counts restored, while unreachable objects in cycles are deallocated to prevent memory leaks."\
 
-- [12:14am] Some updates: 
-- [i1] Got into [Nous's](https://nousresearch.com/) [AI safety reading group!](https://nous-ai-philosophy.notion.site/AI-Safety-Philosophy-Reading-Group-38bdd69661e980b68450e66c00652324); excited to see who I meet and what I learn. 
+- [8:14pm] Some info about [CPython](https://en.wikipedia.org/wiki/CPython), from [this paper](https://people.cs.vt.edu/lyuze/files/MTP_VMIL_25_camera_ready.pdf):\
+  "CPython is the standard Python interpreter, written in \
+  C and used by over 99% of Python applications [10](https://www.bitecode.dev/p/whats-the-deal-with-cpython-pypy). It works\
+  by parsing Python statements and generating abstract syntax \
+  tree (AST), compiling the AST to bytecode, and executing \
+  the bytecode in the Python virtual machine. In CPython, all \
+  objects are represented by the PyObject structure, which\
+  contains metadata including type information and memory\
+  management fields. Each PyObject has a refcount that tracks\
+  how many references point to it in the heap. An object is\
+  freed when its refcount drops to zero. The key insight behind\
+  [this paper] is that reference count changes correlate with object access patterns. \
+  While refcounts don’t directly measure access frequency, their fluctuations during execution provide valuable signals about object hotness.\
+  Beyond reference counting, CPython includes a cyclic\
+  garbage collector [43](https://github.com/python/cpython/blob/main/InternalDocs/garbage_collector.md) that handles reference cycles—groups\
+  of objects that reference each other but are unreachable from\
+  the program. The cyclic GC maintains three generational\
+  lists that track container objects by age, with newer objects\
+  collected more frequently than older ones. Reachable objects\
+  have their reference counts restored, while unreachable objects in cycles are deallocated to prevent memory leaks."\
+
+- [12:14am] Some updates:
+- [i1] Got into [Nous's](https://nousresearch.com/) [AI safety reading group!](https://nous-ai-philosophy.notion.site/AI-Safety-Philosophy-Reading-Group-38bdd69661e980b68450e66c00652324); excited to see who I meet and what I learn.
 - [i1] What even is Notion anymore lol? I just want to write. Working on a word processor which is actually just that [here](https://github.com/Simar-malhotra09/angeL01)
 
 ## 2026/07/23:
-- [Frequently](https://c-faq.com/) and [infrequently](https://www.seebs.net/faqs/c-iaq.html) asked questions about C. 
+
+- [Frequently](https://c-faq.com/) and [infrequently](https://www.seebs.net/faqs/c-iaq.html) asked questions about C.
 - [Bessemer Venture Partners Memos](https://www.bvp.com/memos) — public investment memos for Pinterest, Twitch, and more | answers what made them invest, with hindsight commentary
 - Macroeconomics reading lists: [graduate](https://integdomain.wordpress.com/wp-content/uploads/2014/07/monetary_list_v1-11.pdf) / [undergraduate](https://integdomain.wordpress.com/2014/12/16/a-macroeconomics-reading-list-for-undergraduates/) levels
 - [Advice to a Young Tradesman (1748)](https://minio.la.utexas.edu/webeditor-files/coretexts/pdf/174820franklin20advice.pdf)
 
-
 ## 2026/07/18:
+
 - [11:50pm] [What is the difference between C, C99, ANSI C, GNU C?](https://stackoverflow.com/questions/17206568/what-is-the-difference-between-c-c99-ansi-c-and-gnu-c)
 - [i1] [What is C23 and why should I care? ](https://software.codidact.com/posts/289414)
 - [3:56am] [Affordances](https://oecs.mit.edu/pub/984ungzu/release/1)
 
 ## 2026/07/14:
+
 - [11:01pm] 'AI' safety seems pretty cool (esp. from a policy perspective). A lot of it is also slightly one dimensional, imo. \
-If we stay on the current trajectory, the future seems to be heading toward a higher ratio of agent-to-agent interactions than we have agent-to-human interactions today. I did a literature search and found a lack of research on one specific topic I'm interested in: Cross-Model Identity Exploitation. \
-This is not a real term (afaik, at least not yet!), but I define it as "agents exhibiting significant deviations from the equilibrium of interactions, prompted by some emergence (whether implicit or explicit) of the identity of the parties they interact with, in a way that is either beneficial to themselves or sabotages others." \
-To that end, I reached out to the authors of the following papers: \
+  If we stay on the current trajectory, the future seems to be heading toward a higher ratio of agent-to-agent interactions than we have agent-to-human interactions today. I did a literature search and found a lack of research on one specific topic I'm interested in: Cross-Model Identity Exploitation. \
+  This is not a real term (afaik, at least not yet!), but I define it as "agents exhibiting significant deviations from the equilibrium of interactions, prompted by some emergence (whether implicit or explicit) of the identity of the parties they interact with, in a way that is either beneficial to themselves or sabotages others." \
+  To that end, I reached out to the authors of the following papers: \
 - [FAIRGAME](https://arxiv.org/abs/2504.14325)\
 - [AI in the Mirror](https://arxiv.org/pdf/2504.14325)\
 - [Why Do LLMs Struggle in Strategic Play](https://arxiv.org/abs/2605.00226)\
-(and more that didn't respond), since these were some of the works that at least raised the questions I had.\
-Talking with them, I learned that this was a topic that had come up independently across multiple research groups they worked in and around; it's just that nobody had worked on it before. While I'm still actively in conversation with them, at the very least I've received a lot of valuable feedback and, more importantly, validation that this is something worth working on. Excited to see what we can make of it over the next few weeks!
+  (and more that didn't respond), since these were some of the works that at least raised the questions I had.\
+  Talking with them, I learned that this was a topic that had come up independently across multiple research groups they worked in and around; it's just that nobody had worked on it before. While I'm still actively in conversation with them, at the very least I've received a lot of valuable feedback and, more importantly, validation that this is something worth working on. Excited to see what we can make of it over the next few weeks!
 
-- [2:59pm] Advice [For potential Ph.D. students](https://math.stanford.edu/~vakil/potentialstudents.html); this is obv for math but I think still really worth reading. 
+- [2:59pm] Advice [For potential Ph.D. students](https://math.stanford.edu/~vakil/potentialstudents.html); this is obv for math but I think still really worth reading.
 - [2:50pm] 'Great articles and books' [p1](https://math.stanford.edu/~vakil/greatwriting.html) and [p2](https://burttotaro.wordpress.com/2010/10/19/books-for-beginning-research/); none of the lists are mine.
 - [2:39pm] [Is this a pardox or a tounge twister for fuck's sake](https://en.wikipedia.org/wiki/Russell%27s_paradox)
 - [2:17pm] [What exactly is functoriality?](https://math.stackexchange.com/questions/1922113/what-exactly-is-functoriality)
-- [2:10pm] [Grothendieck's *Tôhoku* paper](https://en.wikipedia.org/wiki/Grothendieck's_T%C3%B4hoku_paper); working through [The Rising Sea: Foundations of Algebric Geomerty](https://wanminliu.github.io/Ravi_AG/Ravi_AG.html) 
+- [2:10pm] [Grothendieck's _Tôhoku_ paper](https://en.wikipedia.org/wiki/Grothendieck's_T%C3%B4hoku_paper); working through [The Rising Sea: Foundations of Algebric Geomerty](https://wanminliu.github.io/Ravi_AG/Ravi_AG.html)
 
 ## 2026/07/10:
-- [8:22pm] [Reasoning Transparency](https://coefficientgiving.org/research/reasoning-transparency/): On efficient transfer of reasoning through transparent writing. 
+
+- [8:22pm] [Reasoning Transparency](https://coefficientgiving.org/research/reasoning-transparency/): On efficient transfer of reasoning through transparent writing.
 - [8:31pm] [Epistemic Humility](https://en.wikipedia.org/wiki/Epistemic_humility)
-## 2026/07/08 
+
+## 2026/07/08
+
 - [7:59pm] Why are humans so attracted to the color red?
-## 2026/07/03 
+
+## 2026/07/03
+
 - [7:10pm] [A Little Signal Processing](https://wiki.gnuradio.org/index.php?title=What_Is_GNU_Radio)
 
-## 2026/06/29 
+## 2026/06/29
+
 - [4:19pm] TIL [I'm as smart as a MIT grad.](https://www.lesswrong.com/posts/xiTBpBDwubnr4MLRe/trees-are-mostly-made-of-air-and-a-generalizable-lesson-for)
 
-## 2026/06/26 
-- [7:12am] I keep being suprised how *Language* models are still completely garbage at writing. Now, hey, I do subscribe to the notion of \ 
-"Why-should-I-bother-to-read-something-you-couldn't-be-bothered-to-write." and I do try to practice it. \ 
-But *sometimes* -- and I find this happening when I'm 30 job applications deep in a braindead applying session -- I do use it to write cover letters (why is this a thing in the big 26), emails (this is kidna pathetic) and to answer questions in applications (fuck y'all). \ 
-Anyhow, my lack of ethics aside; I, 9/10 times end up writing the thing on my own anyways because of the complete slop that models produce. \ 
-By models I usually mean the lower-tier frontier models (Sonnet, GPT 5.5, Gemeni 3.5 et al). Now if what sending a coherent email where: \ 
-(1) almost all the context is given \ 
-(2) the bar for the output is really low \ 
-requires access to mythos or me spending more time curating a prompt than I would spend actually writing it, then I concede. \ 
-- \ 
-For all the evangelizing about increases in productivity, I find language models to be nothing more than me trading my need to use my cognitive abilities or atleast keeping the usage to an extremely low quality ("Hey no hypnes; keep straight to the point; no bs"). 
-- [3:19am] [A tiny introduction to asynchronous IO](http://www.wangafu.net/~nickm/libevent-book/01_intro.html): I was curious as to why [Libevent](https://github.com/libevent/libevent/tree/master) even is a thing. 
+## 2026/06/26
 
-## 2026/06/19 
-- [5:37pm] What the fuck do you mean my CPU has a clock? 
-- [11:57pm] I think one of the reasons I struggle with setting goals so much is my lack of flexibility. I can write down a to do list: a to b to c. But seldom do I have the foresight to build that path correctly. Furthermore, the act of doing something (new) reveals new information -- what do I do now? Do I branch off from my oh-so-dear list that I prepeared with so much trouble or do I save this potentially useful peace of information which I probably will forget about? It's funny how I've made it through highschool and 4 years of undergrad and I still can't figure this rather basic skill out. 
+- [7:12am] I keep being suprised how _Language_ models are still completely garbage at writing. Now, hey, I do subscribe to the notion of \
+  "Why-should-I-bother-to-read-something-you-couldn't-be-bothered-to-write." and I do try to practice it. \
+  But _sometimes_ -- and I find this happening when I'm 30 job applications deep in a braindead applying session -- I do use it to write cover letters (why is this a thing in the big 26), emails (this is kidna pathetic) and to answer questions in applications (fuck y'all). \
+  Anyhow, my lack of ethics aside; I, 9/10 times end up writing the thing on my own anyways because of the complete slop that models produce. \
+  By models I usually mean the lower-tier frontier models (Sonnet, GPT 5.5, Gemeni 3.5 et al). Now if what sending a coherent email where: \
+  (1) almost all the context is given \
+  (2) the bar for the output is really low \
+  requires access to mythos or me spending more time curating a prompt than I would spend actually writing it, then I concede. \
+- \
+  For all the evangelizing about increases in productivity, I find language models to be nothing more than me trading my need to use my cognitive abilities or atleast keeping the usage to an extremely low quality ("Hey no hypnes; keep straight to the point; no bs").
+- [3:19am] [A tiny introduction to asynchronous IO](http://www.wangafu.net/~nickm/libevent-book/01_intro.html): I was curious as to why [Libevent](https://github.com/libevent/libevent/tree/master) even is a thing.
 
-## 2026/06/14 
+## 2026/06/19
+
+- [5:37pm] What the fuck do you mean my CPU has a clock?
+- [11:57pm] I think one of the reasons I struggle with setting goals so much is my lack of flexibility. I can write down a to do list: a to b to c. But seldom do I have the foresight to build that path correctly. Furthermore, the act of doing something (new) reveals new information -- what do I do now? Do I branch off from my oh-so-dear list that I prepeared with so much trouble or do I save this potentially useful peace of information which I probably will forget about? It's funny how I've made it through highschool and 4 years of undergrad and I still can't figure this rather basic skill out.
+
+## 2026/06/14
+
 - [9:16am] [Futarchy: Vote Values, But Bet Beliefs (2000)](https://mason.gmu.edu/~rhanson/futarchy.html). A form of governance where the elected define wellbeing measures and prediction markets determine the best policies.
 - [!W][PORTMANTEAU](https://www.merriam-webster.com/dictionary/portmanteau)
+
 ## 2026/06/09
-- [4:49pm] Some interpretability resources: 
-    - [ARENA](https://arena-chapter1-transformer-interp.streamlit.app/#ai-safety): "deeper dives into specific areas of technical AI safety like interpretability, RLHF, and evals."
-    - [How To Become A Mechanistic Interpretability Researcher](https://www.alignmentforum.org/posts/jP9KDyMkchuv6tHwm/how-to-become-a-mechanistic-interpretability-researcher)\ 
+
+- [4:49pm] Some interpretability resources:
+  - [ARENA](https://arena-chapter1-transformer-interp.streamlit.app/#ai-safety): "deeper dives into specific areas of technical AI safety like interpretability, RLHF, and evals."
+  - [How To Become A Mechanistic Interpretability Researcher](https://www.alignmentforum.org/posts/jP9KDyMkchuv6tHwm/how-to-become-a-mechanistic-interpretability-researcher)\
     More broadly, check out similar posts at [Alignment Forum](https://www.alignmentforum.org/)
-    - [A Comprehensive Mechanistic Interpretability Explainer & Glossary](https://dynalist.io/d/n2ZWtnoYHrU1s4vnFSAQ519J)
-## 2026/05/28 
+  - [A Comprehensive Mechanistic Interpretability Explainer & Glossary](https://dynalist.io/d/n2ZWtnoYHrU1s4vnFSAQ519J)
+
+## 2026/05/28
+
 - [8:53am] Here is a timeline to almost being employed:
-    - [Tue, Apr 14, 1:50 PM] Applied to job. Pretty cool startup in NYC which leverages AI in private equity/Investment banks from a compliance pov. 
-    - [Wen, Apr 15, 1:00 PM] Call with CTO; one of the perks of applying to startups is process is usually very fast.
-    - [Thurs, Apr 16 3:00 PM] Call with recruiter; they used a third party agency, genuinely, my whole process was so pleasent; s.o Nikki @[higher people](https://www.higherpeople.co/)!
-    - [Thurs, Apr 28, 4:00 PM] Call with CEO; in a way was my worst interview, happens.
-    - [Thurs, May 11, 4:00 PM] Technical interview, med leetcode + AI-assisted system design. First for me and I think will be helpful in the future.
-    - [Fri, May 15, 10:00 PM- 4:00 PM] Onsite in NYC; 1 Hr chat with CTO and CEO each; Lunch; 2 hr product design/ impl followed by 30 min discussion about it. 
-    - [Tue, May 26, 11:06 AM] **Rejected.** "We thought you did well on the technical side, but after discussing internally, we don't think the working style is quite the right fit for what we need at this stage.". \ 
-    Oh well, back to 0 again but with some valuable experience. 
+  - [Tue, Apr 14, 1:50 PM] Applied to job. Pretty cool startup in NYC which leverages AI in private equity/Investment banks from a compliance pov.
+  - [Wen, Apr 15, 1:00 PM] Call with CTO; one of the perks of applying to startups is process is usually very fast.
+  - [Thurs, Apr 16 3:00 PM] Call with recruiter; they used a third party agency, genuinely, my whole process was so pleasent; s.o Nikki @[higher people](https://www.higherpeople.co/)!
+  - [Thurs, Apr 28, 4:00 PM] Call with CEO; in a way was my worst interview, happens.
+  - [Thurs, May 11, 4:00 PM] Technical interview, med leetcode + AI-assisted system design. First for me and I think will be helpful in the future.
+  - [Fri, May 15, 10:00 PM- 4:00 PM] Onsite in NYC; 1 Hr chat with CTO and CEO each; Lunch; 2 hr product design/ impl followed by 30 min discussion about it.
+  - [Tue, May 26, 11:06 AM] **Rejected.** "We thought you did well on the technical side, but after discussing internally, we don't think the working style is quite the right fit for what we need at this stage.". \
+    Oh well, back to 0 again but with some valuable experience.
 
 ## 2026/05/25
+
 - [7:31pm] What if interest stopped existing today? \
-In **[PDF link]**"[The Price of Time: The Real Story of Interest](https://dokumen.pub/the-price-of-time-the-real-story-of-interest-9781802060164-1802060162.html)" by Edward Chancellor, the first chapter retells the vision of a man named Pierre-Joseph Proudhon, "an anarchist, best known for his statement 'Interest is theft'." He argues that "The reduction in interest (to half a percent to cover the banks' operating costs) would instantly produce incalculable results all over the Republic and across Europe. There would be no more debt, insolvencies and bankruptcies would decline, consumption would increase, and labour would be guaranteed employment. Once interest was no longer taken by the parasitic class of lenders, worker incomes would rise."\
-I'm wondering how fun it'd be to write about this as a thought experiment; I've always been fascinated by how federal policy, interest rates, and their indirect effects — mortgage rates, treasury yields, etc. — interact.
+  In **[PDF link]**"[The Price of Time: The Real Story of Interest](https://dokumen.pub/the-price-of-time-the-real-story-of-interest-9781802060164-1802060162.html)" by Edward Chancellor, the first chapter retells the vision of a man named Pierre-Joseph Proudhon, "an anarchist, best known for his statement 'Interest is theft'." He argues that "The reduction in interest (to half a percent to cover the banks' operating costs) would instantly produce incalculable results all over the Republic and across Europe. There would be no more debt, insolvencies and bankruptcies would decline, consumption would increase, and labour would be guaranteed employment. Once interest was no longer taken by the parasitic class of lenders, worker incomes would rise."\
+  I'm wondering how fun it'd be to write about this as a thought experiment; I've always been fascinated by how federal policy, interest rates, and their indirect effects — mortgage rates, treasury yields, etc. — interact.
 - [4:26pm] Co-creator of the [Unix OS](https://en.wikipedia.org/wiki/Unix), [Dennis Ritchie's](https://en.wikipedia.org/wiki/Dennis_Ritchie), [homepage](https://www.nokia.com/bell-labs/about/dennis-m-ritchie/)
 - [5:13am] Overnight, I also worked on a prototype for [vimiumrc](https://github.com/Simar-malhotra09/vimiumrc); [vim](https://www.vim.org/) is a text-editor which essentially makes the mouse obselte, super useful for programming; [vimium](https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) is a chrome extension that lets you use vim like keyboard shortcuts to browse the web. \
-Even when I was a kid, I could never sit still; memories of me walking in circles around my room while my mother quized me for school is still fresh in my mind, she would beg me to sit down, lest she get a headache just watching me; that habit still hasn't left me, but since I spend a lot of time at my desk, reading things on my monitor, it's hard for me to continue this since I eventually have to come back to my keyboard/mouse to scroll (lets ignore the fact that I'm blind so I can't read from afar in the first place :p ); henceforth, I am working on this tool which essentially make your phone a remote controller for your broswer; read more at the link. 
-- [5:09am] Been reading about [AI verification](https://jason.ml/inspector) this morning; also will be linking cool people and their websites I come across, check out @[jasmine](https://jasminexli.com/)!; 
-- [12:46am] I tried to spend some time thinking what kind of work I want to do for the first time in my life. I don't mean a specific role as 'software enginerr' vs 'ml research', but more along the lines of purpose I guess. 20 days *after* your graduation feels like the right time to be doing this y'know. \
-One thing that I could come up with was policy making; well, I'm not the maker, but I can do my part in make the jobs of the ones who are, easier, effective, and in line with current priorities. \
-A way I could see myself doing that is working at institutions that already work alongside the government, and at this level to growth, what seems to be approachable are think-tanks. \
-I will not lie, I have not done my homework in understanding if they actually have any net positive effect in the grand scheme of things. Hence, I've been reaching out to many people and applying for relevant roles.  
-- Looking for journalism (i) I enjoy reading (ii) is tractable (iii) whose funding sources I'm okay with. Some of which I found and read: 
-    - [The Associated Press](https://apnews.com/)
-    - [ProPublica](https://www.propublica.org/); more investigative and long horizon
-    - [Council on Foreign Relations](https://www.cfr.org/); [here](https://assets.cfr.org/images/Future_of_American_Strategy_Essays_updated/Future_of_American_Strategy_Essays_updated.pdf) is a cool read from them.
+  Even when I was a kid, I could never sit still; memories of me walking in circles around my room while my mother quized me for school is still fresh in my mind, she would beg me to sit down, lest she get a headache just watching me; that habit still hasn't left me, but since I spend a lot of time at my desk, reading things on my monitor, it's hard for me to continue this since I eventually have to come back to my keyboard/mouse to scroll (lets ignore the fact that I'm blind so I can't read from afar in the first place :p ); henceforth, I am working on this tool which essentially make your phone a remote controller for your broswer; read more at the link.
+- [5:09am] Been reading about [AI verification](https://jason.ml/inspector) this morning; also will be linking cool people and their websites I come across, check out @[jasmine](https://jasminexli.com/)!;
+- [12:46am] I tried to spend some time thinking what kind of work I want to do for the first time in my life. I don't mean a specific role as 'software enginerr' vs 'ml research', but more along the lines of purpose I guess. 20 days _after_ your graduation feels like the right time to be doing this y'know. \
+  One thing that I could come up with was policy making; well, I'm not the maker, but I can do my part in make the jobs of the ones who are, easier, effective, and in line with current priorities. \
+  A way I could see myself doing that is working at institutions that already work alongside the government, and at this level to growth, what seems to be approachable are think-tanks. \
+  I will not lie, I have not done my homework in understanding if they actually have any net positive effect in the grand scheme of things. Hence, I've been reaching out to many people and applying for relevant roles.
+- Looking for journalism (i) I enjoy reading (ii) is tractable (iii) whose funding sources I'm okay with. Some of which I found and read:
+  - [The Associated Press](https://apnews.com/)
+  - [ProPublica](https://www.propublica.org/); more investigative and long horizon
+  - [Council on Foreign Relations](https://www.cfr.org/); [here](https://assets.cfr.org/images/Future_of_American_Strategy_Essays_updated/Future_of_American_Strategy_Essays_updated.pdf) is a cool read from them.
 
 ## 2026/05/21
 
 - Gas Flaring for Compute.
- - Crusoe does this; **[PATENT] [Systems and Methods for Generating and Consuming Power from Natural Gas](https://patents.justia.com/patent/20220140608)** 
+- Crusoe does this; **[PATENT] [Systems and Methods for Generating and Consuming Power from Natural Gas](https://patents.justia.com/patent/20220140608)**
 
 ## 2026/05/19
 
