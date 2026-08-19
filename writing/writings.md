@@ -4,6 +4,8 @@ We test whether appending phantom key and value cache entries derived from a for
 
 ### [Who needs a runtime?](documents/who-needs-a-runtime.html)
 
+I recently read [this post](https://maincode.com/blog/writing-our-own-inference-engine-in-rust-on-the-amd-mi355x) by Maincode in which they mention the overhead a runtime has and why a really good way to optimize it for inference and inference only, is to completely remove it; I wanted to do a deeper dive with a focus on building context from smaller steps.
+
 ### [Applied AI research project @ our lab draft 2](documents/draft2.typ)
 
     - We are trying to finish writing this and will make the project open source as soon as we can.
