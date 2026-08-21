@@ -1,7 +1,0 @@
-### [A Little Signal Processing](https://wiki.gnuradio.org/index.php?title=What_Is_GNU_Radio)
-### [TIL I'm As Smart As A MIT Grad](https://www.lesswrong.com/posts/xiTBpBDwubnr4MLRe/trees-are-mostly-made-of-air-and-a-generalizable-lesson-for)
-### [Prediction Markets: When Do They Work?](https://www.lesswrong.com/posts/a4jRN9nbD79PAhWTB/prediction-markets-when-do-they-work)
-### [Beginner's Guide to Linkers](https://www.lurklurk.org/linkers/linkers.html)
-- I apparently did not know there was a difference in the way the `static` keyword works in C for variables vs functions. 
-- Learned about how we get from source files ->object files->how linker takes over. 
-- I think I finally understand the basics of static lib vs dylibs.
