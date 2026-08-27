@@ -10,6 +10,11 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 ## 2026/08/19:
 
+- [6:16pm] What the hell is a [Bounding Volume Tree](https://github.com/NVIDIA/cuBQL) twin.
+- [i1] **Can we possibly use this as a concept for TEMseg? Okay, so from [wiki](https://en.wikipedia.org/wiki/Minimum_bounding_bo:), this is essentially what we use currently: "The minimum bounding box of a point set is the same as the minimum bounding box of its convex hull, a fact which may be used heuristically to speed up computation. "
+
+## 2026/08/19:
+
 - [3:21pm] [NEW WRITING] [Appending phantom KV cache entries breaks constraints](https://simar-malhotra09.github.io/writing/documents/kv-poisoning.html)
 - [i1] We test whether appending phantom key and value cache entries derived from a forbidden topic, spliced onto an otherwise completely intact system prompt and user question, can cause a small open weight model to violate a constraint it was never actually shown breaking. Using Qwen2.5-1.5B-Instruct across five topics, we find that cache injection reliably produces one of three outcomes: sustained, often fabricated violation of the constraint for the rest of the response, total generation collapse into an immediate end of sequence token, or a softer tonal shift toward the injected content without any lexical violation. The same content pasted directly into the visible prompt mostly fails to produce any effect at all. A follow up check on a second model, TinyLlama 1.1B Chat, reproduces the general taxonomy of failures while shifting which specific topic lands in which failure mode, and independently confirms that a clean sentence boundary does not eliminate the effect. This is a preliminary investigation built on a single greedy decode run per condition, so it establishes that this failure mode exists rather than how often it occurs, and it stops short of testing whether the underlying cache integrity assumption it relies on can actually be broken in a real production serving system.
 
