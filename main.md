@@ -8,10 +8,17 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 **[Github](https://github.com/Simar-malhotra09)**
 
-## 2026/08/19:
+## 2026/08/27:
+
+- [9:54pm] Reading [Mars rover Curiosity : an inside account from Curiosity's chief engineer](https://archive.org/details/marsrovercuriosi0000mann/page/n15/mode/2up)
+- [i1] TIL Mars is only a little more than half as big as the Earth. What the fuck.
+- [i1] Did you ever think the Pythagorean theorm was useless in real life? Well, apparently, it is _the_ [signal](https://en.wikipedia.org/wiki/Gauss's_Pythagorean_right_triangle_proposal) of an intelligent civilization, so that's something.
+-
+
+## 2026/08/25:
 
 - [6:16pm] What the hell is a [Bounding Volume Tree](https://github.com/NVIDIA/cuBQL) twin.
-- [i1] **Can we possibly use this as a concept for TEMseg? Okay, so from [wiki](https://en.wikipedia.org/wiki/Minimum_bounding_bo:), this is essentially what we use currently: "The minimum bounding box of a point set is the same as the minimum bounding box of its convex hull, a fact which may be used heuristically to speed up computation. "
+- [i1] Can we possibly use this as a concept for TEMseg? Okay, so from [wiki](https://en.wikipedia.org/wiki/Minimum_bounding_bo:), this is essentially what we use currently: "The minimum bounding box of a point set is the same as the minimum bounding box of its convex hull, a fact which may be used heuristically to speed up computation. "
 
 ## 2026/08/19:
 
