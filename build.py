@@ -15,8 +15,18 @@ TYPST_PAGE_WIDTH = 900
 
 MONTHS = [
     "",
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
 ]
 
 
@@ -27,6 +37,7 @@ def md_inline(text: str) -> str:
     """Bold, italic, code, links.  Rewrites .md / .typ hrefs → .html."""
 
     text = re.sub(r"\\[ \t]*\n", "<br>\n", text)
+
     def _link(m: re.Match) -> str:
         href = m.group(2)
         if href.endswith(".md") or href.endswith(".typ"):
@@ -69,7 +80,7 @@ def parse_links(path: Path, prefix: str = "") -> list[tuple[str, list[str]]]:
     sections: list[tuple[str, list[str]]] = []
     current: str | None = None
     items: list[str] = []
-    lines= join_escaped_newlines(path.read_text().splitlines())
+    lines = join_escaped_newlines(path.read_text().splitlines())
     for line in lines:
         hm = re.match(r"^##\s+(.+)$", line)
         lm = re.match(r"^- (.+)$", line)
@@ -93,8 +104,6 @@ def parse_links(path: Path, prefix: str = "") -> list[tuple[str, list[str]]]:
     if current is not None:
         sections.append((current, items))
     return sections
-
-
 
 
 def parse_journal(path: Path) -> tuple[list, str]:
@@ -127,7 +136,6 @@ def parse_journal(path: Path) -> tuple[list, str]:
         entries.append((key, buf))
 
     intro = md_inline("\n".join(l.rstrip() for l in intro_lines))
-    print(intro)
     return entries, intro
 
 
@@ -159,7 +167,7 @@ def render_items(lines: list) -> str:
         im = re.match(r"^\[i(\d+)\]\s*", content)
         if im:
             level = int(im.group(1))
-            content = content[im.end():]
+            content = content[im.end() :]
         elif spaces:
             level = 1
         else:
@@ -287,7 +295,7 @@ def convert_subpage(md_path: Path) -> None:
             n = len(hm.group(1))
             raw = hm.group(2)
             slug = heading_slug(raw)
-            body.append(f"<h{n} id=\"{slug}\">{md_inline(raw)}</h{n}>")
+            body.append(f'<h{n} id="{slug}">{md_inline(raw)}</h{n}>')
             if n <= 3:
                 sidebar_items.append(
                     f'      <li><a href="#{slug}">{heading_plain(raw)}</a></li>'
@@ -319,8 +327,8 @@ def convert_subpage(md_path: Path) -> None:
 
     sidebar = ""
     if sidebar_items:
-        sidebar = (
-            '      <li class="nav-head">CONTENTS</li>\n' + "\n".join(sidebar_items)
+        sidebar = '      <li class="nav-head">CONTENTS</li>\n' + "\n".join(
+            sidebar_items
         )
 
     html_out.write_text(
@@ -404,8 +412,6 @@ def convert_typst(typ_path: Path) -> None:
         )
     )
     print(f"  -> {html_out.relative_to(DIR)} ({len(pages)} pages)")
-
-
 
 
 INDEX_TEMPLATE = """\
@@ -549,10 +555,10 @@ def build() -> None:
         for section, items in parse_links(links_md, prefix="writing/"):
             aside_lines.append(f'      <p class="aside-head">{section}</p>')
             if items:
-                aside_lines.append('      <ul>')
+                aside_lines.append("      <ul>")
                 for item_html in items:
-                    aside_lines.append(f'        <li>{item_html}</li>')
-                aside_lines.append('      </ul>')
+                    aside_lines.append(f"        <li>{item_html}</li>")
+                aside_lines.append("      </ul>")
 
     html = INDEX_TEMPLATE.format(
         sidebar="\n".join(sidebar_lines),
