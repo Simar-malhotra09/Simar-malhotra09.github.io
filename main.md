@@ -8,6 +8,10 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 **[Github](https://github.com/Simar-malhotra09)**
 
+## 2026/08/28:
+
+- [9:29pm] [Modern C++ Programming](https://federico-busato.github.io/Modern-CPP-Programming/)
+
 ## 2026/08/27:
 
 - [9:54pm] Reading [Mars rover Curiosity : an inside account from Curiosity's chief engineer](https://archive.org/details/marsrovercuriosi0000mann/page/n15/mode/2up)
