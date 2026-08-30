@@ -45,7 +45,7 @@ I'm open to opportunities and collaborations across industry, startups, and rese
   4294967295: ff ff ff ff
   ```
 - Although I implicitly knew this (that doesn't mean anything), -1 and 2^32 -1 are the exact same\
-  bytes. [Source of awakening](https://federico-busato.github.io/Modern-CPP-Programming/htmls/04.Basic_Concepts_II.html#[13,%22XYZ%22,28.346,199.211,null])
+  bytes. [Source of awakening](https://federico-busato.github.io/Modern-CPP-Programming/htmls/04.Basic_Concepts_II.html#[13,%22XYZ%22,28.346,199.211,null]), slide 21.
 
 ## 2026/08/28:
 
