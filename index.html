@@ -44,6 +44,7 @@
     main ul { margin: 8px 0 16px 20px; }
     main li { margin: 4px 0; }
     main img { max-width: 100%; height: auto; }
+    main pre { background: #f5f5f5; padding: 10px 12px; margin: 6px 0; overflow-x: auto; }
     aside.pinned {
       width: 280px;
       padding: 20px 0 40px 32px;
@@ -132,7 +133,32 @@ I'm open to opportunities and collaborations across industry, startups, and rese
     <h3 id="d-2026-08-30">2026/08/30</h3>
     <ul>
         <li>[5:18pm] <a href="https://stackoverflow.com/questions/46073295/implicit-type-promotion-rules">Implicit type promotion rules</a> in C.</li>
-        <li>```</li>
+        <li>lang:C<pre><code>#include &lt;stdint.h&gt;
+#include &lt;stdio.h&gt;
+
+void print_bytes(void *ptr, size_t n) {
+  unsigned char *bytes = ptr;
+  for (size_t i = 0; i &lt; n; i++) {
+    printf("%02x ", bytes[i]);
+  }
+  printf("\n");
+}
+
+int main() {
+  int a = -1;
+  int b = 1;
+  unsigned int c = 4294967295U;
+  printf("-1: ");
+  print_bytes(&amp;a, sizeof(a));
+  printf("1: ");
+  print_bytes(&amp;b, sizeof(b));
+  printf("4294967295: ");
+  print_bytes(&amp;c, sizeof(c));
+}</code></pre></li>
+        <li>Output:<pre><code>-1: ff ff ff ff
+1: 01 00 00 00
+4294967295: ff ff ff ff</code></pre></li>
+        <li>Although I implicitly knew this (that doesn't mean anything), -1 and 2^32 -1 are the exact same bytes</li>
     </ul>
 
     <h3 id="d-2026-08-28">2026/08/28</h3>

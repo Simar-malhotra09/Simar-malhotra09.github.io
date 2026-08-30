@@ -11,43 +11,40 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 ## 2026/08/30:
 
 - [5:18pm] [Implicit type promotion rules](https://stackoverflow.com/questions/46073295/implicit-type-promotion-rules) in C.
-- ```
-    #include <stdint.h>
-    #include <stdio.h>
-
-    void print_bytes(void *ptr, size_t n) {
-      unsigned char *bytes = ptr;
-
-      for (size_t i = 0; i < n; i++) {
-        printf("%02x ", bytes[i]);
-      }
-      printf("\n");
-    }
-
-    int main() {
-      int a = -1;
-      int b = 1;
-      unsigned int c = 4294967295U;
-
-      printf("-1:              ");
-      print_bytes(&a, sizeof(a));
-
-      printf("1:               ");
-      print_bytes(&b, sizeof(b));
-
-      printf("4294967295:      ");
-      print_bytes(&c, sizeof(c));
-    }
-
-    Output:
-    -1:              ff ff ff ff
-    1:               01 00 00 00
-    4294967295:      ff ff ff ff
-  ```
+- lang:C
 
 ```
+  #include <stdint.h>
+  #include <stdio.h>
 
-Although I implicitly knew this (that doesn't mean anythign), -1 and 2^32 -1 are the exact same bytes
+  void print_bytes(void *ptr, size_t n) {
+    unsigned char *bytes = ptr;
+    for (size_t i = 0; i < n; i++) {
+      printf("%02x ", bytes[i]);
+    }
+    printf("\n");
+  }
+
+  int main() {
+    int a = -1;
+    int b = 1;
+    unsigned int c = 4294967295U;
+    printf("-1: ");
+    print_bytes(&a, sizeof(a));
+    printf("1: ");
+    print_bytes(&b, sizeof(b));
+    printf("4294967295: ");
+    print_bytes(&c, sizeof(c));
+  }
+```
+
+- Output:
+  ```
+  -1: ff ff ff ff
+  1: 01 00 00 00
+  4294967295: ff ff ff ff
+  ```
+- Although I implicitly knew this (that doesn't mean anything), -1 and 2^32 -1 are the exact same bytes
 
 ## 2026/08/28:
 
@@ -245,4 +242,7 @@ Although I implicitly knew this (that doesn't mean anythign), -1 and 2^32 -1 are
 - Whats gets factored into choosing which exchange to primarily list a company on?
 - Auto industry in the late 2000s; Obama administration's intervention.
   - **[PAPER][!OPEN ACCESS]** [Restructuring of the U.S. Auto Industry in the 2008-2009 Recession](https://journals-sagepub-com.ezaccess.libraries.psu.edu/doi/epub/10.1177/0891242413481243)
+
+```
+
 ```

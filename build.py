@@ -6,7 +6,8 @@ Run:  python3 build.py           # full build
       python3 build.py <file>    # build a single .md or .typ file
 """
 
-import re, sys, subprocess, tempfile
+import re, sys, subprocess, tempfile, textwrap
+from html import escape as html_escape
 from pathlib import Path
 
 DIR = Path(__file__).resolve().parent
@@ -52,6 +53,37 @@ def md_inline(text: str) -> str:
     text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
     # text = re.sub(r"\\\n", "<br>\n", text)
     return text
+
+
+def split_code_blocks(lines: list) -> tuple[list, list]:
+    """Pull ``` fenced blocks out of a line stream.
+
+    Returns (lines, blocks): each fenced block is replaced by a placeholder
+    line "\\x00code<N>\\x00" and blocks[N] holds its rendered <pre> html.
+    Content is html-escaped and the common leading indent is removed, but
+    relative indentation is preserved verbatim."""
+    blocks: list[str] = []
+    out: list[str] = []
+    i = 0
+    while i < len(lines):
+        if re.match(r"^\s*```", lines[i]):
+            body: list[str] = []
+            i += 1
+            while i < len(lines) and not re.match(r"^\s*```\s*$", lines[i]):
+                body.append(lines[i])
+                i += 1
+            if i < len(lines):
+                i += 1  # skip the closing fence
+            code = textwrap.dedent("\n".join(body)).strip("\n")
+            if code.strip():
+                blocks.append(
+                    f"<pre><code>{html_escape(code, quote=False)}</code></pre>"
+                )
+                out.append(f"\x00code{len(blocks) - 1}\x00")
+        else:
+            out.append(lines[i])
+            i += 1
+    return out, blocks
 
 
 def heading_slug(raw: str) -> str:
@@ -115,7 +147,18 @@ def parse_journal(path: Path) -> tuple[list, str]:
     buf: list[str] = []
     in_comment = False
 
+    in_code = False
     for line in text.splitlines():
+        if re.match(r"^\s*```", line):
+            in_code = not in_code
+            if kind is None:
+                intro_lines.append(line)
+            else:
+                buf.append(line)
+            continue
+        if in_code:
+            buf.append(line)
+            continue
         if "<!--" in line:
             in_comment = True
         if in_comment:
@@ -142,7 +185,9 @@ def parse_journal(path: Path) -> tuple[list, str]:
 def join_escaped_newlines(lines: list) -> list:
     out = []
     for line in lines:
-        if out and out[-1].rstrip().endswith("\\"):
+        if "\x00" in line or (out and "\x00" in out[-1]):
+            out.append(line)
+        elif out and out[-1].rstrip().endswith("\\"):
             out[-1] = out[-1].rstrip()[:-1] + "<br>" + line.lstrip()
         else:
             out.append(line)
@@ -150,7 +195,9 @@ def join_escaped_newlines(lines: list) -> list:
 
 
 def render_items(lines: list) -> str:
+    lines, code_blocks = split_code_blocks(lines)
     lines = join_escaped_newlines(lines)
+    code_marker = re.compile(r"\x00code(\d+)\x00")
 
     # Parse list lines into (indent_level, html_content).
     # A leading [iN] marker means "indent N levels" and is removed from output.
@@ -159,6 +206,15 @@ def render_items(lines: list) -> str:
     items: list[tuple[int, str]] = []
     for line in lines:
         if not line.strip():
+            continue
+        cm = code_marker.fullmatch(line.strip())
+        if cm:
+            pre = code_blocks[int(cm.group(1))]
+            if items:
+                level, content = items[-1]
+                items[-1] = (level, content + pre)
+            else:
+                items.append((0, pre))
             continue
         m = re.match(r"^(\s*)- (.+)$", line)
         if not m:
@@ -280,7 +336,9 @@ SUBPAGE_TEMPLATE = """\
 
 def convert_subpage(md_path: Path) -> None:
     text = md_path.read_text()
-    lines = join_escaped_newlines(text.splitlines())
+    lines, code_blocks = split_code_blocks(text.splitlines())
+    lines = join_escaped_newlines(lines)
+    code_marker = re.compile(r"\x00code(\d+)\x00")
     body: list[str] = []
     sidebar_items: list[str] = []
     in_ul = False
@@ -288,7 +346,13 @@ def convert_subpage(md_path: Path) -> None:
     for line in lines:
         hm = re.match(r"^(#{1,6})\s+(.+)$", line)
         lm = re.match(r"^(\s*)- (.+)$", line)
-        if hm:
+        cm = code_marker.fullmatch(line.strip())
+        if cm:
+            if in_ul:
+                body.append("</ul>")
+                in_ul = False
+            body.append(code_blocks[int(cm.group(1))])
+        elif hm:
             if in_ul:
                 body.append("</ul>")
                 in_ul = False
@@ -461,6 +525,7 @@ INDEX_TEMPLATE = """\
     main ul {{ margin: 8px 0 16px 20px; }}
     main li {{ margin: 4px 0; }}
     main img {{ max-width: 100%; height: auto; }}
+    main pre {{ background: #f5f5f5; padding: 10px 12px; margin: 6px 0; overflow-x: auto; }}
     aside.pinned {{
       width: 280px;
       padding: 20px 0 40px 32px;
