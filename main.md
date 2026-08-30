@@ -8,6 +8,10 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 **[Github](https://github.com/Simar-malhotra09)**
 
+## 2026/08/30:
+
+- [5:18pm] [Implicit type promotion rules](https://stackoverflow.com/questions/46073295/implicit-type-promotion-rules) in C.
+
 ## 2026/08/28:
 
 - [9:29pm] [Modern C++ Programming](https://federico-busato.github.io/Modern-CPP-Programming/)
