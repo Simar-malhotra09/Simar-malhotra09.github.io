@@ -1,346 +1,537 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TemSeg case study</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TemSeg case study</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>
+        TemSeg: turning manual particle tracing into automatic measurement
+      </h1>
+      <p class="subhead">
+        TemSeg is a desktop tool for materials researchers that replaces manual
+        particle tracing in Transmission Electron Microscopy images with
+        automated instance segmentation, calibrated morphology, and export. I
+        built the whole thing myself, from the FastAPI backend and the Next.js
+        frontend to the PyWebView desktop bundle, and it can run three different
+        segmentation models interchangeably.
+      </p>
+    </header>
 
-<header class="hero">
-  <h1>TemSeg: turning manual particle tracing into automatic measurement</h1>
-  <p class="subhead">
-    TemSeg is a desktop tool for materials researchers that replaces manual
-    particle tracing in Transmission Electron Microscopy images with
-    automated instance segmentation, calibrated morphology, and export. I
-    built the whole thing myself, from the FastAPI backend and the Next.js
-    frontend to the PyWebView desktop bundle, and it can run three
-    different segmentation models interchangeably.
-  </p>
-  <div class="stat-strip">
-    <div class="stat"><span class="n">6.56s</span><span class="l">to segment a field</span></div>
-    <div class="stat"><span class="n">3</span><span class="l">interchangeable models</span></div>
-  </div>
-</header>
+    <main>
+      <p class="lede">
+        Researchers doing particle size analysis on TEM micrographs
+        traditionally trace and measure particles by hand in tools like ImageJ,
+        one particle at a time, which can take tens of minutes for a field with
+        a few hundred particles. I built TemSeg so a researcher can upload a
+        micrograph and get a full instance segmentation with per particle
+        morphology in seconds, then refine, validate, and export everything from
+        the same session.
+      </p>
 
-<main>
+      <h2><span class="idx">§</span>Architecture</h2>
 
-<p class="lede">
-  Researchers doing particle size analysis on TEM micrographs traditionally
-  trace and measure particles by hand in tools like ImageJ, one particle
-  at a time, which can take tens of minutes for a field with a few hundred
-  particles. I built TemSeg so a researcher can upload a micrograph and get
-  a full instance segmentation with per particle morphology in seconds,
-  then refine, validate, and export everything from the same session.
-</p>
+      <p>Click a folder to see what is actually in it.</p>
 
-<h2><span class="idx">§</span>Architecture</h2>
+      <div class="filetree" role="tree" aria-label="Project file structure">
+        <ul>
+          <li class="folder open">
+            <button class="toggle" aria-expanded="true">
+              <span class="name">backend/</span>
+            </button>
+            <p class="desc">
+              The FastAPI service and the PyTorch models underneath it.
+            </p>
+            <ul>
+              <li class="folder open">
+                <button class="toggle" aria-expanded="true">
+                  <span class="name">src/app/</span>
+                </button>
+                <ul>
+                  <li class="folder">
+                    <button class="toggle" aria-expanded="false">
+                      <span class="name">api/</span>
+                    </button>
+                    <p class="desc">
+                      The FastAPI server and every endpoint it exposes.
+                    </p>
+                    <ul>
+                      <li class="file">
+                        <span class="name">main.py</span
+                        ><span class="desc">The server entry point.</span>
+                      </li>
+                      <li class="folder">
+                        <button class="toggle" aria-expanded="false">
+                          <span class="name">routers/</span>
+                        </button>
+                        <p class="desc">
+                          Every request the frontend makes lands in one of these
+                          files.
+                        </p>
+                        <ul>
+                          <li class="file">
+                            <span class="name">images.py</span
+                            ><span class="desc"
+                              >Upload, preview, and metadata extraction.</span
+                            >
+                          </li>
+                          <li class="file">
+                            <span class="name">segment.py</span
+                            ><span class="desc"
+                              >Runs detection and segmentation.</span
+                            >
+                          </li>
+                          <li class="file">
+                            <span class="name">masks.py</span
+                            ><span class="desc"
+                              >Mask upload, refinement, and download.</span
+                            >
+                          </li>
+                          <li class="file">
+                            <span class="name">rf.py</span
+                            ><span class="desc"
+                              >Train and propose endpoints for RF
+                              Recovery.</span
+                            >
+                          </li>
+                          <li class="file">
+                            <span class="name">ground_truths.py</span
+                            ><span class="desc"
+                              >Scores a segmentation against an uploaded ground
+                              truth mask.</span
+                            >
+                          </li>
+                          <li class="file">
+                            <span class="name">export.py</span
+                            ><span class="desc"
+                              >Bundles a session's outputs into a zip.</span
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="folder">
+                    <button class="toggle" aria-expanded="false">
+                      <span class="name">models/</span>
+                    </button>
+                    <p class="desc">
+                      One interface, three interchangeable implementations.
+                    </p>
+                    <ul>
+                      <li class="file">
+                        <span class="name">base_model.py</span
+                        ><span class="desc"
+                          >The interface every segmentation model has to
+                          implement.</span
+                        >
+                      </li>
+                      <li class="folder">
+                        <button class="toggle" aria-expanded="false">
+                          <span class="name">impls/</span>
+                        </button>
+                        <ul>
+                          <li class="file">
+                            <span class="name">yolosam.py</span
+                            ><span class="desc"
+                              >YOLOv8 detection plus SAM segmentation. The
+                              default pipeline.</span
+                            >
+                          </li>
+                          <li class="file">
+                            <span class="name">maskrcnn.py</span
+                            ><span class="desc"
+                              >A single stage instance segmentation
+                              baseline.</span
+                            >
+                          </li>
+                          <li class="file">
+                            <span class="name">rf_recovery.py</span
+                            ><span class="desc"
+                              >A random forest pixel classifier that recovers
+                              particles the primary model missed.</span
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="folder">
+                <button class="toggle" aria-expanded="false">
+                  <span class="name">sessions/{id}/</span>
+                </button>
+                <p class="desc">
+                  One folder per session. This is the whole database.
+                </p>
+                <ul>
+                  <li class="file">
+                    <span class="name">instances.json</span
+                    ><span class="desc"
+                      >Particle contours and bounding boxes. The stats panel,
+                      the per particle table, the highlighting, and the export
+                      all read from this file instead of recomputing
+                      anything.</span
+                    >
+                  </li>
+                  <li class="file">
+                    <span class="name">instances.npy</span
+                    ><span class="desc"
+                      >The labeled mask array behind instances.json. Loaded
+                      alongside it, never regenerated.</span
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="folder">
+            <button class="toggle" aria-expanded="false">
+              <span class="name">frontend/</span>
+            </button>
+            <p class="desc">
+              A static Next.js export. No server side rendering, no Node at
+              runtime.
+            </p>
+            <ul>
+              <li class="folder">
+                <button class="toggle" aria-expanded="false">
+                  <span class="name">src/app/workspace/</span>
+                </button>
+                <ul>
+                  <li class="file">
+                    <span class="name">page.tsx</span
+                    ><span class="desc"
+                      >The canvas page. Entry point for the whole
+                      workspace.</span
+                    >
+                  </li>
+                  <li class="folder">
+                    <button class="toggle" aria-expanded="false">
+                      <span class="name">components/</span>
+                    </button>
+                    <p class="desc">
+                      Canvas renderers. No business logic lives here.
+                    </p>
+                    <ul>
+                      <li class="file">
+                        <span class="name">AnnotateCanvas.tsx</span
+                        ><span class="desc"
+                          >Object proposals and polygon drawing.</span
+                        >
+                      </li>
+                      <li class="file">
+                        <span class="name">RefineCanvas.tsx</span
+                        ><span class="desc">Manual mask editing.</span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="folder">
+                    <button class="toggle" aria-expanded="false">
+                      <span class="name">hooks/</span>
+                    </button>
+                    <p class="desc">State lives here, not in the components.</p>
+                    <ul>
+                      <li class="file">
+                        <span class="name">useSegmentationState.ts</span
+                        ><span class="desc"
+                          >Segmentation, masks, and ground truth state.</span
+                        >
+                      </li>
+                      <li class="file">
+                        <span class="name">useRefineState.ts</span
+                        ><span class="desc">Editing state.</span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="file">
+                <span class="name">lib/api.ts</span
+                ><span class="desc"
+                  >Every request to the backend goes through this one
+                  file.</span
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
 
-<p>Click a folder to see what is actually in it.</p>
+      <h2><span class="idx">§</span>Walkthrough</h2>
 
-<div class="filetree" role="tree" aria-label="Project file structure">
-  <ul>
-    <li class="folder open">
-      <button class="toggle" aria-expanded="true"><span class="name">backend/</span></button>
-      <p class="desc">The FastAPI service and the PyTorch models underneath it.</p>
-      <ul>
-        <li class="folder open">
-          <button class="toggle" aria-expanded="true"><span class="name">src/app/</span></button>
-          <ul>
-            <li class="folder">
-              <button class="toggle" aria-expanded="false"><span class="name">api/</span></button>
-              <p class="desc">The FastAPI server and every endpoint it exposes.</p>
-              <ul>
-                <li class="file"><span class="name">main.py</span><span class="desc">The server entry point.</span></li>
-                <li class="folder">
-                  <button class="toggle" aria-expanded="false"><span class="name">routers/</span></button>
-                  <p class="desc">Every request the frontend makes lands in one of these files.</p>
-                  <ul>
-                    <li class="file"><span class="name">images.py</span><span class="desc">Upload, preview, and metadata extraction.</span></li>
-                    <li class="file"><span class="name">segment.py</span><span class="desc">Runs detection and segmentation.</span></li>
-                    <li class="file"><span class="name">masks.py</span><span class="desc">Mask upload, refinement, and download.</span></li>
-                    <li class="file"><span class="name">rf.py</span><span class="desc">Train and propose endpoints for RF Recovery.</span></li>
-                    <li class="file"><span class="name">ground_truths.py</span><span class="desc">Scores a segmentation against an uploaded ground truth mask.</span></li>
-                    <li class="file"><span class="name">export.py</span><span class="desc">Bundles a session's outputs into a zip.</span></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="folder">
-              <button class="toggle" aria-expanded="false"><span class="name">models/</span></button>
-              <p class="desc">One interface, three interchangeable implementations.</p>
-              <ul>
-                <li class="file"><span class="name">base_model.py</span><span class="desc">The interface every segmentation model has to implement.</span></li>
-                <li class="folder">
-                  <button class="toggle" aria-expanded="false"><span class="name">impls/</span></button>
-                  <ul>
-                    <li class="file"><span class="name">yolosam.py</span><span class="desc">YOLOv8 detection plus SAM segmentation. The default pipeline.</span></li>
-                    <li class="file"><span class="name">maskrcnn.py</span><span class="desc">A single stage instance segmentation baseline.</span></li>
-                    <li class="file"><span class="name">rf_recovery.py</span><span class="desc">A random forest pixel classifier that recovers particles the primary model missed.</span></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
+      <p>
+        What follows is the real workflow, captured by driving the actual app,
+        backend and frontend unmodified, through its own HTTP API rather than
+        through mockups.
+      </p>
+
+      <h3>1. Ingest and calibrate</h3>
+      <p>
+        Upload accepts TIF, TIFF, JPEG, PNG, EMD, which is the vendor specific
+        TEM container format, and NPY. When an image is uploaded, the backend
+        parses whatever acquisition metadata is embedded in the file and
+        attempts automatic scale bar detection, so downstream measurements like
+        Feret diameter and area come out in calibrated units instead of raw
+        pixels. When that recovery fails, as it does here because this crop has
+        a scale bar burned directly into the pixels rather than embedded as
+        metadata, the app reports pixel size as Not Found instead of guessing,
+        and lets the value be entered manually.
+      </p>
+      <figure class="pair">
+        <img src="assets/01_upload_empty.jpg" alt="Empty upload workspace" />
+        <img
+          src="assets/02_upload_loaded.jpg"
+          alt="Loaded image with metadata panel"
+        />
+      </figure>
+      <figcaption>
+        On the left is the empty workspace with the supported formats listed. On
+        the right is the app after upload, with the session id, dimensions, and
+        format recovered, and the pixel size honestly reported as not found.
+      </figcaption>
+
+      <h3>2. Choose a model</h3>
+      <p>
+        YoloSAM, MaskRCNN, or MaskRCNN Synthetic can be selected for any run.
+      </p>
+      <figure>
+        <img src="assets/03_model_select.jpg" alt="Model selector open" />
+      </figure>
+      <figcaption>
+        The model selector, open. YoloSAM is used as the default for the rest of
+        this walkthrough.
+      </figcaption>
+
+      <h3>3. Segment automatically</h3>
+      <p>
+        A single action produces a full instance segmentation. Every particle is
+        outlined and colorized individually, and the stats populate immediately.
+        On this micrograph, YoloSAM returned 270 particles in 6.56 seconds, with
+        a mean diameter of 25.53 pixels, a mean circularity of 0.929, and a mean
+        aspect ratio of 1.15. This is the core value of the tool: work that used
+        to take tens of minutes of manual tracing is fully segmented and
+        quantified in a few seconds.
+      </p>
+      <figure>
+        <img
+          src="assets/04_auto_segment.jpg"
+          alt="Automated segmentation result"
+        />
+      </figure>
+      <figcaption>
+        270 particles detected and colorized in 6.56 seconds, with live
+        aggregate stats in the panel on the right.
+      </figcaption>
+
+      <h3>4. Control the field</h3>
+      <p>
+        Rectangular blackout regions constrain what the model can see, and they
+        work in either direction. Exclude mode masks a region out, which is
+        useful for scale bars, labels, or damaged film. Isolate mode does the
+        opposite, restricting the next run to only the drawn region. Changing a
+        region immediately flags the current result as stale, so it is never
+        possible to mistake an unrefreshed segmentation for one that reflects
+        the current selection.
+      </p>
+      <figure class="pair">
+        <img src="assets/05_blackout_region.jpg" alt="Exclude region drawn" />
+        <img src="assets/06_blackout_inverse.jpg" alt="Isolate regions drawn" />
+      </figure>
+      <figcaption>
+        On the left, exclude mode with one region pending. On the right, isolate
+        mode with two regions drawn. The next run will only see their contents.
+      </figcaption>
+
+      <h3>5. Prompt for a specific miss</h3>
+      <p>
+        Beyond full field detection, a click is treated as a point prompt to SAM
+        and goes through the same propose then accept flow, which lets a
+        researcher pull in a single missed particle without running detection
+        over the whole image again. The example below is included because it
+        failed cleanly. A click on a texture or noise patch was rejected by the
+        backend with a 400 response, reading no box variant within area window,
+        instead of silently returning a low quality mask. That rejection is a
+        guardrail rather than a bug. The heuristic requires a plausible particle
+        sized structure around the click and refuses to invent one where none
+        exists.
+      </p>
+      <figure>
+        <img
+          src="assets/08_point_prompt.jpg"
+          alt="Point prompt rejected by backend"
+        />
+      </figure>
+      <figcaption>
+        A point prompt on a patch of background texture is rejected by the
+        backend instead of producing a spurious mask, and the UI shows the
+        rejection reason directly.
+      </figcaption>
+
+      <h3>6. Validate against ground truth</h3>
+      <p>
+        When a paired annotation mask is available, IoU and Dice are computed
+        live and overlaid on the same canvas as the segmentation, so any
+        discrepancy can be inspected visually rather than read only as a single
+        summary number.
+      </p>
+      <figure>
+        <img
+          src="assets/12_gt_compare.jpg"
+          alt="Ground truth comparison overlay"
+        />
+      </figure>
+      <figcaption>
+        12 automatically segmented particles overlaid against an uploaded ground
+        truth mask. IoU is 0.526 and Dice is 0.690, both computed live.
+      </figcaption>
+
+      <h3>7. Analyze</h3>
+      <p>
+        A dedicated dashboard aggregates the full session. It shows a size
+        distribution histogram with an automatically selected best fit,
+        comparing lognormal, Normal, and Weibull fits with a KS test, a shape
+        scatter plot of circularity against aspect ratio, and a sortable table
+        with every computed metric for each particle. Every number here comes
+        from the same saved instance set used for export, so nothing is
+        recomputed differently between the live canvas and this view.
+      </p>
+      <figure>
+        <img
+          src="assets/13_stats_detail.jpg"
+          alt="Particle analysis dashboard"
+        />
+      </figure>
+      <figcaption>
+        A size histogram with a lognormal fit, a shape scatter plot, and a per
+        particle table for a session with 350 particles.
+      </figcaption>
+
+      <h3>8. Own your taxonomy</h3>
+      <p>
+        The mapping from computed metrics to a shape label is not hard coded. It
+        is an ordered list of rules that the user can edit, evaluated from top
+        to bottom, and the first rule that matches wins. Anything that matches
+        no rule falls through to unclassified instead of being forced into the
+        wrong bucket. Rod and spherical are not universal definitions. What
+        counts as either depends on the particle chemistry and on what the
+        researcher considers meaningful, so the classification is a
+        configuration the user owns rather than an assumption built into the
+        tool.
+      </p>
+      <figure>
+        <img
+          src="assets/14_shape_rules.jpg"
+          alt="Shape classification rules editor"
+        />
+      </figure>
+      <figcaption>
+        The shape rules editor, showing the default set of five rules and their
+        thresholds on aspect ratio, circularity, and solidity.
+      </figcaption>
+
+      <h3>9. Export</h3>
+      <p>
+        Every artifact for a session can be bundled into a single zip file, and
+        each one can be selected independently: the original image, the
+        segmentation mask as a PNG and as a raw NPY array, refined mask
+        equivalents of both, the per instance contours as JSON, summary
+        statistics as a CSV, and full COCO format annotations. Export is a
+        serialization step over the same saved instance set rather than a
+        separate computation, so the exported numbers always match whatever the
+        session currently shows.
+      </p>
+      <figure>
+        <img src="assets/16_export_panel.jpg" alt="Export panel" />
+      </figure>
+      <figcaption>
+        The export panel with six artifacts selected, ready to download as a
+        single zip file.
+      </figcaption>
+
+      <h2><span class="idx">§</span>Decisions I would point to</h2>
+
+      <ul class="decisions">
+        <li>
+          <strong>Filesystem sessions instead of a database</strong>
+          <span
+            >A single mutable pair of files per session is easier to reason
+            about, back up, and export than a schema, and this is a tool for a
+            single researcher rather than a multi tenant service.</span
+          >
         </li>
-        <li class="folder">
-          <button class="toggle" aria-expanded="false"><span class="name">sessions/{id}/</span></button>
-          <p class="desc">One folder per session. This is the whole database.</p>
-          <ul>
-            <li class="file"><span class="name">instances.json</span><span class="desc">Particle contours and bounding boxes. The stats panel, the per particle table, the highlighting, and the export all read from this file instead of recomputing anything.</span></li>
-            <li class="file"><span class="name">instances.npy</span><span class="desc">The labeled mask array behind instances.json. Loaded alongside it, never regenerated.</span></li>
-          </ul>
+        <li>
+          <strong>Stale state invalidation as a UX primitive</strong>
+          <span
+            >Any edit that changes what a segmentation run would see, such as a
+            blackout region or a model switch, immediately flags the current
+            result as stale, instead of trusting the researcher to remember to
+            run it again.</span
+          >
+        </li>
+        <li>
+          <strong>Model abstraction over model choice</strong>
+          <span
+            >YoloSAM, MaskRCNN, and MaskRCNN Synthetic all speak the same
+            interface, so adding or swapping a model does not touch the segment,
+            refine, or export pipeline at all.</span
+          >
+        </li>
+        <li>
+          <strong
+            >A classical ML recovery path alongside the deep detectors</strong
+          >
+          <span
+            >RF Recovery trains a per session random forest from a handful of
+            background scribbles drawn by the user, to catch particles the
+            primary model missed. It is the same idea that LABKIT popularized
+            for bioimage analysis, applied narrowly here as a recovery pass
+            rather than as the primary method.</span
+          >
         </li>
       </ul>
-    </li>
-    <li class="folder">
-      <button class="toggle" aria-expanded="false"><span class="name">frontend/</span></button>
-      <p class="desc">A static Next.js export. No server side rendering, no Node at runtime.</p>
-      <ul>
-        <li class="folder">
-          <button class="toggle" aria-expanded="false"><span class="name">src/app/workspace/</span></button>
-          <ul>
-            <li class="file"><span class="name">page.tsx</span><span class="desc">The canvas page. Entry point for the whole workspace.</span></li>
-            <li class="folder">
-              <button class="toggle" aria-expanded="false"><span class="name">components/</span></button>
-              <p class="desc">Canvas renderers. No business logic lives here.</p>
-              <ul>
-                <li class="file"><span class="name">AnnotateCanvas.tsx</span><span class="desc">Object proposals and polygon drawing.</span></li>
-                <li class="file"><span class="name">RefineCanvas.tsx</span><span class="desc">Manual mask editing.</span></li>
-              </ul>
-            </li>
-            <li class="folder">
-              <button class="toggle" aria-expanded="false"><span class="name">hooks/</span></button>
-              <p class="desc">State lives here, not in the components.</p>
-              <ul>
-                <li class="file"><span class="name">useSegmentationState.ts</span><span class="desc">Segmentation, masks, and ground truth state.</span></li>
-                <li class="file"><span class="name">useRefineState.ts</span><span class="desc">Editing state.</span></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="file"><span class="name">lib/api.ts</span><span class="desc">Every request to the backend goes through this one file.</span></li>
-      </ul>
-    </li>
-  </ul>
-</div>
+    </main>
 
-<h2><span class="idx">§</span>Walkthrough</h2>
+    <script>
+      document.querySelectorAll(".filetree .toggle").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var li = btn.closest("li");
+          var open = li.classList.toggle("open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      });
 
-<p>
-  What follows is the real workflow, captured by driving the actual app,
-  backend and frontend unmodified, through its own HTTP API rather than
-  through mockups.
-</p>
+      var lightbox = document.createElement("div");
+      lightbox.className = "lightbox";
+      var lightboxImg = document.createElement("img");
+      lightbox.appendChild(lightboxImg);
+      document.body.appendChild(lightbox);
 
-<h3>1. Ingest and calibrate</h3>
-<p>
-  Upload accepts TIF, TIFF, JPEG, PNG, EMD, which is the vendor specific
-  TEM container format, and NPY. When an image is uploaded, the backend
-  parses whatever acquisition metadata is embedded in the file and
-  attempts automatic scale bar detection, so downstream measurements like
-  Feret diameter and area come out in calibrated units instead of raw
-  pixels. When that recovery fails, as it does here because this crop has
-  a scale bar burned directly into the pixels rather than embedded as
-  metadata, the app reports pixel size as Not Found instead of guessing,
-  and lets the value be entered manually.
-</p>
-<figure class="pair">
-  <img src="assets/01_upload_empty.jpg" alt="Empty upload workspace">
-  <img src="assets/02_upload_loaded.jpg" alt="Loaded image with metadata panel">
-</figure>
-<figcaption>On the left is the empty workspace with the supported formats listed. On the right is the app after upload, with the session id, dimensions, and format recovered, and the pixel size honestly reported as not found.</figcaption>
+      function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || "";
+        lightbox.classList.add("open");
+      }
 
-<h3>2. Choose a model</h3>
-<p>
-  YoloSAM, MaskRCNN, or MaskRCNN Synthetic can be selected for any run.
-</p>
-<figure>
-  <img src="assets/03_model_select.jpg" alt="Model selector open">
-</figure>
-<figcaption>The model selector, open. YoloSAM is used as the default for the rest of this walkthrough.</figcaption>
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        lightboxImg.src = "";
+      }
 
-<h3>3. Segment automatically</h3>
-<p>
-  A single action produces a full instance segmentation. Every particle is
-  outlined and colorized individually, and the stats populate immediately.
-  On this micrograph, YoloSAM returned 270 particles in 6.56 seconds, with
-  a mean diameter of 25.53 pixels, a mean circularity of 0.929, and a mean
-  aspect ratio of 1.15. This is the core value of the tool: work that used
-  to take tens of minutes of manual tracing is fully segmented and
-  quantified in a few seconds.
-</p>
-<figure>
-  <img src="assets/04_auto_segment.jpg" alt="Automated segmentation result">
-</figure>
-<figcaption>270 particles detected and colorized in 6.56 seconds, with live aggregate stats in the panel on the right.</figcaption>
+      document.querySelectorAll("figure img").forEach(function (img) {
+        img.addEventListener("click", function () {
+          openLightbox(img.src, img.alt);
+        });
+      });
 
-<h3>4. Control the field</h3>
-<p>
-  Rectangular blackout regions constrain what the model can see, and they
-  work in either direction. Exclude mode masks a region out, which is
-  useful for scale bars, labels, or damaged film. Isolate mode does the
-  opposite, restricting the next run to only the drawn region. Changing a
-  region immediately flags the current result as stale, so it is never
-  possible to mistake an unrefreshed segmentation for one that reflects
-  the current selection.
-</p>
-<figure class="pair">
-  <img src="assets/05_blackout_region.jpg" alt="Exclude region drawn">
-  <img src="assets/06_blackout_inverse.jpg" alt="Isolate regions drawn">
-</figure>
-<figcaption>On the left, exclude mode with one region pending. On the right, isolate mode with two regions drawn. The next run will only see their contents.</figcaption>
-
-<h3>5. Prompt for a specific miss</h3>
-<p>
-  Beyond full field detection, a click is treated as a point prompt to SAM
-  and goes through the same propose then accept flow, which lets a
-  researcher pull in a single missed particle without running detection
-  over the whole image again. The example below is included because it
-  failed cleanly. A click on a texture or noise patch was rejected by the
-  backend with a 400 response, reading no box variant within area window,
-  instead of silently returning a low quality mask. That rejection is a
-  guardrail rather than a bug. The heuristic requires a plausible particle
-  sized structure around the click and refuses to invent one where none
-  exists.
-</p>
-<figure>
-  <img src="assets/08_point_prompt.jpg" alt="Point prompt rejected by backend">
-</figure>
-<figcaption>A point prompt on a patch of background texture is rejected by the backend instead of producing a spurious mask, and the UI shows the rejection reason directly.</figcaption>
-
-<h3>6. Validate against ground truth</h3>
-<p>
-  When a paired annotation mask is available, IoU and Dice are computed
-  live and overlaid on the same canvas as the segmentation, so any
-  discrepancy can be inspected visually rather than read only as a single
-  summary number.
-</p>
-<figure>
-  <img src="assets/12_gt_compare.jpg" alt="Ground truth comparison overlay">
-</figure>
-<figcaption>12 automatically segmented particles overlaid against an uploaded ground truth mask. IoU is 0.526 and Dice is 0.690, both computed live.</figcaption>
-
-<h3>7. Analyze</h3>
-<p>
-  A dedicated dashboard aggregates the full session. It shows a size
-  distribution histogram with an automatically selected best fit,
-  comparing lognormal, Normal, and Weibull fits with a KS test, a shape
-  scatter plot of circularity against aspect ratio, and a sortable table
-  with every computed metric for each particle. Every number here comes
-  from the same saved instance set used for export, so nothing is
-  recomputed differently between the live canvas and this view.
-</p>
-<figure>
-  <img src="assets/13_stats_detail.jpg" alt="Particle analysis dashboard">
-</figure>
-<figcaption>A size histogram with a lognormal fit, a shape scatter plot, and a per particle table for a session with 350 particles.</figcaption>
-
-<h3>8. Own your taxonomy</h3>
-<p>
-  The mapping from computed metrics to a shape label is not hard coded. It
-  is an ordered list of rules that the user can edit, evaluated from top
-  to bottom, and the first rule that matches wins. Anything that matches
-  no rule falls through to unclassified instead of being forced into the
-  wrong bucket. Rod and spherical are not universal definitions. What
-  counts as either depends on the particle chemistry and on what the
-  researcher considers meaningful, so the classification is a
-  configuration the user owns rather than an assumption built into the
-  tool.
-</p>
-<figure>
-  <img src="assets/14_shape_rules.jpg" alt="Shape classification rules editor">
-</figure>
-<figcaption>The shape rules editor, showing the default set of five rules and their thresholds on aspect ratio, circularity, and solidity.</figcaption>
-
-<h3>9. Export</h3>
-<p>
-  Every artifact for a session can be bundled into a single zip file, and
-  each one can be selected independently: the original image, the
-  segmentation mask as a PNG and as a raw NPY array, refined mask
-  equivalents of both, the per instance contours as JSON, summary
-  statistics as a CSV, and full COCO format annotations. Export is a
-  serialization step over the same saved instance set rather than a
-  separate computation, so the exported numbers always match whatever the
-  session currently shows.
-</p>
-<figure>
-  <img src="assets/16_export_panel.jpg" alt="Export panel">
-</figure>
-<figcaption>The export panel with six artifacts selected, ready to download as a single zip file.</figcaption>
-
-<h2><span class="idx">§</span>Decisions I would point to</h2>
-
-<ul class="decisions">
-  <li>
-    <strong>Filesystem sessions instead of a database</strong>
-    <span>A single mutable pair of files per session is easier to reason
-    about, back up, and export than a schema, and this is a tool for a
-    single researcher rather than a multi tenant service.</span>
-  </li>
-  <li>
-    <strong>Stale state invalidation as a UX primitive</strong>
-    <span>Any edit that changes what a segmentation run would see, such as
-    a blackout region or a model switch, immediately flags the current
-    result as stale, instead of trusting the researcher to remember to run
-    it again.</span>
-  </li>
-  <li>
-    <strong>Model abstraction over model choice</strong>
-    <span>YoloSAM, MaskRCNN, and MaskRCNN Synthetic all speak the same
-    interface, so adding or swapping a model does not touch the segment,
-    refine, or export pipeline at all.</span>
-  </li>
-  <li>
-    <strong>A classical ML recovery path alongside the deep detectors</strong>
-    <span>RF Recovery trains a per session random forest from a handful of
-    background scribbles drawn by the user, to catch particles the primary
-    model missed. It is the same idea that LABKIT popularized for
-    bioimage analysis, applied narrowly here as a recovery pass rather
-    than as the primary method.</span>
-  </li>
-</ul>
-
-</main>
-
-<script>
-  document.querySelectorAll('.filetree .toggle').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var li = btn.closest('li');
-      var open = li.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  });
-
-  var lightbox = document.createElement('div');
-  lightbox.className = 'lightbox';
-  var lightboxImg = document.createElement('img');
-  lightbox.appendChild(lightboxImg);
-  document.body.appendChild(lightbox);
-
-  function openLightbox(src, alt) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || '';
-    lightbox.classList.add('open');
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    lightboxImg.src = '';
-  }
-
-  document.querySelectorAll('figure img').forEach(function (img) {
-    img.addEventListener('click', function () {
-      openLightbox(img.src, img.alt);
-    });
-  });
-
-  lightbox.addEventListener('click', closeLightbox);
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
-</script>
-
-</body>
+      lightbox.addEventListener("click", closeLightbox);
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeLightbox();
+      });
+    </script>
+  </body>
 </html>
