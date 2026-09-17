@@ -2,6 +2,8 @@
 """
 build.py – Convert main.md journal entries into index.html, and any linked
            .md / .typ sub-pages into HTML with a heading-level sidebar.
+           Also builds private/main.md -> private/index.html when present
+           (the whole private/ folder is git-ignored and stays local).
 Run:  python3 build.py           # full build
       python3 build.py <file>    # build a single .md or .typ file
 """
@@ -11,6 +13,7 @@ from html import escape as html_escape
 from pathlib import Path
 
 DIR = Path(__file__).resolve().parent
+BUILD_ROOT = DIR
 
 TYPST_PAGE_WIDTH = 900
 
@@ -102,7 +105,7 @@ def heading_plain(raw: str) -> str:
 
 
 def back_link(html_out: Path) -> str:
-    depth = len(html_out.relative_to(DIR).parts) - 1
+    depth = len(html_out.relative_to(BUILD_ROOT).parts) - 1
     return "../" * depth + "index.html"
 
 
@@ -484,7 +487,7 @@ INDEX_TEMPLATE = """\
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>0saker</title>
+  <title>{title}</title>
   <style>
     * {{ margin: 0; padding: 0; box-sizing: border-box; }}
     body {{ font-family: monospace; min-height: 100vh; }}
@@ -587,15 +590,13 @@ INDEX_TEMPLATE = """\
 """
 
 
-def build() -> None:
-    md_file = DIR / "main.md"
-    if not md_file.exists():
-        print(f"error: {md_file} not found", file=sys.stderr)
-        sys.exit(1)
-
+def build_journal_index(md_file: Path, title: str, aside_lines: list[str]) -> None:
     entries, intro = parse_journal(md_file)
     if not entries:
-        print("warning: no entries found (use ## YYYY/MM/DD headers)", file=sys.stderr)
+        print(
+            f"warning: no entries found in {md_file} (use ## YYYY/MM/DD headers)",
+            file=sys.stderr,
+        )
 
     sidebar_lines = [
         '      <li class="nav-head">LOG</li>',
@@ -614,27 +615,26 @@ def build() -> None:
         block = f'    <h3 id="{anchor}">{ds}</h3>\n    <ul>\n{items}\n    </ul>'
         content_blocks.append(block)
 
-    aside_lines: list[str] = []
-    links_md = DIR / "writing" / "links.md"
-    if links_md.exists():
-        for section, items in parse_links(links_md, prefix="writing/"):
-            aside_lines.append(f'      <p class="aside-head">{section}</p>')
-            if items:
-                aside_lines.append("      <ul>")
-                for item_html in items:
-                    aside_lines.append(f"        <li>{item_html}</li>")
-                aside_lines.append("      </ul>")
-
     html = INDEX_TEMPLATE.format(
+        title=title,
         sidebar="\n".join(sidebar_lines),
         intro=intro,
         content="\n\n".join(content_blocks),
         aside="\n".join(aside_lines),
     )
 
-    out = DIR / "index.html"
+    out = md_file.parent / "index.html"
     out.write_text(html)
-    print(f"index.html <- {len(entries)} entries")
+    print(f"{out.relative_to(DIR)} <- {len(entries)} entries")
+
+
+def build() -> None:
+    md_file = DIR / "main.md"
+    if not md_file.exists():
+        print(f"error: {md_file} not found", file=sys.stderr)
+        sys.exit(1)
+
+    build_journal_index(md_file, "0saker", public_aside())
 
     built: set[Path] = set()
 
@@ -653,7 +653,7 @@ def build() -> None:
                 build_file(child)
 
     for href in re.findall(r"\]\(([^)]+\.(?:md|typ))\)", md_file.read_text()):
-        sub = (DIR / href).resolve()
+        sub = (md_file.parent / href).resolve()
         if sub.exists():
             build_file(sub)
 
@@ -661,13 +661,41 @@ def build() -> None:
         if entry_point.exists():
             build_file(entry_point)
 
+    global BUILD_ROOT
+    priv_md = DIR / "private" / "main.md"
+    if priv_md.exists():
+        BUILD_ROOT = priv_md.parent
+        build_journal_index(priv_md, "private log", [])
+        for href in re.findall(r"\]\(([^)]+\.(?:md|typ))\)", priv_md.read_text()):
+            sub = (priv_md.parent / href).resolve()
+            if sub.exists():
+                build_file(sub)
+        BUILD_ROOT = DIR
+
+
+def public_aside() -> list[str]:
+    aside_lines: list[str] = []
+    links_md = DIR / "writing" / "links.md"
+    if links_md.exists():
+        for section, items in parse_links(links_md, prefix="writing/"):
+            aside_lines.append(f'      <p class="aside-head">{section}</p>')
+            if items:
+                aside_lines.append("      <ul>")
+                for item_html in items:
+                    aside_lines.append(f"        <li>{item_html}</li>")
+                aside_lines.append("      </ul>")
+    return aside_lines
+
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        target = Path(sys.argv[1])
+        target = Path(sys.argv[1]).resolve()
         if not target.exists():
             print(f"error: {target} not found", file=sys.stderr)
             sys.exit(1)
+        priv_dir = DIR / "private"
+        if target.is_relative_to(priv_dir):
+            BUILD_ROOT = priv_dir
         if target.suffix == ".typ":
             convert_typst(target)
         else:

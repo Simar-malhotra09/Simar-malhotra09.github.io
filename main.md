@@ -8,6 +8,10 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 **[Github](https://github.com/Simar-malhotra09)**
 
+## 2026/09/16:
+
+- [9:31pm][Explained.Today: The Information and Knowledge Portal](https://explained.today/)
+
 ## 2026/09/10:
 
 - [11:51am] Dual booting linux with [asahi](https://asahilinux.org/) was really simple. I think I'll move all my programming related workflows there.
