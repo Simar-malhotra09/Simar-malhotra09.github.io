@@ -8,6 +8,12 @@ I'm open to opportunities and collaborations across industry, startups, and rese
 
 **[Github](https://github.com/Simar-malhotra09)**
 
+## 2026/10/09:
+
+- [2:53am] [Linkers & Loaders (1999)](http://staroceans.org.s3.amazonaws.com/e-book/LinkersAndLoaders.pdf): If you do not know the difference between internal and external linkage, this is worth a read!
+
+- [2:50am] [Inline in Rust (2021)](https://matklad.github.io/2021/07/09/inline-in-rust.html): Why the hell does #[inline] mean?
+
 ## 2026/09/16:
 
 - [9:31pm][Explained.Today: The Information and Knowledge Portal](https://explained.today/)
