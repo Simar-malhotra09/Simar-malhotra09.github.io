@@ -488,6 +488,7 @@ INDEX_TEMPLATE = """\
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
+  <meta name="description" content="Simar Malhotra's journal, projects, and writing.">
   <style>
     * {{ margin: 0; padding: 0; box-sizing: border-box; }}
     body {{ font-family: monospace; min-height: 100vh; }}
@@ -578,7 +579,7 @@ INDEX_TEMPLATE = """\
   </nav>
   <div class="layout">
     <main>
-      <p id="intro">{intro}</p>
+{intro}
 {content}
     </main>
     <aside class="pinned">
@@ -590,7 +591,9 @@ INDEX_TEMPLATE = """\
 """
 
 
-def build_journal_index(md_file: Path, title: str, aside_lines: list[str]) -> None:
+def build_journal_index(
+    md_file: Path, title: str, aside_lines: list[str], output_path: Path
+) -> None:
     entries, intro = parse_journal(md_file)
     if not entries:
         print(
@@ -598,7 +601,10 @@ def build_journal_index(md_file: Path, title: str, aside_lines: list[str]) -> No
             file=sys.stderr,
         )
 
+    root_prefix = "" if output_path.parent == DIR else "../"
     sidebar_lines = [
+        '      <li class="nav-head">PAGES</li>',
+        f'      <li><a href="{root_prefix}">home</a></li>',
         '      <li class="nav-head">LOG</li>',
     ]
     for ds, _ in entries:
@@ -618,14 +624,14 @@ def build_journal_index(md_file: Path, title: str, aside_lines: list[str]) -> No
     html = INDEX_TEMPLATE.format(
         title=title,
         sidebar="\n".join(sidebar_lines),
-        intro=intro,
+        intro=f'      <p id="intro">{intro}</p>' if intro.strip() else "",
         content="\n\n".join(content_blocks),
         aside="\n".join(aside_lines),
     )
 
-    out = md_file.parent / "index.html"
-    out.write_text(html)
-    print(f"{out.relative_to(DIR)} <- {len(entries)} entries")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(html)
+    print(f"{output_path.relative_to(DIR)} <- {len(entries)} entries")
 
 
 def build() -> None:
@@ -634,7 +640,12 @@ def build() -> None:
         print(f"error: {md_file} not found", file=sys.stderr)
         sys.exit(1)
 
-    build_journal_index(md_file, "0saker", public_aside())
+    build_journal_index(
+        md_file,
+        "log — 0saker",
+        public_aside("../writing/"),
+        DIR / "log" / "index.html",
+    )
 
     built: set[Path] = set()
 
@@ -665,7 +676,7 @@ def build() -> None:
     priv_md = DIR / "private" / "main.md"
     if priv_md.exists():
         BUILD_ROOT = priv_md.parent
-        build_journal_index(priv_md, "private log", [])
+        build_journal_index(priv_md, "private log", [], priv_md.parent / "index.html")
         for href in re.findall(r"\]\(([^)]+\.(?:md|typ))\)", priv_md.read_text()):
             sub = (priv_md.parent / href).resolve()
             if sub.exists():
@@ -673,11 +684,11 @@ def build() -> None:
         BUILD_ROOT = DIR
 
 
-def public_aside() -> list[str]:
+def public_aside(prefix: str) -> list[str]:
     aside_lines: list[str] = []
     links_md = DIR / "writing" / "links.md"
     if links_md.exists():
-        for section, items in parse_links(links_md, prefix="writing/"):
+        for section, items in parse_links(links_md, prefix=prefix):
             aside_lines.append(f'      <p class="aside-head">{section}</p>')
             if items:
                 aside_lines.append("      <ul>")
