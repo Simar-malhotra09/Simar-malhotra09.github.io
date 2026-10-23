@@ -1,3 +1,9 @@
+## 2026/10/23:
+
+- [1:10pm] [Evil demon](https://en.wikipedia.org/wiki/Evil_demon)
+
+- [1:01pm] [Falsifiable and non-Falsifiable Ideas](https://www.lesswrong.com/posts/aBsM3q9mtq5KfSJBz/falsifiable-and-non-falsifiable-ideas)
+
 ## 2026/10/09:
 
 - [2:53am] [Linkers & Loaders (1999)](http://staroceans.org.s3.amazonaws.com/e-book/LinkersAndLoaders.pdf): If you do not know the difference between internal and external linkage, this is worth a read!
