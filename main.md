@@ -2,7 +2,7 @@
 
 - [1:10pm] [Evil demon](https://en.wikipedia.org/wiki/Evil_demon)
 
-- [1:01pm] [Falsifiable and non-Falsifiable Ideas](https://www.lesswrong.com/posts/aBsM3q9mtq5KfSJBz/falsifiable-and-non-falsifiable-ideas)
+- [1:01pm] [Falsifiable and non-Falsifiable Ideas](https://www.lesswrong.com/posts/aBsM3q9mtq5KfSJBz/falsifiable-and-non-falsifiable-ideas): Wow actually bad, human writing in the big 202- , it's 2013.
 
 ## 2026/10/09:
 
