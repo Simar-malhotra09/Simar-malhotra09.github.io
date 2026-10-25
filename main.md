@@ -1,3 +1,6 @@
+## 2026/10/24:
+- [8:50pm] [The Berlin Wall](https://www.stiftung-berliner-mauer.de/en/topics/berlin-wall)
+
 ## 2026/10/23:
 
 - [1:10pm] [Evil demon](https://en.wikipedia.org/wiki/Evil_demon)
