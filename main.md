@@ -1,4 +1,20 @@
+## 2026/11/07:
+
+- [6:27am]: I applied to [Pivotal's 2027 fellowship](https://www.pivotal-research.org/fellowships/ai-safety-fellowship) recently, and in the process had to
+  answer some questions that made me think about how I view AIS (AI safety), and the things that I think still need to be done. Here, I'd like to share some of
+  those views in more casual words.
+
+Whether you think it's a real concern or not in some defined time horizon, existential or 'X-risk' is probably the worst case scenario. I do not disagree.
+How severe this is depends on the how quickly (i.e. time horizon) you believe this becomes a real possibility in. 2 years? 5? 10? Ever?
+
+I do not understand this field well enough to even have the confidence to make a guess (I suspect a lot of people that _claim_ to have the answer probably don't either.). Regardless, there are brilliant people working on this without the clarity of a deadline.
+
+Conceding to this, then, the next highest priority risk (which I internally score as: 0.6(how bad can shit get) + 0.4 (how fast can shit get this bad)) seems to me to be outcomes in which AI succeeds at improving efficiency, but at the expense of fairness.
+
+I'm choosing the word 'efficiency' here since this is the promise that has always been sold to the general public. And I'm choosing general public since (a) That is the group that will most likely face the consequences and (b)
+
 ## 2026/10/24:
+
 - [8:50pm] [The Berlin Wall](https://www.stiftung-berliner-mauer.de/en/topics/berlin-wall)
 
 ## 2026/10/23:
