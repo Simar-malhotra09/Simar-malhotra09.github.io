@@ -1,8 +1,7 @@
 ## 2026/11/20:
 
 - [1:13am] [Heat Illness in Hawai‘i](https://pmc.ncbi.nlm.nih.gov/articles/PMC4244899/pdf/hjmph7311_S2_0033.pdf) -- Made me think about why can humans endure significantly colder tempratures, \
-  relative to their stable tempratures, but not even moderately hotter. Turns out, the primary reasons have something to do with (a) evolution (because ofcourse), and (b) the mechanisms available to \
-  the human body to tackle each case.
+  relative to their stable tempratures, but not even moderately hotter. Turns out, the primary reasons have something to do with (a) evolution (because ofcourse), and (b) the mechanisms available to the human body to tackle each case.
 
 ## 2026/10/24:
 
