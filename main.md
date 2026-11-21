@@ -1,3 +1,9 @@
+## 2026/11/21:
+
+- [12:50am] On learning about lithography
+  - [i1] [Technology interdependence and the evolution of semiconductor lithography](https://faculty.wharton.upenn.edu/wp-content/uploads/2012/06/TechnologyInterdependence.pdf#page=1.90) (SST, 2007): Talks about the conception of commerical lithography from contact in the 1960s to DUV 157nm early 2000s and the challenges and the subsequent industry adaptation with each step.
+  - [i1] [Tracing the Emergence of Extreme Ultraviolet Lithography](https://cset.georgetown.edu/wp-content/uploads/CSET-Tracing-the-Emergence-of-Extreme-Ultraviolet-Lithography.pdf) (CSET, 2024): Still reading through it; takes a foreign policy perspective as well.
+
 ## 2026/11/20:
 
 - [1:13am] [Heat Illness in Hawai‘i](https://pmc.ncbi.nlm.nih.gov/articles/PMC4244899/pdf/hjmph7311_S2_0033.pdf) -- Made me think about why can humans endure significantly colder tempratures, \
