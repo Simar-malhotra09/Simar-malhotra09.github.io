@@ -42,14 +42,27 @@
         margin: 0 0 26px;
       }
       .intro-image {
-        position: relative;
+        display: flex;
+        min-height: 0;
+        flex-direction: column;
       }
-      .intro-image img {
+      .intro-image-art {
+        position: relative;
+        flex: 1;
+        min-height: 0;
+      }
+      .intro-image-art img {
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
         object-fit: contain;
+      }
+      .image-source {
+        margin-top: 4px;
+        font-size: 10px;
+        line-height: 1.2;
+        text-align: center;
       }
       .intro {
         margin: 0;
@@ -121,7 +134,12 @@
         <h1>Simar Malhotra</h1>
         <div class="intro-row">
           <div class="intro-image">
-            <img src="shinji-crop.png" alt="Shinji Ikari" />
+            <div class="intro-image-art">
+              <img src="shinji-crop.png" alt="Shinji Ikari" />
+            </div>
+            <small class="image-source">
+              anons @ <a href="https://wplace.live/">wplace.live</a>
+            </small>
           </div>
           <div class="intro">
             I graduated in May 2026 from Penn State where I was studying
