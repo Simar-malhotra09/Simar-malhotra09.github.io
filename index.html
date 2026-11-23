@@ -35,9 +35,24 @@
         font-weight: 600;
         font-family: "Spectral", Georgia, serif;
       }
-      .intro {
-        max-width: 710px;
+      .intro-row {
+        display: grid;
+        grid-template-columns: 25% 75%;
+        align-items: stretch;
         margin: 0 0 26px;
+      }
+      .intro-image {
+        position: relative;
+      }
+      .intro-image img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .intro {
+        margin: 0;
         font-family: "Spectral", Georgia, serif;
         font-size: 16px;
       }
@@ -54,6 +69,7 @@
       }
       .artwork {
         position: relative;
+        width: 75%;
       }
       .artwork img {
         display: block;
@@ -68,7 +84,7 @@
         display: grid;
         gap: 0.65em;
         color: #1b3448;
-        font-size: clamp(10px, 1.6vw, 16px);
+        font-size: clamp(8px, 1.2vw, 12px);
         font-weight: 600;
         line-height: 1.2;
       }
@@ -94,7 +110,7 @@
         .bubble-links {
           top: 5%;
           gap: 0.25em;
-          font-size: 9px;
+          font-size: 8px;
         }
       }
     </style>
@@ -103,27 +119,44 @@
     <main>
       <header>
         <h1>Simar Malhotra</h1>
-        <p class="intro">
-          I graduated in May 2026 from Penn State where I was studying
-          Mathematics and CS. Currently, my lab works on applied AI tools for
-          nanoparticle analysis. I'm also a
-          <a href="https://sparai.org/">SPAR</a> fellow where I work on
-          red-teaming frontier models. You can read more about both at the
-          research page. Earlier, I've worked at startups and in defense. You
-          can reach out to me
-          <a href="mailto:malhotrasimar009@gmail.com">here</a>. You can find me
-          on: 
-        <ul>
-          <li><a href="https://www.pinterest.com/malhotrasimar009/">Pinterest</a></li>
-          <li><a href="https://users.rust-lang.org/u/simar-malhotra09/summary">The Rust Language Forum</a></li>
-          <li><a href="https://news.ycombinator.com/user?id=0sake_rs">Hacker News</a></li>
-        </ul>
-        
-        <sup>*</sup> While I do have a Twitter, LinkedIn et al, I believe they are cancerous to society (the human kind anyway) and will refrain from  
-        participation.
-        </p> 
-          
-        <p> 
+        <div class="intro-row">
+          <div class="intro-image">
+            <img src="shinji-crop.png" alt="Shinji Ikari" />
+          </div>
+          <div class="intro">
+            I graduated in May 2026 from Penn State where I was studying
+            Mathematics and CS. Currently, my lab works on applied AI tools for
+            nanoparticle analysis. I'm also a
+            <a href="https://sparai.org/">SPAR</a> fellow where I work on
+            red-teaming frontier models. You can read more about both at the
+            research page. Earlier, I've worked at startups and in defense. You
+            can reach out to me
+            <a href="mailto:malhotrasimar009@gmail.com">here</a>. You can find
+            me on:
+            <ul>
+              <li>
+                <a href="https://www.pinterest.com/malhotrasimar009/"
+                  >Pinterest</a
+                >
+              </li>
+              <li>
+                <a href="https://users.rust-lang.org/u/simar-malhotra09/summary"
+                  >The Rust Language Forum</a
+                >
+              </li>
+              <li>
+                <a href="https://news.ycombinator.com/user?id=0saker"
+                  >Hacker News</a
+                >
+              </li>
+            </ul>
+
+            <sup>*</sup> While I do have a Twitter, LinkedIn et al, I believe
+            they are cancerous to society (the human kind anyway) and will
+            refrain from participation.
+          </div>
+        </div>
+        <p>
           I'll often post interesting things I come across at this
           <a href="log/">log.</a>
         </p>
