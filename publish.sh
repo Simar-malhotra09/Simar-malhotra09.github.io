@@ -9,3 +9,5 @@ if ! git diff --cached --quiet; then
 fi
 
 git push "$@"
+
+echo "https://simar-malhotra09.github.io"
