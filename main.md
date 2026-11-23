@@ -1,3 +1,7 @@
+## 2026/11/23:
+
+- [3:40am] [THE USEFULNESS OF USELESS KNOWLEDGE](https://www.ias.edu/sites/default/files/library/UsefulnessHarpers.pdf)(1939)
+
 ## 2026/11/21:
 
 - [12:50am] On learning about lithography
