@@ -1,3 +1,7 @@
+## 2026/11/26:
+
+- [7:24pm] [Morality and Evolutionary Biology](https://plato.stanford.edu/entries/morality-biology/)(2008)
+
 ## 2026/11/23:
 
 - [3:40am] [THE USEFULNESS OF USELESS KNOWLEDGE](https://www.ias.edu/sites/default/files/library/UsefulnessHarpers.pdf)(1939)
